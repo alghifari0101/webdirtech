@@ -106,16 +106,10 @@
                 border-radius: 12px !important;
                 font-weight: 700 !important;
                 font-size: 0.9rem !important;
-                transition: all 0.3s ease !important;
+                font-size: 0.9rem !important;
                 border: 1px solid #e2e8f0 !important;
                 background: white !important;
                 color: #0f172a !important;
-            }
-            .pagination-container nav a:hover {
-                border-color: #D31A1A !important;
-                color: #D31A1A !important;
-                transform: translateY(-2px);
-                box-shadow: 0 10px 15px -3px rgba(211, 26, 26, 0.1);
             }
             .pagination-container nav svg { width: 20px !important; height: 20px !important; }
         </style>

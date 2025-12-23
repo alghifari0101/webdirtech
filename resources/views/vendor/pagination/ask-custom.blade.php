@@ -51,7 +51,7 @@
                         @else
                             <li class="page-item">
                                 <a href="{{ $pageUrl }}" 
-                                   class="w-[45px] h-[45px] flex items-center justify-center rounded-xl bg-white text-slate-900 border border-slate-100 font-bold hover:border-accent hover:text-accent transition-all">
+                                   class="w-[45px] h-[45px] flex items-center justify-center rounded-xl bg-white text-slate-900 border border-slate-100 font-bold">
                                     {{ $page }}
                                 </a>
                             </li>
