@@ -10,7 +10,7 @@
                 <div style="margin-bottom: 1.25rem;">
                     <label style="display: block; font-weight: 600; color: #334155; margin-bottom: 0.5rem; font-size: 0.875rem;">Email Address</label>
                     <input type="email" wire:model="form.email" 
-                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 0.95rem; transition: all 0.2s;"
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 0.95rem; color: #0b132b; background-color: white; transition: all 0.2s;"
                         placeholder="name@company.com"
                         class="form-input">
                     @error('form.email') <span style="color: #ef4444; font-size: 0.8rem; margin-top: 0.25rem; display: block;">{{ $message }}</span> @enderror
@@ -19,7 +19,7 @@
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; font-weight: 600; color: #334155; margin-bottom: 0.5rem; font-size: 0.875rem;">Password</label>
                     <input type="password" wire:model="form.password" 
-                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 0.95rem;"
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 0.95rem; color: #0b132b; background-color: white;"
                         placeholder="••••••••">
                     @error('form.password') <span style="color: #ef4444; font-size: 0.8rem; margin-top: 0.25rem; display: block;">{{ $message }}</span> @enderror
                 </div>
