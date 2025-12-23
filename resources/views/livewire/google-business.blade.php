@@ -69,7 +69,7 @@
             <span class="text-blue-600 font-black tracking-widest uppercase text-xs mb-4 block">Pentingnya Google Maps</span>
             <h2 class="text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter mb-8 italic">Jika Tidak Ada di Maps, Bisnis Anda <span class="text-blue-600">Terlihat Tidak Ada.</span></h2>
             <p class="text-lg text-slate-500 leading-relaxed mb-12">
-                Di era digital, orang mencari tempat makan, bengkel, atau jasa lainnya langsung lewat Google Maps. Profil Google Business yang lengkap bukan hanya soal lokasi, tapi soal **kepercayaan pelanggan**. Bisnis yang terverifikasi memiliki kemungkinan 70% lebih besar untuk dikunjungi secara fisik.
+                Di era digital, orang mencari tempat makan, bengkel, atau jasa lainnya langsung lewat Google Maps. Profil Google Business yang lengkap bukan hanya soal lokasi, tapi soal <strong>kepercayaan pelanggan</strong>. Bisnis yang terverifikasi memiliki kemungkinan 70% lebih besar untuk dikunjungi secara fisik.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
