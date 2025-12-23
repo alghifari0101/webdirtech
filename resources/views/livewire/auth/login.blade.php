@@ -9,24 +9,24 @@
             <form wire:submit="login">
                 <div style="margin-bottom: 1.25rem;">
                     <label style="display: block; font-weight: 600; color: #334155; margin-bottom: 0.5rem; font-size: 0.875rem;">Email Address</label>
-                    <input type="email" wire:model="email" 
+                    <input type="email" wire:model="form.email" 
                         style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 0.95rem; transition: all 0.2s;"
                         placeholder="name@company.com"
                         class="form-input">
-                    @error('email') <span style="color: #ef4444; font-size: 0.8rem; margin-top: 0.25rem; display: block;">{{ $message }}</span> @enderror
+                    @error('form.email') <span style="color: #ef4444; font-size: 0.8rem; margin-top: 0.25rem; display: block;">{{ $message }}</span> @enderror
                 </div>
 
                 <div style="margin-bottom: 1.5rem;">
                     <label style="display: block; font-weight: 600; color: #334155; margin-bottom: 0.5rem; font-size: 0.875rem;">Password</label>
-                    <input type="password" wire:model="password" 
+                    <input type="password" wire:model="form.password" 
                         style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 0.95rem;"
                         placeholder="••••••••">
-                    @error('password') <span style="color: #ef4444; font-size: 0.8rem; margin-top: 0.25rem; display: block;">{{ $message }}</span> @enderror
+                    @error('form.password') <span style="color: #ef4444; font-size: 0.8rem; margin-top: 0.25rem; display: block;">{{ $message }}</span> @enderror
                 </div>
 
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                     <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                        <input type="checkbox" wire:model="remember" style="border-radius: 4px; width: 16px; height: 16px;">
+                        <input type="checkbox" wire:model="form.remember" style="border-radius: 4px; width: 16px; height: 16px;">
                         <span style="font-size: 0.875rem; color: #64748b;">Remember me</span>
                     </label>
                 </div>
