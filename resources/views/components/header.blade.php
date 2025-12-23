@@ -1,4 +1,4 @@
-<div x-data="{ mobileMenuOpen: false }" class="relative z-[100]">
+<div x-data="{ mobileMenuOpen: false }" class="sticky top-0 z-[100]">
     <div class="top-bar hidden md:block py-2 bg-slate-900 text-white text-xs border-b border-white/5">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="top-contact flex items-center gap-6">
