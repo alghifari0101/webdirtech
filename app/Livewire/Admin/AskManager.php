@@ -35,7 +35,7 @@ final class AskManager extends Component
     public function render(): View
     {
         return view('livewire.admin.ask-manager', [
-            'asks' => Ask::latest()->paginate(10)
+            'asks' => Ask::latest()->paginate(10)->onEachSide(1)
         ])->title('Manajemen Tanya Jawab');
     }
 

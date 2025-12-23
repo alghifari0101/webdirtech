@@ -31,7 +31,7 @@ Route::post('/logout', function () {
 })->name('logout')->middleware('auth');
 
 // Admin Routes
-Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', \App\Livewire\Admin\Dashboard::class)->name('dashboard');
     Route::get('/asks', \App\Livewire\Admin\AskManager::class)->name('asks');
     Route::get('/users', \App\Livewire\Admin\UserManager::class)->name('users');

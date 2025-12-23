@@ -74,7 +74,8 @@ final class AskPage extends Component
                       ->orWhere('answer', 'like', '%' . $this->search . '%');
             })
             ->latest()
-            ->paginate(10);
+            ->paginate(10)
+            ->onEachSide(1);
 
         $schema = [
             '@context' => 'https://schema.org',
