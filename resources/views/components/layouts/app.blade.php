@@ -4,7 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'Dirtech - Solusi Digital Terpadu' }}</title>
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/og-main.svg') }}">
     <meta name="description" content="{{ $description ?? 'Partner teknologi terpercaya untuk solusi VPS, Website, dan Digital Marketing bisnis Anda.' }}">
+    
+    @if(config('services.google.search_console'))
+        <meta name="google-site-verification" content="{{ config('services.google.search_console') }}" />
+    @endif
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="{{ $ogType ?? 'website' }}">

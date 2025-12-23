@@ -4,7 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo e($title ?? 'Dirtech - Solusi Digital Terpadu'); ?></title>
+    <link rel="icon" type="image/svg+xml" href="<?php echo e(asset('img/og-main.svg')); ?>">
     <meta name="description" content="<?php echo e($description ?? 'Partner teknologi terpercaya untuk solusi VPS, Website, dan Digital Marketing bisnis Anda.'); ?>">
+    
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(config('services.google.search_console')): ?>
+        <meta name="google-site-verification" content="<?php echo e(config('services.google.search_console')); ?>" />
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="<?php echo e($ogType ?? 'website'); ?>">
