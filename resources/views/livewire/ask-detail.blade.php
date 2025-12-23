@@ -1,76 +1,75 @@
 <div>
     <!-- Hero Section -->
-    <section class="hero-section" style="padding: 120px 0 60px; background: linear-gradient(135deg, #e11d48 0%, #be123c 100%); position: relative; overflow: hidden;">
-        <div style="position: absolute; top: -20%; left: -10%; width: 500px; height: 500px; background: rgba(255,255,255,0.03); border-radius: 50%; filter: blur(100px); pointer-events: none;"></div>
+    <section class="hero-section py-20 lg:py-32 bg-gradient-to-br from-rose-500 to-rose-700 relative overflow-hidden">
+        <div class="absolute -top-[20%] -left-[10%] w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] pointer-events-none"></div>
         
-        <div class="container" style="position: relative; z-index: 1;">
-            <div class="text-center" style="max-width: 800px; margin: 0 auto; color: white;">
-                <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,1); color: #e11d48; padding: 10px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 800; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 0.1em; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+        <div class="container relative z-10 px-6">
+            <div class="text-center max-w-3xl mx-auto text-white">
+                <div class="inline-flex items-center gap-2.5 bg-white text-rose-600 px-5 py-2.5 rounded-full text-xs font-extrabold mb-8 uppercase tracking-widest shadow-xl">
                     <i class="fa-solid fa-circle-question"></i> Detail Jawaban
                 </div>
-                <h1 style="font-family: 'Outfit', sans-serif; font-size: 3.5rem; font-weight: 800; margin-bottom: 25px; line-height: 1.2; letter-spacing: -0.01em;">Pahami Lebih Dalam</h1>
+                <h1 class="font-outfit text-4xl md:text-6xl font-black mb-6 leading-tight tracking-tight">Pahami Lebih Dalam</h1>
                 
-                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 1.1rem; opacity: 0.9;">
-                    <a href="{{ route('ask') }}" style="color: white; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3);">Pusat Bantuan</a>
-                    <span style="opacity: 0.5;">/</span>
-                    <span style="font-weight: 600;">Detail</span>
+                <div class="flex items-center justify-center gap-4 text-base md:text-lg opacity-90">
+                    <a href="{{ route('ask') }}" class="text-white no-underline border-b border-white/30 hover:border-white transition-colors">Pusat Bantuan</a>
+                    <span class="opacity-50">/</span>
+                    <span class="font-semibold">Detail</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Question Content -->
-    <section style="padding: 100px 0; background-color: #f8fafc;">
-        <div class="container">
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div class="ask-card" style="background: white; border-radius: 40px; box-shadow: 0 40px 100px -20px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #f1f5f9;">
-                    <div style="padding: 60px;">
-                        <div style="display: flex; gap: 40px; align-items: flex-start; margin-bottom: 60px;">
-                             <div style="flex-shrink: 0; width: 70px; height: 70px; background: #e11d48; border-radius: 24px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.75rem; box-shadow: 0 20px 40px -10px rgba(225, 29, 72, 0.4);">
+    <section class="py-12 md:py-24 bg-slate-50">
+        <div class="container px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="ask-card bg-white rounded-[2rem] md:rounded-[3rem] shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100">
+                    <div class="p-8 md:p-16">
+                        <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-start mb-12">
+                             <div class="flex-shrink-0 w-16 h-16 bg-rose-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg shadow-rose-500/30">
                                 <i class="fa-solid fa-quote-left"></i>
                             </div>
                             <div>
-                                <h1 style="font-family: 'Outfit', sans-serif; font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 0; line-height: 1.3;">
+                                <h1 class="font-outfit text-2xl md:text-4xl font-black text-slate-900 mb-0 leading-tight">
                                     {{ $ask->question }}
                                 </h1>
-                                <p style="margin-top: 15px; color: #94a3b8; font-weight: 500;">Diterbitkan {{ $ask->created_at->format('d M Y') }}</p>
+                                <p class="mt-4 text-slate-400 font-medium text-sm">Diterbitkan {{ $ask->created_at->format('d M Y') }}</p>
                             </div>
                         </div>
 
-                        <div style="height: 1px; background: linear-gradient(90deg, #f1f5f9 0%, transparent 100%); margin-bottom: 60px;"></div>
+                        <div class="h-px bg-gradient-to-r from-slate-100 to-transparent mb-12"></div>
 
-                        <div style="padding: 0 0 0 110px;" class="answer-wrapper">
-                            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 700; color: #1e293b; margin-bottom: 25px; display: flex; align-items: center; gap: 15px;">
-                                <span style="display: inline-block; width: 30px; height: 4px; background: #e11d48; border-radius: 2px;"></span> Jawaban Kami
+                        <div class="pl-0 md:pl-24 answer-wrapper">
+                            <h3 class="font-outfit text-xl md:text-2xl font-bold text-slate-800 mb-6 flex items-center gap-4">
+                                <span class="inline-block w-8 h-1 bg-rose-600 rounded-full"></span> Jawaban Kami
                             </h3>
-                            <div style="color: #475569; line-height: 2; font-size: 1.25rem; font-weight: 400;">
+                            <div class="text-slate-600 leading-relaxed text-lg md:text-xl font-normal">
                                 {!! nl2br(e($ask->answer)) !!}
                             </div>
                             
-                            <div style="margin-top: 50px; display: flex; align-items: center; gap: 20px; padding: 25px; background: #f8fafc; border-radius: 24px;">
-                                <div style="width: 48px; height: 48px; border-radius: 50%; background: #e2e8f0; display: flex; align-items: center; justify-content: center; color: #64748b;">
+                            <div class="mt-12 flex items-center gap-5 p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                                <div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-500">
                                     <i class="fa-solid fa-user-check"></i>
                                 </div>
-                                <div>
-                                    <p style="margin: 0; font-size: 0.95rem; font-weight: 700; color: #1e293b;">Tim Teknis Dirtech</p>
-                                    <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">Terakhir diperbarui {{ $ask->updated_at->diffForHumans() }}</p>
+                                <div class="block">
+                                    <p class="m-0 text-sm font-bold text-slate-900 uppercase tracking-tight">Tim Teknis Dirtech</p>
+                                    <p class="m-0 text-xs text-slate-400">Terakhir diperbarui {{ $ask->updated_at->diffForHumans() }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div style="padding: 30px 60px; background: #1e293b; display: flex; justify-content: space-between; align-items: center;">
-                        <a href="{{ route('ask') }}" style="color: rgba(255,255,255,0.7); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 10px; transition: color 0.2s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">
+                    <div class="px-8 md:px-16 py-8 bg-slate-900 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <a href="{{ route('ask') }}" class="text-white/70 no-underline font-bold flex items-center gap-3 hover:text-white transition-colors">
                             <i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar
                         </a>
-                        <div style="display: flex; gap: 20px;">
-                            <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link berhasil disalin!')" style="border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; padding: 10px 25px; border-radius: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.background='transparent'">
+                        <div class="flex gap-4 w-full md:w-auto">
+                            <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link berhasil disalin!')" class="flex-1 md:flex-none border border-white/20 bg-transparent text-white px-8 py-3 rounded-xl font-bold hover:bg-white/5 transition-all flex items-center justify-center gap-3">
                                 <i class="fa-solid fa-share-nodes"></i> Bagikan
                             </button>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

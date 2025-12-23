@@ -2,7 +2,7 @@
     <!-- Page Header -->
     <div class="page-header" style="background-image: linear-gradient(rgba(11, 19, 43, 0.9), rgba(11, 19, 43, 0.8)), url('https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); padding: 8rem 0 4rem 0;">
         <div class="container">
-            <h1>Jasa Pembuatan Website Profesional</h1>
+            <h1 class="text-3xl md:text-5xl lg:text-7xl">Jasa Pembuatan Website Profesional</h1>
             <div class="breadcrumb">
                 <a href="/">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span>Layanan</span> <i class="fa-solid fa-chevron-right"></i> <span>Pembuatan Website</span>
             </div>
@@ -50,7 +50,7 @@
                 <p>Website bukan sekadar kartu nama digital, tapi mesin pertumbuhan bisnis Anda yang bekerja non-stop.</p>
             </div>
 
-            <div class="features-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+            <div class="features-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Benefit 1 -->
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-solid fa-medal"></i></div>
@@ -100,7 +100,7 @@
                 <p>Digitalisasi adalah kunci pertumbuhan untuk berbagai sektor bisnis</p>
             </div>
 
-            <div class="features-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+            <div class="features-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- 1. UMKM -->
                 <div class="feature-card" style="background: white;">
                     <div class="feature-icon"><i class="fa-solid fa-shop"></i></div>
@@ -222,7 +222,7 @@
                 <p>Proses transparan untuk hasil yang maksimal</p>
             </div>
             
-            <div class="features-grid" style="grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4">
                 <div class="feature-card text-center" style="border:none; box-shadow:none;">
                     <div class="feature-icon mx-auto" style="width:60px; height:60px; display:flex; align-items:center; justify-content:center; background:var(--bg-light); border-radius:50%; color:var(--primary); font-size:1.2rem; margin-bottom:1rem;">
                         <i class="fa-solid fa-comments"></i>

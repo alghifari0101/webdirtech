@@ -139,7 +139,7 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-12 gap-x-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-12 gap-x-8">
                 {{-- Category: Kuliner --}}
                 <div class="space-y-4">
                     <h4 class="text-blue-400 font-black uppercase tracking-widest text-[10px] flex items-center gap-2">

@@ -27,7 +27,7 @@
     </section>
 
     <!-- Content Section -->
-    <section style="padding: 100px 0; background-color: #f8fafc; min-height: 600px;">
+    <section class="py-12 md:py-24 bg-slate-50 min-h-[600px]">
         <div class="container">
             <div style="max-width: 1000px; margin: 0 auto;">
                 <div class="faq-container">

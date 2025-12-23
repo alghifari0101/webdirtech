@@ -45,9 +45,9 @@
                 <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Layanan Kami</h4>
                 <ul class="space-y-4 text-sm">
                     <li><a href="/layanan/install-vps" class="hover:text-white transition-colors">Jasa Install VPS</a></li>
-                    <li><a href="/layanan/pembuatan-website" class="hover:text-white transition-colors">Pembuatan Website</a></li>
-                    <li><a href="<?php echo e(route('service.migration')); ?>" class="hover:text-white transition-colors">Migrasi Website</a></li>
-                    <li><a href="<?php echo e(route('service.gmb')); ?>" class="hover:text-white transition-colors">Pembuatan Google Bisnis</a></li>
+                    <li><a href="/layanan/pembuatan-website" class="hover:text-white transition-colors">Jasa Pembuatan Website</a></li>
+                    <li><a href="<?php echo e(route('service.migration')); ?>" class="hover:text-white transition-colors">Jasa Migrasi Website</a></li>
+                    <li><a href="<?php echo e(route('service.gmb')); ?>" class="hover:text-white transition-colors">Jasa Pembuatan Google Bisnis</a></li>
                 </ul>
             </div>
 
