@@ -15,11 +15,12 @@
                 </p>
                 
                 <!-- Premium Search Bar -->
-                <div style="max-width: 650px; margin: 0 auto; position: relative;">
-                    <div style="background: white; border: 1px solid #e2e8f0; border-radius: 24px; padding: 12px; display: flex; align-items: center; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05); transition: all 0.3s ease;">
-                        <i class="fa-solid fa-magnifying-glass" style="margin-left: 20px; color: #94a3b8;"></i>
-                        <input type="text" wire:model="search" wire:keydown.enter="performSearch" placeholder="Apa yang bisa kami bantu hari ini?" 
-                            style="flex: 1; background: transparent; border: none; color: #1e293b; padding: 15px 20px; font-size: 1.2rem; outline: none; font-family: 'Inter', sans-serif;" class="search-input">
+                <div class="max-w-[650px] mx-auto relative px-4 md:px-0">
+                    <div class="bg-white border border-slate-200 rounded-3xl p-2 md:p-3 flex items-center shadow-xl shadow-slate-200/50 transition-all focus-within:ring-4 focus-within:ring-primary/5 focus-within:border-primary/30">
+                        <i class="fa-solid fa-magnifying-glass ml-4 md:ml-6 text-slate-400"></i>
+                        <input type="text" wire:model="search" wire:keydown.enter="performSearch" 
+                            placeholder="Ada yang bisa kami bantu?" 
+                            class="flex-1 bg-transparent border-none text-slate-900 py-3 md:py-4 px-4 md:px-6 text-base md:text-xl outline-none font-sans placeholder:text-slate-400">
                     </div>
                 </div>
             </div>
