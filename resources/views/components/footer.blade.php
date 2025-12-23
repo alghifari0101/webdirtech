@@ -66,7 +66,7 @@
         <div class="pt-8 border-t border-white/5 flex flex-wrap justify-between items-center gap-4 text-xs">
             <p>&copy; {{ date('Y') }} Dirtech Solutions. All rights reserved.</p>
             <div class="flex gap-6">
-                <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+                <a href="{{ route('sitemap') }}" class="hover:text-white transition-colors">Sitemap</a>
                 <a href="#" class="hover:text-white transition-colors">Cookie Policy</a>
             </div>
         </div>

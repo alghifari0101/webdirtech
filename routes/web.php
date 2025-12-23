@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SitemapController;
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 Route::get('/', \App\Livewire\LandingPage::class)->name('home');
 Route::get('/tentang-kami', \App\Livewire\AboutUs::class)->name('about');
