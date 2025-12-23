@@ -4,10 +4,7 @@
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-wrap lg:flex-nowrap items-center gap-16">
                 <div class="w-full lg:w-3/5">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-6">
-                        <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-                        <span class="text-[10px] font-bold text-blue-600 uppercase tracking-widest">Google Business Creation</span>
-                    </div>
+
                     <h1 class="text-4xl lg:text-8xl font-black text-slate-900 leading-[0.9] mb-8 tracking-tighter">
                         Daftarkan Bisnis <br><span class="text-blue-600 italic">di Google Maps</span>
                     </h1>
