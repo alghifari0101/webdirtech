@@ -32,7 +32,7 @@
             <div style="max-width: 1000px; margin: 0 auto;">
                 <div class="faq-container">
                     @forelse($asks as $ask)
-                        <div class="ask-card mb-8 bg-white rounded-3xl p-6 lg:p-10 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                        <div class="ask-card mb-8 bg-white rounded-3xl p-6 lg:p-10 border border-slate-100 shadow-sm">
                             <div class="flex flex-col md:flex-row gap-6 lg:gap-8 items-start">
                                 <div class="flex-shrink-0 w-12 h-12 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center text-xl font-black shadow-inner">
                                     Q

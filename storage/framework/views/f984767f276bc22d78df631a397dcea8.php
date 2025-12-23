@@ -3,7 +3,7 @@
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="top-contact flex items-center gap-6">
                 <span class="flex items-center gap-2 opacity-80"><i class="fa-regular fa-envelope text-accent"></i> support@dirtech.web.id</span>
-                <span class="flex items-center gap-2 opacity-80"><i class="fa-solid fa-phone text-accent"></i> +62 812-3456-7890</span>
+                <span class="flex items-center gap-2 opacity-80"><i class="fa-solid fa-phone text-accent"></i> +62 815-4110-8598</span>
             </div>
             <div class="top-socials flex gap-4">
                 <a href="#" class="opacity-60 hover:opacity-100 transition-opacity"><i class="fa-brands fa-facebook-f"></i></a>
@@ -24,7 +24,6 @@
             
             <div class="nav-links hidden lg:flex items-center gap-8">
                 <a href="/" class="text-sm font-bold <?php echo e(request()->routeIs('home') ? 'text-accent' : 'text-slate-600 hover:text-primary'); ?> transition-colors">Beranda</a>
-                <a href="<?php echo e(route('contact')); ?>" class="text-sm font-bold <?php echo e(request()->routeIs('contact') ? 'text-accent' : 'text-slate-600 hover:text-primary'); ?> transition-colors">Kontak</a>
                 <div class="relative group">
                     <button class="flex items-center gap-1 text-sm font-bold <?php echo e(request()->routeIs('service.*') ? 'text-accent' : 'text-slate-600 hover:text-primary'); ?> transition-colors">
                         Layanan <i class="fa-solid fa-chevron-down text-[10px] opacity-50"></i>
@@ -36,8 +35,9 @@
                         <a href="<?php echo e(route('service.gmb')); ?>" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 <?php echo e(request()->routeIs('service.gmb') ? 'text-accent' : 'text-slate-700'); ?>">Pembuatan Google Bisnis</a>
                     </div>
                 </div>
-                <a href="<?php echo e(route('ask')); ?>" class="text-sm font-bold <?php echo e(request()->routeIs('ask') ? 'text-accent' : 'text-slate-600 hover:text-primary'); ?> transition-colors">Ask</a>
                 <a href="#" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">Portofolio</a>
+                <a href="<?php echo e(route('ask')); ?>" class="text-sm font-bold <?php echo e(request()->routeIs('ask') ? 'text-accent' : 'text-slate-600 hover:text-primary'); ?> transition-colors">Ask</a>
+                <a href="<?php echo e(route('contact')); ?>" class="text-sm font-bold <?php echo e(request()->routeIs('contact') ? 'text-accent' : 'text-slate-600 hover:text-primary'); ?> transition-colors">Kontak</a>
             </div>
 
             <div class="nav-actions flex items-center gap-4">
@@ -61,15 +61,16 @@
          style="display: none;">
         <div class="px-6 py-8 space-y-4">
             <a href="/" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Beranda</a>
-            <a href="<?php echo e(route('contact')); ?>" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Kontak</a>
-            <div class="space-y-3 pt-2">
+            <div class="space-y-3 pt-2 border-b border-slate-50 pb-4">
                 <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Layanan Kami</p>
                 <a href="/layanan/install-vps" class="block text-sm font-semibold text-slate-600 hover:text-accent">Jasa Install VPS</a>
                 <a href="/layanan/pembuatan-website" class="block text-sm font-semibold text-slate-600 hover:text-accent">Pembuatan Website</a>
                 <a href="<?php echo e(route('service.migration')); ?>" class="block text-sm font-semibold text-slate-600 hover:text-accent">Migrasi Website</a>
                 <a href="<?php echo e(route('service.gmb')); ?>" class="block text-sm font-semibold text-slate-600 hover:text-accent">Pembuatan Google Bisnis</a>
             </div>
-            <a href="<?php echo e(route('ask')); ?>" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4 pt-4">Ask / FAQ</a>
+            <a href="#" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Portofolio</a>
+            <a href="<?php echo e(route('ask')); ?>" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Ask / FAQ</a>
+            <a href="<?php echo e(route('contact')); ?>" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Kontak</a>
             <div class="pt-6">
                 <a href="https://wa.me/<?php echo e(config('contact.whatsapp')); ?>" class="block w-full py-4 bg-primary text-white text-center font-bold rounded-xl shadow-lg">Konsultasi Gratis</a>
             </div>

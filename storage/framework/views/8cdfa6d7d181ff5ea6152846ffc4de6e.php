@@ -1,6 +1,6 @@
 <div>
     <!-- Page Header -->
-    <div class="page-header" style="background-image: linear-gradient(rgba(11, 19, 43, 0.9), rgba(11, 19, 43, 0.8)), url('https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+    <div class="page-header" style="background-image: linear-gradient(rgba(11, 19, 43, 0.9), rgba(11, 19, 43, 0.8)), url('https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); padding: 8rem 0 4rem 0;">
         <div class="container">
             <h1>Jasa Pembuatan Website</h1>
             <div class="breadcrumb">
@@ -10,7 +10,7 @@
     </div>
 
     <!-- Service Details -->
-    <section class="about-section">
+    <section class="about-section" style="padding-top: 5rem;">
         <div class="container">
             <div class="about-grid">
                 <!-- Content Left -->
@@ -36,6 +36,56 @@
                     <div class="about-img-card" style="height: 400px; border-radius: 20px;">
                         <img src="https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Web Development">
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="features-section" style="padding-top: 6rem; padding-bottom: 2rem;">
+        <div class="container">
+            <div class="section-center-header text-center mb-10" style="margin-bottom: 3rem;">
+                <span class="about-subtitle">Mengapa Website?</span>
+                <h2>Manfaat Utama Memiliki Website</h2>
+                <p>Website bukan sekadar kartu nama digital, tapi mesin pertumbuhan bisnis Anda yang bekerja non-stop.</p>
+            </div>
+
+            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <!-- Benefit 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-medal"></i></div>
+                    <h3>Kredibilitas Tinggi</h3>
+                    <p>Bisnis yang memiliki website profesional dinilai lebih terpercaya oleh mayoritas calon pelanggan di era digital.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+                    <h3>Tersedia 24/7</h3>
+                    <p>Informasi produk dan layanan Anda dapat diakses kapan saja tanpa perlu dijaga secara manual setiap saat.</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h3>Jangkauan Luas</h3>
+                    <p>Hancurkan batasan fisik. Bisnis Anda bisa ditemukan oleh pelanggan dari mana pun di seluruh Indonesia maupun dunia.</p>
+                </div>
+                <!-- Benefit 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Media Promosi Efektif</h3>
+                    <p>Update promo dan produk baru dalam sekejap tanpa biaya cetak brosur atau katalog fisik yang mahal.</p>
+                </div>
+                <!-- Benefit 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-user-check"></i></div>
+                    <h3>Analisis Pelanggan</h3>
+                    <p>Pahami perilaku pengunjung Anda untuk menyusun strategi pemasaran yang lebih akurat dan tepat sasaran.</p>
+                </div>
+                <!-- Benefit 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-comments-dollar"></i></div>
+                    <h3>Tingkatkan Penjualan</h3>
+                    <p>Memudahkan konversi dengan tombol order langsung ke WhatsApp atau integrasi sistem checkout yang ringkas.</p>
                 </div>
             </div>
         </div>
