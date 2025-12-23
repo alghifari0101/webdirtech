@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'Admin Dashboard - Dirtech' }}</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('img/og-main.svg') }}">
+    <link rel="shortcut icon" href="{{ asset('img/favicon.svg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/favicon.svg') }}">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
