@@ -16,11 +16,11 @@
                 
                 <!-- Premium Search Bar -->
                 <div class="max-w-[650px] mx-auto relative px-4 md:px-0">
-                    <div class="bg-white border border-slate-200 rounded-3xl p-2 md:p-3 flex items-center shadow-xl shadow-slate-200/50 transition-all focus-within:ring-4 focus-within:ring-primary/5 focus-within:border-primary/30">
-                        <i class="fa-solid fa-magnifying-glass ml-4 md:ml-6 text-slate-400"></i>
+                    <div class="bg-white border border-slate-200 rounded-2xl p-1.5 md:p-2 flex items-center shadow-xl shadow-slate-200/50 transition-all focus-within:ring-4 focus-within:ring-primary/5 focus-within:border-primary/30">
+                        <i class="fa-solid fa-magnifying-glass ml-4 md:ml-5 text-slate-400"></i>
                         <input type="text" wire:model="search" wire:keydown.enter="performSearch" 
                             placeholder="Ada yang bisa kami bantu?" 
-                            class="flex-1 bg-transparent border-none text-slate-900 py-3 md:py-4 px-4 md:px-6 text-base md:text-xl outline-none font-sans placeholder:text-slate-400">
+                            class="flex-1 bg-transparent border-none text-slate-900 py-2.5 md:py-3 px-4 md:px-5 text-base md:text-lg outline-none font-sans placeholder:text-slate-400">
                     </div>
                 </div>
             </div>
