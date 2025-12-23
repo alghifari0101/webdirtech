@@ -14,10 +14,10 @@
                     </p>
                     
                     <div class="hero-actions">
-                        <a href="#" class="btn-premium">
+                        <a href="https://wa.me/{{ config('contact.whatsapp') }}" class="btn-premium">
                             <i class="fa-solid fa-comments"></i> Konsultasi Gratis
                         </a>
-                        <a href="#" class="link-work">
+                        <a href="#services" class="link-work">
                             Pelajari Layanan <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
@@ -82,44 +82,44 @@
     </section>
 
     <!-- Features/Cards Section -->
-    <section class="features-section">
+    <section id="services" class="features-section">
         <div class="container">
             <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
                 <!-- Service 1 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <a href="{{ route('service.vps') }}" class="feature-card block group hover:no-underline">
+                    <div class="feature-icon group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-terminal"></i>
                     </div>
                     <h3>Jasa Install VPS</h3>
                     <p>Setup dan konfigurasi server VPS yang aman dan optimal untuk aplikasi Anda.</p>
-                </div>
+                </a>
 
                 <!-- Service 2 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <a href="{{ route('service.website') }}" class="feature-card block group hover:no-underline">
+                    <div class="feature-icon group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-code"></i>
                     </div>
                     <h3>Pembuatan Website</h3>
                     <p>Website responsif dan modern untuk meningkatkan kredibilitas bisnis.</p>
-                </div>
+                </a>
 
                 <!-- Service 3 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <a href="{{ route('service.migration') }}" class="feature-card block group hover:no-underline">
+                    <div class="feature-icon group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-arrow-right-arrow-left"></i>
                     </div>
                     <h3>Migrasi Website</h3>
                     <p>Pindahkan website Anda ke hosting baru tanpa downtime dan error.</p>
-                </div>
+                </a>
 
                  <!-- Service 4 -->
-                 <div class="feature-card">
-                    <div class="feature-icon">
+                <a href="{{ route('service.gmb') }}" class="feature-card block group hover:no-underline">
+                    <div class="feature-icon group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-map-location-dot"></i>
                     </div>
                     <h3>Jasa Pembuatan Google Bisnis</h3>
                     <p>Optimasi profil bisnis agar mudah ditemukan pelanggan di sekitar Anda.</p>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -145,6 +145,9 @@
                     <p class="description">
                         Kami berdedikasi untuk memberikan layanan teknologi terbaik yang membantu bisnis Anda berkembang lebih cepat, aman, dan efisien di era digital.
                     </p>
+                    <a href="{{ route('about') }}" class="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all mt-4">
+                        Selengkapnya Tentang Kami <i class="fa-solid fa-arrow-right"></i>
+                    </a>
 
                     <div class="about-features">
                         <div class="mini-feature">
@@ -280,7 +283,7 @@
         <div class="container">
             <h2>Siap Mendigitalkan Bisnis Anda?</h2>
             <p>Konsultasikan kebutuhan teknologi Anda bersama tim ahli kami sekarang juga.</p>
-            <a href="#" class="btn btn-white">Hubungi Kami via WhatsApp</a>
+            <a href="https://wa.me/{{ config('contact.whatsapp') }}" class="btn btn-white">Hubungi Kami via WhatsApp</a>
         </div>
     </section>
 </div>

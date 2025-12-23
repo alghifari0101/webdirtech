@@ -101,6 +101,18 @@
                 <i class="fa-solid fa-house w-5"></i>
                 <span class="font-medium">Lihat Situs Utama</span>
             </a>
+
+            <div class="pt-4 mt-4 border-t border-slate-100">
+                <form method="POST" action="<?php echo e(route('logout')); ?>" id="logout-form" class="hidden">
+                    <?php echo csrf_field(); ?>
+                </form>
+                <a href="#" 
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                   class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all hover:bg-rose-50 text-rose-600 group">
+                    <i class="fa-solid fa-right-from-bracket w-5 group-hover:scale-110 transition-transform"></i>
+                    <span class="font-medium">Keluar</span>
+                </a>
+            </div>
         </nav>
     </aside>
 

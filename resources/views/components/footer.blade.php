@@ -53,7 +53,7 @@
                     </li>
                     <li class="flex gap-4">
                         <i class="fa-solid fa-phone text-accent mt-1"></i>
-                        <a href="https://wa.me/{{ config('contact.whatsapp') }}" class="hover:text-white transition-colors font-bold text-white">+{{ config('contact.whatsapp', '628123456789') }}</a>
+                        <a href="https://wa.me/{{ config('contact.whatsapp') }}" class="hover:text-white transition-colors font-bold text-white">+{{ config('contact.whatsapp', '6281541108598') }}</a>
                     </li>
                     <li class="flex gap-4">
                         <i class="fa-solid fa-envelope text-accent mt-1"></i>
