@@ -1,5 +1,5 @@
 <div class="bg-white">
-    {{-- Hero Section --}}
+    
     <section class="relative pt-20 pb-16 lg:pt-32 lg:pb-32 overflow-hidden bg-white">
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-wrap lg:flex-nowrap items-center gap-16">
@@ -15,7 +15,7 @@
                         Mudahkan pelanggan menemukan lokasi fisik bisnis Anda. Kami melayani jasa <strong>Pembuatan & Verifikasi</strong> Google Business Profile (GMB) secara profesional, memastikan alamat Anda akurat di Maps dan siap menerima ulasan dari pelanggan.
                     </p>
                     <div class="flex flex-wrap gap-6 items-center">
-                        <a href="https://wa.me/{{ config('contact.whatsapp') }}" class="px-10 py-5 bg-primary text-white font-bold rounded-2xl hover:bg-slate-800 transition-all shadow-2xl shadow-primary/20 flex items-center gap-3 group">
+                        <a href="https://wa.me/<?php echo e(config('contact.whatsapp')); ?>" class="px-10 py-5 bg-primary text-white font-bold rounded-2xl hover:bg-slate-800 transition-all shadow-2xl shadow-primary/20 flex items-center gap-3 group">
                              Buat Profil Sekarang
                             <i class="fa-solid fa-map-location-dot text-sm group-hover:scale-110 transition-transform"></i>
                         </a>
@@ -66,7 +66,7 @@
         </div>
     </section>
 
-    {{-- Value Section --}}
+    
     <section class="py-24 bg-slate-50">
         <div class="container mx-auto px-6 text-center max-w-4xl">
             <span class="text-blue-600 font-black tracking-widest uppercase text-xs mb-4 block">Pentingnya Google Maps</span>
@@ -94,7 +94,7 @@
         </div>
     </section>
 
-    {{-- Service Steps --}}
+    
     <section class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-20">
@@ -130,7 +130,7 @@
         </div>
     </section>
 
-    {{-- Business Types Section --}}
+    
     <section class="py-24 bg-slate-900 text-white overflow-hidden relative">
         <div class="absolute top-0 right-0 w-1/3 h-full bg-blue-600/10 blur-[120px] -z-10"></div>
         <div class="container mx-auto px-6">
@@ -143,7 +143,7 @@
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-12 gap-x-8">
-                {{-- Category: Kuliner --}}
+                
                 <div class="space-y-4">
                     <h4 class="text-blue-400 font-black uppercase tracking-widest text-[10px] flex items-center gap-2">
                         <i class="fa-solid fa-utensils"></i> Kuliner & Cafe
@@ -167,7 +167,7 @@
                     </ul>
                 </div>
 
-                {{-- Category: Kesehatan --}}
+                
                 <div class="space-y-4">
                     <h4 class="text-blue-400 font-black uppercase tracking-widest text-[10px] flex items-center gap-2">
                         <i class="fa-solid fa-house-medical"></i> Kesehatan
@@ -191,7 +191,7 @@
                     </ul>
                 </div>
 
-                {{-- Category: Otomotif --}}
+                
                 <div class="space-y-4">
                     <h4 class="text-blue-400 font-black uppercase tracking-widest text-[10px] flex items-center gap-2">
                         <i class="fa-solid fa-car"></i> Otomotif
@@ -215,7 +215,7 @@
                     </ul>
                 </div>
 
-                {{-- Category: Jasa --}}
+                
                 <div class="space-y-4">
                     <h4 class="text-blue-400 font-black uppercase tracking-widest text-[10px] flex items-center gap-2">
                         <i class="fa-solid fa-briefcase"></i> Jasa & Kantor
@@ -239,7 +239,7 @@
                     </ul>
                 </div>
 
-                {{-- Category: Retail --}}
+                
                 <div class="space-y-4">
                     <h4 class="text-blue-400 font-black uppercase tracking-widest text-[10px] flex items-center gap-2">
                         <i class="fa-solid fa-basket-shopping"></i> Retail & Toko
@@ -263,7 +263,7 @@
                     </ul>
                 </div>
 
-                {{-- Category: Pendidikan --}}
+                
                 <div class="space-y-4">
                     <h4 class="text-blue-400 font-black uppercase tracking-widest text-[10px] flex items-center gap-2">
                         <i class="fa-solid fa-graduation-cap"></i> Pendidikan
@@ -287,7 +287,7 @@
                     </ul>
                 </div>
 
-                {{-- Category: Properti --}}
+                
                 <div class="space-y-4">
                     <h4 class="text-blue-400 font-black uppercase tracking-widest text-[10px] flex items-center gap-2">
                         <i class="fa-solid fa-hotel"></i> Properti & Wisata
@@ -311,7 +311,7 @@
                     </ul>
                 </div>
 
-                {{-- Category: Gaya Hidup --}}
+                
                 <div class="space-y-4">
                     <h4 class="text-blue-400 font-black uppercase tracking-widest text-[10px] flex items-center gap-2">
                         <i class="fa-solid fa-scissors"></i> Gaya Hidup
@@ -335,7 +335,7 @@
                     </ul>
                 </div>
 
-                {{-- Category: Konstruksi --}}
+                
                 <div class="space-y-4">
                     <h4 class="text-blue-400 font-black uppercase tracking-widest text-[10px] flex items-center gap-2">
                         <i class="fa-solid fa-helmet-safety"></i> Konstruksi
@@ -359,7 +359,7 @@
                     </ul>
                 </div>
 
-                {{-- Category: Umum --}}
+                
                 <div class="space-y-4">
                     <h4 class="text-blue-400 font-black uppercase tracking-widest text-[10px] flex items-center gap-2">
                         <i class="fa-solid fa-globe"></i> Umum & Sosial
@@ -387,14 +387,14 @@
         </div>
     </section>
 
-    {{-- CTA Section --}}
+    
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6 text-center">
             <div class="max-w-3xl mx-auto space-y-10">
                 <h2 class="text-4xl lg:text-7xl font-black text-slate-900 tracking-tighter">Bantu Orang Lain <br><span class="text-blue-600">Menemukan Jalan</span> Ke Bisnis Anda.</h2>
                 <p class="text-slate-500 text-xl font-bold italic">Satu kali pendaftaran, manfaat selamanya.</p>
                 <div class="flex flex-wrap justify-center gap-6">
-                    <a href="https://wa.me/{{ config('contact.whatsapp') }}" class="inline-flex items-center gap-4 px-12 py-5 bg-primary text-white font-black rounded-2xl hover:bg-slate-800 transition-all shadow-2xl">
+                    <a href="https://wa.me/<?php echo e(config('contact.whatsapp')); ?>" class="inline-flex items-center gap-4 px-12 py-5 bg-primary text-white font-black rounded-2xl hover:bg-slate-800 transition-all shadow-2xl">
                         Daftarkan Sekarang
                         <i class="fa-solid fa-chevron-right text-sm"></i>
                     </a>
@@ -403,3 +403,4 @@
         </div>
     </section>
 </div>
+<?php /**PATH C:\laravel\dirtech\resources\views/livewire/google-business.blade.php ENDPATH**/ ?>
