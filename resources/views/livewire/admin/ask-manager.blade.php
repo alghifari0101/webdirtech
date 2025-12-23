@@ -33,7 +33,7 @@
                 <tbody class="divide-y divide-slate-100">
                     @forelse($asks as $ask)
                         <tr class="hover:bg-slate-50/50 transition-colors group">
-                            <td class="px-6 py-4 font-medium text-slate-400">{{ $loop->iteration }}</td>
+                            <td class="px-6 py-4 font-medium text-slate-400">{{ ($asks->currentPage() - 1) * $asks->perPage() + $loop->iteration }}</td>
                             <td class="px-6 py-4 text-slate-800 font-semibold">{{ $ask->question }}</td>
                             <td class="px-6 py-4 text-slate-600 leading-relaxed">{{ Str::limit($ask->answer, 120) }}</td>
                             <td class="px-6 py-4">
@@ -54,6 +54,10 @@
                     @endforelse
                 </tbody>
             </table>
+        </div>
+
+        <div class="mt-8 px-6 pb-6">
+            {{ $asks->links() }}
         </div>
     </div>
 

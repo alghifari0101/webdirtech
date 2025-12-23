@@ -11,6 +11,7 @@ use App\Models\Ask;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
+use Livewire\WithPagination;
 
 /**
  * Ask Manager component.
@@ -20,6 +21,8 @@ use Livewire\Attributes\Layout;
  */
 final class AskManager extends Component
 {
+    use WithPagination;
+
     public AskForm $form;
     public bool $isOpen = false;
 
@@ -32,7 +35,7 @@ final class AskManager extends Component
     public function render(): View
     {
         return view('livewire.admin.ask-manager', [
-            'asks' => Ask::latest()->get()
+            'asks' => Ask::latest()->paginate(10)
         ])->title('Manajemen Tanya Jawab');
     }
 
