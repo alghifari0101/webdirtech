@@ -2,7 +2,7 @@
     <!-- Page Header -->
     <div class="page-header" style="background-image: linear-gradient(rgba(11, 19, 43, 0.9), rgba(11, 19, 43, 0.8)), url('https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
         <div class="container">
-            <h1>Jasa Install & Setup VPS</h1>
+            <h1>Jasa Install VPS & Jasa Setting VPS</h1>
             <div class="breadcrumb">
                 <a href="/">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span>Layanan</span> <i class="fa-solid fa-chevron-right"></i> <span>Install VPS</span>
             </div>
@@ -21,7 +21,7 @@
                         Virtual Private Server (VPS) memberikan Anda kebebasan, performa, dan keamanan yang lebih tinggi dibandingkan shared hosting biasa. 
                     </p>
                     <p class="description">
-                        Tim Dirtech berpengalaman dalam melakukan setup dan konfigurasi VPS untuk berbagai kebutuhan, mulai dari web server, database server, hingga aplikasi bisnis khusus. Kami memastikan server Anda aman, cepat, dan siap digunakan.
+                        Tim Dirtech berpengalaman dalam melakukan <strong>jasa install VPS</strong>, <strong>jasa setup VPS</strong>, dan <strong>jasa setting VPS</strong> untuk berbagai kebutuhan, mulai dari web server, database server, hingga aplikasi bisnis khusus. Kami memastikan server Anda aman, cepat, dan siap digunakan.
                     </p>
                     
                     <ul class="about-checklist">
@@ -45,7 +45,7 @@
     <section class="features-section" style="background-color: #f8fafc; margin-top: 0; padding-top: 5rem;">
         <div class="container">
             <div class="section-center-header text-center mb-5">
-                <h2>Pilihan Paket Setup</h2>
+                <h2>Pilihan Paket Jasa Install VPS</h2>
                 <p>Pilih paket konfigurasi yang sesuai dengan kebutuhan Anda</p>
             </div>
             
@@ -53,7 +53,7 @@
                 <!-- Basic -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Basic Setup</h3>
+                        <h3>Basic VPS Setup</h3>
                         <div class="price">Rp 500.000</div>
                         <p class="period">sekali bayar</p>
                     </div>
@@ -72,7 +72,7 @@
                 <div class="pricing-card popular">
                     <div class="badge-popular">Paling Laris</div>
                     <div class="pricing-header">
-                        <h3>Pro Setup</h3>
+                        <h3>Pro VPS Setup</h3>
                         <div class="price">Rp 1.000.000</div>
                         <p class="period">sekali bayar</p>
                     </div>
@@ -118,7 +118,7 @@
                 <p>Dari setup dasar hingga konfigurasi enterprise-level, kami siap membantu Anda.</p>
             </div>
 
-            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <div class="features-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
                 <!-- Service 1 -->
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-solid fa-gauge"></i></div>

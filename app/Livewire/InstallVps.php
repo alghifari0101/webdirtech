@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Jasa Install VPS - Dirtech')]
+#[Title('Jasa Install VPS, Setting & Setup Server Profesional - Dirtech')]
 final class InstallVps extends Component
 {
     /**
@@ -19,7 +19,7 @@ final class InstallVps extends Component
     public function render(): View
     {
         return view('livewire.install-vps')->layoutData([
-            'description' => 'Jasa install dan konfigurasi VPS profesional. Optimalkan performa server Anda dengan setup OS, Web Server, Control Panel, dan keamanan terbaik.',
+            'description' => 'Jasa install VPS, jasa setting VPS, dan jasa setup VPS profesional. Kami bantu konfigurasi server Anda agar aman, cepat, dan stabil untuk berbagai kebutuhan bisnis.',
             'schema' => [
                 '@context' => 'https://schema.org',
                 '@type' => 'Service',

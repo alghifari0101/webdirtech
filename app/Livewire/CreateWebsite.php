@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 
-#[Title('Jasa Pembuatan Website - Dirtech')]
+#[Title('Jasa Pembuatan Website Profesional & Terpercaya - Dirtech')]
 final class CreateWebsite extends Component
 {
     /**

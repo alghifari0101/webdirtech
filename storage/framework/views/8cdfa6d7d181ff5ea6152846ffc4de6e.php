@@ -2,7 +2,7 @@
     <!-- Page Header -->
     <div class="page-header" style="background-image: linear-gradient(rgba(11, 19, 43, 0.9), rgba(11, 19, 43, 0.8)), url('https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); padding: 8rem 0 4rem 0;">
         <div class="container">
-            <h1>Jasa Pembuatan Website</h1>
+            <h1>Jasa Pembuatan Website Profesional</h1>
             <div class="breadcrumb">
                 <a href="/">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span>Layanan</span> <i class="fa-solid fa-chevron-right"></i> <span>Pembuatan Website</span>
             </div>
@@ -21,7 +21,7 @@
                         Di era digital saat ini, website adalah wajah bisnis Anda. Memiliki website profesional bukan lagi sekadar pilihan, melainkan keharusan untuk membangun kredibilitas dan menjangkau pelanggan yang lebih luas.
                     </p>
                     <p class="description">
-                        Dirtech menyediakan jasa pembuatan website yang tidak hanya menarik secara visual, tetapi juga cepat, aman, dan dioptimalkan untuk mesin pencari (SEO Friendly). Kami membantu Anda mengubah pengunjung menjadi pelanggan setia.
+                        Dirtech menyediakan <strong>jasa pembuatan website</strong> yang tidak hanya menarik secara visual, tetapi juga cepat, aman, dan dioptimalkan untuk mesin pencari (SEO Friendly). Kami membantu Anda mengubah pengunjung menjadi pelanggan setia.
                     </p>
                     
                     <ul class="about-checklist">
@@ -91,11 +91,61 @@
         </div>
     </section>
 
+    <!-- Target Audience Section -->
+    <section class="about-section" style="background-color: #f8fafc;">
+        <div class="container">
+            <div class="section-center-header text-center mb-10" style="margin-bottom: 3rem;">
+                <span class="about-subtitle">Target Kami</span>
+                <h2>Siapa yang Membutuhkan Website?</h2>
+                <p>Digitalisasi adalah kunci pertumbuhan untuk berbagai sektor bisnis</p>
+            </div>
+
+            <div class="features-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                <!-- 1. UMKM -->
+                <div class="feature-card" style="background: white;">
+                    <div class="feature-icon"><i class="fa-solid fa-shop"></i></div>
+                    <h3>UMKM & Toko Retail</h3>
+                    <p>Perluas jangkauan pasar lokal hingga nasional dan buka toko online yang buka 24 jam nonstop.</p>
+                </div>
+                <!-- 2. Profesional -->
+                <div class="feature-card" style="background: white;">
+                    <div class="feature-icon"><i class="fa-solid fa-user-tie"></i></div>
+                    <h3>Jasa Profesional</h3>
+                    <p>Pengacara, Dokter, Konsultan, dan Notaris yang ingin membangun personal branding dan kepercayaan klien.</p>
+                </div>
+                <!-- 3. Kuliner -->
+                <div class="feature-card" style="background: white;">
+                    <div class="feature-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <h3>Restoran & Kuliner</h3>
+                    <p>Tampilkan menu yang menggugah selera, lokasi outlet, dan integrasi pemesanan online.</p>
+                </div>
+                <!-- 4. Pendidikan -->
+                <div class="feature-card" style="background: white;">
+                    <div class="feature-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>Institusi Pendidikan</h3>
+                    <p>Sekolah, Kampus, dan Lembaga Kursus untuk media informasi pendaftaran dan profil akademik.</p>
+                </div>
+                 <!-- 5. Perusahaan -->
+                <div class="feature-card" style="background: white;">
+                    <div class="feature-icon"><i class="fa-solid fa-building"></i></div>
+                    <h3>Perusahaan & B2B</h3>
+                    <p>Tampilkan katalog produk, klien yang telah bekerjasama, dan company profile yang bonafide.</p>
+                </div>
+                <!-- 6. Kreatif -->
+                <div class="feature-card" style="background: white;">
+                    <div class="feature-icon"><i class="fa-solid fa-camera"></i></div>
+                    <h3>Freelancer & Kreatif</h3>
+                    <p>Fotografer, Desainer, dan Penulis untuk memamerkan portofolio karya terbaik kepada calon klien.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
-    <section class="features-section" style="background-color: #f8fafc; margin-top: 0; padding-top: 5rem;">
+    <section class="features-section" style="background-color: white; margin-top: 0; padding-top: 5rem;">
         <div class="container">
             <div class="section-center-header text-center mb-5">
-                <h2>Paket Pembuatan Website</h2>
+                <h2>Paket Jasa Pembuatan Website</h2>
                 <p>Pilih solusi website yang tepat untuk target bisnis Anda</p>
             </div>
             
