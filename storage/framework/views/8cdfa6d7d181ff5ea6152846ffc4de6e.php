@@ -116,7 +116,7 @@
                         <li><i class="fa-solid fa-check"></i> Free Hosting (1 Tahun)</li>
                         <li><i class="fa-solid fa-check"></i> Revisi Minor 2x</li>
                     </ul>
-                    <a href="https://wa.me/{{ config('contact.whatsapp') }}?text={{ urlencode('Halo, saya tertarik dengan paket Landing Page') }}" target="_blank" class="btn btn-primary" style="width: 100%;">Pesan Sekarang</a>
+                    <a href="https://wa.me/<?php echo e(config('contact.whatsapp')); ?>?text=<?php echo e(urlencode('Halo, saya tertarik dengan paket Landing Page')); ?>" target="_blank" class="btn btn-primary" style="width: 100%;">Pesan Sekarang</a>
 
                 </div>
 
@@ -137,7 +137,7 @@
                         <li><i class="fa-solid fa-check"></i> Free Domain & Hosting (1 Tahun)</li>
                         <li><i class="fa-solid fa-check"></i> Support Maintenance 1 Bulan</li>
                     </ul>
-                    <a href="https://wa.me/{{ config('contact.whatsapp') }}?text={{ urlencode('Halo, saya tertarik dengan paket Company Profile') }}" target="_blank" class="btn btn-primary" style="width: 100%;">Pesan Sekarang</a>
+                    <a href="https://wa.me/<?php echo e(config('contact.whatsapp')); ?>?text=<?php echo e(urlencode('Halo, saya tertarik dengan paket Company Profile')); ?>" target="_blank" class="btn btn-primary" style="width: 100%;">Pesan Sekarang</a>
 
                 </div>
 
@@ -157,7 +157,7 @@
                         <li><i class="fa-solid fa-check"></i> Email Notification System</li>
                         <li><i class="fa-solid fa-check"></i> Support Prioritas 1 Bulan</li>
                     </ul>
-                    <a href="https://wa.me/{{ config('contact.whatsapp') }}?text={{ urlencode('Halo, saya ingin konsultasi dulu mengenai pembuatan website') }}" target="_blank" class="btn btn-white" style="width: 100%; border: 1px solid var(--border-color);">Konsultasi Dulu</a>
+                    <a href="https://wa.me/<?php echo e(config('contact.whatsapp')); ?>?text=<?php echo e(urlencode('Halo, saya ingin konsultasi dulu mengenai pembuatan website')); ?>" target="_blank" class="btn btn-white" style="width: 100%; border: 1px solid var(--border-color);">Konsultasi Dulu</a>
 
                 </div>
             </div>
@@ -208,3 +208,4 @@
         </div>
     </section>
 </div>
+<?php /**PATH C:\laravel\dirtech\resources\views/livewire/create-website.blade.php ENDPATH**/ ?>

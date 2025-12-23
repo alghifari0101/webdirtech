@@ -118,7 +118,7 @@
                 <p>Dari setup dasar hingga konfigurasi enterprise-level, kami siap membantu Anda.</p>
             </div>
 
-            <div class="features-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
                 <!-- Service 1 -->
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-solid fa-gauge"></i></div>
@@ -203,3 +203,4 @@
         </div>
     </section>
 </div>
+<?php /**PATH C:\laravel\dirtech\resources\views/livewire/install-vps.blade.php ENDPATH**/ ?>
