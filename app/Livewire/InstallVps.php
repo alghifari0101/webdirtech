@@ -20,6 +20,16 @@ final class InstallVps extends Component
     {
         return view('livewire.install-vps')->layoutData([
             'description' => 'Jasa install dan konfigurasi VPS profesional. Optimalkan performa server Anda dengan setup OS, Web Server, Control Panel, dan keamanan terbaik.',
+            'schema' => [
+                '@context' => 'https://schema.org',
+                '@type' => 'Service',
+                'name' => 'Jasa Install VPS',
+                'description' => 'Layanan instalasi dan konfigurasi VPS profesional termasuk setup OS, Web Server, dan keamanan.',
+                'provider' => [
+                    '@type' => 'Organization',
+                    'name' => 'Dirtech'
+                ]
+            ]
         ]);
     }
 }

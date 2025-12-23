@@ -1,45 +1,5 @@
-<x-layouts.app title="Solvency - Credit Repair Services">
+<x-layouts.app title="Dirtech - Solusi Digital Terpadu">
     
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-contact">
-                <span><i class="fa-regular fa-envelope"></i> support@rstheme.com</span>
-                <span><i class="fa-solid fa-phone"></i> (+088) 589-8745</span>
-            </div>
-            <div class="top-socials">
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-vimeo-v"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="/" class="brand">
-                <span class="brand-icon"><i class="fa-solid fa-layer-group"></i></span>
-                SOLVENCY
-            </a>
-            
-            <div class="nav-links">
-                <a href="#" class="active">Home</a>
-                <a href="#">About</a>
-                <a href="#">Services</a>
-                <a href="#">Portfolios</a>
-                <a href="#">Blog</a>
-                <a href="#">Contact</a>
-            </div>
-
-            <div class="nav-actions">
-                <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <a href="#" class="btn btn-primary">Get A Quote</a>
-            </div>
-        </div>
-    </nav>
-
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
@@ -150,56 +110,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <!-- Brand Col -->
-                <div class="footer-col brand-col">
-                    <a href="/" class="brand" style="color: white; margin-bottom: 1.5rem; display: inline-block;">
-                        <span class="brand-icon"><i class="fa-solid fa-layer-group"></i></span>
-                        SOLVENCY
-                    </a>
-                    <p>We are leading credit repair services company all over the world doing over 40 years. We help you to get your credit back.</p>
-                </div>
 
-                <!-- Links Col -->
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Services</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="#">Contact/Support</a></li>
-                    </ul>
-                </div>
-
-                <!-- Support Col -->
-                <div class="footer-col">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <li><a href="#">Help Center</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Col -->
-                <div class="footer-col">
-                    <h4>Contact Us</h4>
-                    <ul>
-                        <li><i class="fa-solid fa-location-dot text-accent"></i> 123 Street, New York, USA</li>
-                        <li><i class="fa-solid fa-phone text-accent"></i> +1 (123) 456-7890</li>
-                        <li><i class="fa-solid fa-envelope text-accent"></i> support@solvency.com</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; {{ date('Y') }} Solvency. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
 
 </x-layouts.app>

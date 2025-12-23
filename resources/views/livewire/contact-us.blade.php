@@ -58,55 +58,5 @@
         </div>
     </section>
 
-    {{-- Contact Form Section --}}
-    <section class="py-24 bg-slate-50">
-        <div class="container mx-auto px-6">
-            <div class="bg-white rounded-[4rem] shadow-2xl overflow-hidden border border-slate-100">
-                <div class="flex flex-wrap lg:flex-nowrap">
-                    <div class="w-full lg:w-1/2 p-12 lg:p-24 bg-primary text-white relative">
-                        <div class="relative z-10">
-                            <h2 class="text-4xl lg:text-5xl font-black mb-8 tracking-tighter italic">Kirim Pesan Langsung</h2>
-                            <p class="text-slate-400 text-lg mb-12 leading-relaxed">
-                                Isi formulir di samping untuk mendapatkan estimasi biaya pengerjaan atau sekedar menyapa kami. Kami akan menghubungi Anda kembali dalam waktu maksimal 24 jam.
-                            </p>
-                            <div class="space-y-6">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold">1</div>
-                                    <span class="text-sm font-bold opacity-80 uppercase tracking-widest">Konsultasi Kebutuhan</span>
-                                </div>
-                                <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold">2</div>
-                                    <span class="text-sm font-bold opacity-80 uppercase tracking-widest">Penyusunan Strategi</span>
-                                </div>
-                                <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold">3</div>
-                                    <span class="text-sm font-bold opacity-80 uppercase tracking-widest">Eksekusi Proyek</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
-                    </div>
-                    <div class="w-full lg:w-1/2 p-12 lg:p-24">
-                        <form action="#" class="space-y-8">
-                            <div>
-                                <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-3">Nama Lengkap</label>
-                                <input type="text" placeholder="Contoh: Budi Santoso" class="w-full px-8 py-5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-accent focus:ring-0 transition-all text-primary font-bold placeholder:text-slate-300">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-3">Email Bisnis</label>
-                                <input type="email" placeholder="budi@perusahaan.com" class="w-full px-8 py-5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-accent focus:ring-0 transition-all text-primary font-bold placeholder:text-slate-300">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-3">Pesan Anda</label>
-                                <textarea placeholder="Ceritakan kebutuhan IT Anda..." rows="5" class="w-full px-8 py-5 rounded-2xl bg-slate-50 border border-slate-100 focus:border-accent focus:ring-0 transition-all text-primary font-bold placeholder:text-slate-300"></textarea>
-                            </div>
-                            <button type="button" class="w-full py-6 bg-primary text-white font-black rounded-2xl hover:bg-accent transition-all shadow-xl shadow-primary/20">
-                                Kirim Pesan Sekarang
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 </div>
