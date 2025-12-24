@@ -70,7 +70,13 @@
         }
 
         .prose p {
-            margin-bottom: 1.5em !important;
+            margin-bottom: 1rem !important;
+            margin-top: 0 !important;
+        }
+
+        /* Handle empty paragraphs from double enters */
+        .prose p:empty, .prose p > br:only-child {
+            display: none !important;
         }
 
         .prose b, .prose strong {
