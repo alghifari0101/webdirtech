@@ -256,5 +256,46 @@
                 </div>
             </div>
         </div>
+    <!-- FAQ Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="section-center-header text-center mb-16">
+                <span class="about-subtitle">Tanya Jawab</span>
+                <h2>FAQ Jasa Pembuatan Website</h2>
+                <p>Informasi lengkap mengenai proses dan layanan pembuatan website kami.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div x-data="{ open: false }" class="border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Apakah website yang dibuat bisa diedit sendiri?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Ya, kami menggunakan CMS yang user-friendly sehingga Anda dapat dengan mudah mengedit teks, gambar, dan konten lainnya tanpa perlu keahlian koding.
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }" class="border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Apakah harga sudah termasuk domain dan hosting?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Ya, untuk paket Landing Page dan Company Profile, harga yang tertera sudah termasuk gratis nama domain (.com) dan hosting selama 1 tahun pertama.
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }" class="border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Berapa lama waktu yang dibutuhkan untuk pembuatan website?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Waktu pengerjaan bervariasi tergantung paket. Landing Page biasanya selesai dalam 3-5 hari kerja, sementara paket yang lebih kompleks seperti Toko Online membutuhkan waktu 7-14 hari kerja.
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </div>

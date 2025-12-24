@@ -201,5 +201,46 @@
                 </div>
             </div>
         </div>
+    <!-- FAQ Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="section-center-header text-center mb-16">
+                <span class="about-subtitle">Tanya Jawab</span>
+                <h2>FAQ Seputar Jasa Install VPS</h2>
+                <p>Pertanyaan yang sering diajukan mengenai layanan konfigurasi server kami.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div x-data="{ open: false }" class="border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Berapa lama proses pengerjaan jasa install VPS?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Proses pengerjaan biasanya berkisar antara 1 hingga 3 jam, tergantung pada kompleksitas konfigurasi yang Anda pesan.
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }" class="border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Apakah saya akan mendapatkan akses root penuh?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Tentu saja, setelah pengerjaan selesai, kami akan menyerahkan detail akses login root sepenuhnya kepada Anda.
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }" class="border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Control panel apa yang direkomendasikan untuk VPS?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Kami merekomendasikan CyberPanel, aaPanel, atau cPanel, disesuaikan dengan anggaran dan kebutuhan teknis website Anda.
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </div>

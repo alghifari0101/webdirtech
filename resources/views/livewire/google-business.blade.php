@@ -399,4 +399,46 @@
             </div>
         </div>
     </section>
+    {{-- FAQ Section --}}
+    <section class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-blue-600 font-black tracking-widest uppercase text-xs mb-4 block">Knowledge Base</span>
+                <h2 class="text-4xl lg:text-5xl font-black text-slate-900 tracking-tighter mb-6">FAQ Google Business Profile</h2>
+                <p class="text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto">Jawaban lengkap mengenai proses pendaftaran, verifikasi, hingga pengelolaan ulasan di Google Maps.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div x-data="{ open: false }" class="border border-slate-200 rounded-[2rem] overflow-hidden shadow-sm bg-white">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Berapa lama proses verifikasi Google Business Profile berlangsung?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Proses verifikasi oleh Google biasanya membutuhkan waktu 5 hingga 14 hari kerja, tergantung pada metode verifikasi yang tersedia (surat pos, video, atau telepon).
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }" class="border border-slate-200 rounded-[2rem] overflow-hidden shadow-sm bg-white">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Apa yang terjadi jika proses verifikasi profil bisnis saya gagal?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Kami akan mendampingi Anda sepenuhnya dalam melakukan proses banding (appeal) atau perbaikan data ke Google hingga profil Anda berhasil terverifikasi dan aktif.
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }" class="border border-slate-200 rounded-[2rem] overflow-hidden shadow-sm bg-white">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Apakah saya bisa mengatur ulasan atau review pelanggan di Google Maps?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Secara kebijakan, Anda tidak bisa menghapus ulasan negatif secara sepihak. Namun, kami memberikan panduan strategi merespons ulasan untuk menjaga reputasi digital bisnis Anda.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
