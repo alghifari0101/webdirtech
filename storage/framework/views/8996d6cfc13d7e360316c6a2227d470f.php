@@ -2,7 +2,7 @@
     
     <section class="relative pt-20 pb-16 lg:pt-32 lg:pb-32 overflow-hidden bg-slate-50">
         <div class="container mx-auto px-6 relative z-10 text-center">
-            <h1 class="text-5xl lg:text-7xl font-black text-primary leading-[1.1] mb-8 tracking-tighter">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-primary leading-[1.1] mb-8 tracking-tighter">
                 Mari Bicara Tentang <br><span class="text-accent italic">Solusi Digital Anda</span>
             </h1>
             <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">

@@ -51,6 +51,37 @@
 
         .prose h2, .prose h3 {
             scroll-margin-top: 100px;
+            color: #0f172a !important; /* slate-900 */
+            font-weight: 900 !important;
+        }
+
+        .prose h2 {
+            font-size: 1.875rem !important; /* text-3xl */
+            line-height: 2.25rem !important;
+            margin-top: 2rem !important;
+            margin-bottom: 1.25rem !important;
+        }
+
+        .prose h3 {
+            font-size: 1.5rem !important; /* text-2xl */
+            line-height: 2rem !important;
+            margin-top: 1.5rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .prose p {
+            margin-bottom: 1rem !important;
+            margin-top: 0 !important;
+        }
+
+        /* Handle empty paragraphs from double enters */
+        .prose p:empty, .prose p > br:only-child {
+            display: none !important;
+        }
+
+        .prose b, .prose strong {
+            font-weight: 700 !important;
+            color: #1e293b !important; /* slate-800 */
         }
     </style>
     
@@ -84,7 +115,7 @@
                 <div class="lg:col-span-8">
                     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($post->featured_image): ?>
                         <div class="rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-500/10 mb-12 relative z-20 max-h-[450px] aspect-video">
-                            <img src="<?php echo e(storage_url($post->featured_image)); ?>" alt="<?php echo e($post->title); ?>" class="w-full h-full object-cover">
+                            <img src="<?php echo e(storage_url($post->featured_image)); ?>" alt="<?php echo e($post->title); ?>" title="<?php echo e($post->title); ?>" loading="eager" class="w-full h-full object-cover">
                         </div>
                     <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
@@ -99,7 +130,7 @@
                             <nav class="space-y-3">
                                 <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $toc; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <a href="#<?php echo e($item['id']); ?>" 
-                                       class="group flex items-start gap-3 text-slate-600 hover:text-blue-600 transition-colors font-bold <?php echo e($item['level'] == 3 ? 'ml-8 text-sm' : 'text-base'); ?>">
+                                       class="group flex items-start gap-3 text-slate-600 hover:text-blue-600 transition-colors font-medium <?php echo e($item['level'] == 3 ? 'ml-8 text-sm' : 'text-base'); ?>">
                                         <span class="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2.5 group-hover:bg-blue-600 transition-colors flex-shrink-0"></span>
                                         <?php echo e($item['text']); ?>
 
@@ -145,23 +176,6 @@
 
                 
                 <aside class="lg:col-span-4 space-y-12">
-                    
-                    <div>
-                        <h3 class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-6 flex items-center gap-3">
-                            Kategori Artikel
-                            <span class="flex-1 h-px bg-slate-100"></span>
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <a href="<?php echo e(route('blog', ['category' => $category->slug])); ?>" 
-                                   class="px-4 py-2 bg-slate-50 border border-slate-100 hover:border-blue-600 hover:bg-blue-50 text-slate-600 hover:text-blue-600 rounded-xl text-xs font-bold transition-all flex items-center gap-2">
-                                    <?php echo e($category->name); ?>
-
-                                    <span class="bg-white px-1.5 py-0.5 rounded-md border border-slate-100 text-[10px]"><?php echo e($category->posts_count); ?></span>
-                                </a>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                        </div>
-                    </div>
 
                     
                     <div>
