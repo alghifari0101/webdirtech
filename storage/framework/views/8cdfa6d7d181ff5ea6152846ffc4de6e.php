@@ -1,7 +1,7 @@
 <div>
     <!-- Page Header -->
     <div class="page-header" style="background-image: linear-gradient(rgba(11, 19, 43, 0.9), rgba(11, 19, 43, 0.8)), url('https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); padding: 8rem 0 4rem 0;">
-        <div class="container">
+        <div class="container mx-auto">
             <h1 class="text-3xl md:text-5xl lg:text-7xl">Jasa Pembuatan Website Profesional</h1>
             <div class="breadcrumb">
                 <a href="/">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span>Layanan</span> <i class="fa-solid fa-chevron-right"></i> <span>Pembuatan Website</span>
@@ -11,7 +11,7 @@
 
     <!-- Service Details -->
     <section class="about-section" style="padding-top: 5rem;">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="about-grid">
                 <!-- Content Left -->
                 <div class="about-content">
@@ -43,7 +43,7 @@
 
     <!-- Benefits Section -->
     <section class="features-section" style="padding-top: 6rem; padding-bottom: 2rem;">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="section-center-header text-center mb-10" style="margin-bottom: 3rem;">
                 <span class="about-subtitle">Mengapa Website?</span>
                 <h2>Manfaat Utama Memiliki Website</h2>
@@ -93,7 +93,7 @@
 
     <!-- Target Audience Section -->
     <section class="about-section" style="background-color: #f8fafc;">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="section-center-header text-center mb-10" style="margin-bottom: 3rem;">
                 <span class="about-subtitle">Target Kami</span>
                 <h2>Siapa yang Membutuhkan Website?</h2>
@@ -143,7 +143,7 @@
 
     <!-- Pricing Section -->
     <section class="features-section" style="background-color: white; margin-top: 0; padding-top: 5rem;">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="section-center-header text-center mb-5">
                 <h2>Paket Jasa Pembuatan Website</h2>
                 <p>Pilih solusi website yang tepat untuk target bisnis Anda</p>
@@ -216,7 +216,7 @@
 
     <!-- Process Section -->
     <section class="about-section">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="section-center-header text-center mb-5">
                 <h2>Alur Pengerjaan</h2>
                 <p>Proses transparan untuk hasil yang maksimal</p>

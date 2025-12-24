@@ -180,6 +180,17 @@ body:not(.is-modern) a {
     transition: all 0.3s;
 }
 
+/* Ensure Tailwind text color utilities work on links in legacy pages */
+body:not(.is-modern) a[class*="text-"] {
+    color: currentColor;
+    /* Allows Tailwind's color class to take effect */
+}
+
+/* Specific fix for white text which often needs important to beat legacy color:inherit */
+body:not(.is-modern) a.text-white {
+    color: white !important;
+}
+
 body:not(.is-modern) ul {
     list-style: none;
 }
@@ -207,7 +218,7 @@ body:not(.is-modern) .container {
 
 .btn-primary {
     background-color: var(--accent);
-    color: white;
+    color: white !important;
 }
 
 .btn-primary:hover {
@@ -217,7 +228,7 @@ body:not(.is-modern) .container {
 
 .btn-white {
     background-color: white;
-    color: var(--dark-blue);
+    color: var(--dark-blue) !important;
     font-weight: 700;
 }
 
@@ -328,7 +339,7 @@ body:not(.is-modern) .container {
 
 .btn-premium {
     background-color: var(--accent);
-    color: white;
+    color: white !important;
     padding: 18px 36px;
     border-radius: 12px;
     font-weight: 700;

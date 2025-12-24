@@ -4,7 +4,7 @@
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-wrap lg:flex-nowrap items-center gap-16">
                 <div class="w-full lg:w-3/5">
-                    <h1 class="text-5xl lg:text-8xl font-black text-primary leading-[0.9] mb-8 tracking-tighter">
+                    <h1 class="text-4xl md:text-6xl lg:text-8xl font-black text-primary leading-[0.9] mb-8 tracking-tighter">
                         Migrasi Website <br><span class="text-accent italic">Tanpa Resiko</span>
                     </h1>
                     <p class="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">

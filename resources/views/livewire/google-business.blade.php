@@ -74,18 +74,18 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
                     <div class="text-3xl text-blue-600 font-black mb-2 leading-none">88%</div>
-                    <div class="text-sm font-bold text-slate-900 mb-2">Pencarian Lokal</div>
-                    <p class="text-[10px] text-slate-400 leading-relaxed uppercase tracking-wider font-bold">Konsumen mengunjungi toko dalam 24 jam setelah mencari lewat ponsel.</p>
+                    <div class="text-lg font-bold text-slate-900 mb-2">Pencarian Lokal</div>
+                    <p class="text-sm text-slate-500 leading-relaxed font-medium">Konsumen mengunjungi toko dalam 24 jam setelah mencari lewat ponsel.</p>
                 </div>
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
                     <div class="text-3xl text-emerald-500 font-black mb-2 leading-none">3x</div>
-                    <div class="text-sm font-bold text-slate-900 mb-2">Lebih Terpercaya</div>
-                    <p class="text-[10px] text-slate-400 leading-relaxed uppercase tracking-wider font-bold">Bisnis dengan profil lengkap dianggap lebih profesional oleh Google.</p>
+                    <div class="text-lg font-bold text-slate-900 mb-2">Lebih Terpercaya</div>
+                    <p class="text-sm text-slate-500 leading-relaxed font-medium">Bisnis dengan profil lengkap dianggap lebih profesional oleh Google.</p>
                 </div>
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
                     <div class="text-3xl text-rose-500 font-black mb-2 leading-none">Rank</div>
-                    <div class="text-sm font-bold text-slate-900 mb-2">Maps Authority</div>
-                    <p class="text-[10px] text-slate-400 leading-relaxed uppercase tracking-wider font-bold">Muncul di urutan atas Maps saat orang mencari kategori bisnis Anda.</p>
+                    <div class="text-lg font-bold text-slate-900 mb-2">Maps Authority</div>
+                    <p class="text-sm text-slate-500 leading-relaxed font-medium">Muncul di urutan atas Maps saat orang mencari kategori bisnis Anda.</p>
                 </div>
             </div>
         </div>
