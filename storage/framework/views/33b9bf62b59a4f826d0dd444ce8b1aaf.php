@@ -62,22 +62,22 @@
                     </div>
 
                     
-                    <div class="mt-16 p-8 bg-slate-50 rounded-[2rem] border border-slate-100 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden group">
+                    <div class="mt-16 p-8 bg-slate-50 rounded-[2rem] border border-slate-100 flex flex-col md:flex-row items-start md:items-center gap-8 relative overflow-hidden group">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700"></div>
                         
                         <div class="w-24 h-24 rounded-2xl bg-white p-4 shadow-sm border border-slate-100 flex-shrink-0 relative z-10">
                             <img src="<?php echo e(asset('img/favicon.svg')); ?>" alt="Dirtech Logo" class="w-full h-full object-contain">
                         </div>
                         
-                        <div class="relative z-10 text-center md:text-left">
+                        <div class="relative z-10 text-left">
                             <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
                                 <h4 class="text-xl font-black text-slate-900 tracking-tight">Dirtech <span class="text-blue-600">Editorial Team</span></h4>
-                                <span class="px-3 py-0.5 bg-blue-600 text-white rounded-full text-[8px] font-black uppercase tracking-wider self-center md:self-auto">Verified Expert</span>
+                                <span class="px-3 py-0.5 bg-blue-600 text-white rounded-full text-[8px] font-black uppercase tracking-wider self-start md:self-auto">Verified Expert</span>
                             </div>
                             <p class="text-slate-500 text-sm leading-relaxed mb-4">
                                 Dirtech adalah partner teknologi terpercaya yang menghadirkan solusi digital inovatif mulai dari jasa pembuatan website premium, install VPS, migrasi website, hingga pembuatan Google Business Profile.
                             </p>
-                            <div class="flex items-center justify-center md:justify-start gap-4">
+                            <div class="flex items-center justify-start gap-4">
                                 <a href="<?php echo e(route('home')); ?>" class="text-slate-400 hover:text-blue-600 transition-colors text-sm font-bold flex items-center gap-1">
                                     <i class="fa-solid fa-earth-asia"></i> Website
                                 </a>
