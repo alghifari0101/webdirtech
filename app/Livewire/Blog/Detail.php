@@ -79,8 +79,9 @@ final class Detail extends Component
         @$dom->loadHTML('<?xml encoding="UTF-8">' . $content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         
         $xpath = new \DOMXPath($dom);
-        $headers = $xpath->query('//h2|//h3');
         
+        // TOC Generation
+        $headers = $xpath->query('//h2|//h3');
         $toc = [];
         foreach ($headers as $header) {
             $text = trim($header->nodeValue);
@@ -101,6 +102,25 @@ final class Detail extends Component
                 'id' => $id
             ];
         }
+
+        // Image SEO Automation
+        $images = $xpath->query('//img');
+        foreach ($images as $img) {
+            // Add alt if missing or empty
+            if (!$img->hasAttribute('alt') || empty(trim($img->getAttribute('alt')))) {
+                $img->setAttribute('alt', $this->post->title);
+            }
+            
+            // Add title if missing
+            if (!$img->hasAttribute('title') || empty(trim($img->getAttribute('title')))) {
+                $img->setAttribute('title', $this->post->title);
+            }
+            
+            // Add native lazy loading
+            if (!$img->hasAttribute('loading')) {
+                $img->setAttribute('loading', 'lazy');
+            }
+        }
         
         return [
             'toc' => $toc,
@@ -117,7 +137,12 @@ final class Detail extends Component
             '@context' => 'https://schema.org',
             '@type' => 'Article',
             'headline' => $this->post->title,
-            'image' => $this->post->featured_image ? storage_url($this->post->featured_image) : asset('img/og-blog.png'),
+            'image' => [
+                '@type' => 'ImageObject',
+                'url' => $this->post->featured_image ? storage_url($this->post->featured_image) : asset('img/og-blog.png'),
+                'width' => 1200,
+                'height' => 630
+            ],
             'publisher' => [
                 '@type' => 'Organization',
                 'name' => 'Dirtech Solutions',

@@ -112,7 +112,7 @@
                 <div class="lg:col-span-8">
                     @if($post->featured_image)
                         <div class="rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-500/10 mb-12 relative z-20 max-h-[450px] aspect-video">
-                            <img src="{{ storage_url($post->featured_image) }}" alt="{{ $post->title }}" class="w-full h-full object-cover">
+                            <img src="{{ storage_url($post->featured_image) }}" alt="{{ $post->title }}" title="{{ $post->title }}" loading="eager" class="w-full h-full object-cover">
                         </div>
                     @endif
 
