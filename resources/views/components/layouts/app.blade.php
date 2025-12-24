@@ -72,20 +72,8 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0f172a',
-                        accent: '#D31A1A',
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Assets -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/dirtech.css') }}">
