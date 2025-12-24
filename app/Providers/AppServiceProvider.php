@@ -41,5 +41,10 @@ final class AppServiceProvider extends ServiceProvider
 
         // Fix for MySQL old version index length issue
         Schema::defaultStringLength(191);
+
+        // Force HTTPS in production
+        if (app()->isProduction()) {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+        }
     }
 }

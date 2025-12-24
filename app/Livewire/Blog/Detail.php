@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\Blog;
 
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
@@ -39,8 +40,28 @@ final class Detail extends Component
             ->take(3)
             ->get();
 
+        $processedContent = $this->post->content;
+        $toc = [];
+
+        if ($processedContent) {
+            $tocData = $this->generateTocAndProcessedContent($processedContent);
+            $processedContent = $tocData['content'];
+            $toc = $tocData['toc'];
+        }
+
+        $categories = Category::withCount('posts')->get();
+        $recentPosts = Post::where('id', '!=', $this->post->id)
+            ->published()
+            ->latest()
+            ->take(5)
+            ->get();
+
         return view('livewire.blog.detail', [
-            'relatedPosts' => $relatedPosts
+            'relatedPosts' => $relatedPosts,
+            'toc' => $toc,
+            'processedContent' => $processedContent,
+            'categories' => $categories,
+            'recentPosts' => $recentPosts
         ])->layoutData([
             'title' => $this->post->title . ' | Dirtech Blog',
             'description' => $this->post->excerpt ?: Str::limit(strip_tags($this->post->content), 160),
@@ -48,6 +69,45 @@ final class Detail extends Component
             'ogImage' => $this->post->featured_image ? storage_url($this->post->featured_image) : 'img/og-blog.png',
             'schema' => $this->getCombinedSchema()
         ]);
+    }
+
+    /**
+     * Generate TOC and inject IDs into headers.
+     */
+    private function generateTocAndProcessedContent(string $content): array
+    {
+        $dom = new \DOMDocument();
+        // Use mb_convert_encoding to handle UTF-8 properly
+        @$dom->loadHTML('<?xml encoding="UTF-8">' . $content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        
+        $xpath = new \DOMXPath($dom);
+        $headers = $xpath->query('//h2|//h3');
+        
+        $toc = [];
+        foreach ($headers as $header) {
+            $text = trim($header->nodeValue);
+            $id = Str::slug($text);
+            
+            // Ensure unique ID
+            $originalId = $id;
+            $counter = 1;
+            while ($xpath->query("//*[@id='$id']")->length > 0) {
+                $id = $originalId . '-' . $counter++;
+            }
+            
+            $header->setAttribute('id', $id);
+            
+            $toc[] = [
+                'level' => (int) substr($header->tagName, 1),
+                'text' => $text,
+                'id' => $id
+            ];
+        }
+        
+        return [
+            'toc' => $toc,
+            'content' => $dom->saveHTML()
+        ];
     }
 
     /**
