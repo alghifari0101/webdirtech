@@ -44,6 +44,14 @@
         .prose .ql-align-right {
             text-align: right !important;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .prose h2, .prose h3 {
+            scroll-margin-top: 100px;
+        }
     </style>
     
     <header class="relative pt-6 pb-2 lg:pt-8 lg:pb-4 overflow-hidden bg-white border-b border-slate-50">
@@ -70,44 +78,125 @@
 
     
     <section class="py-12">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($post->featured_image): ?>
-                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-500/10 mb-12 relative z-20 max-h-[450px] aspect-video mx-auto">
-                    <img src="<?php echo e(storage_url($post->featured_image)); ?>" alt="<?php echo e($post->title); ?>" class="w-full h-full object-cover">
-                </div>
-            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-
-            <div class="prose prose-slate prose-lg lg:prose-xl max-w-none text-slate-600 leading-relaxed font-normal">
-                <?php echo $post->content; ?>
-
-            </div>
-
-            
-            <div class="mt-16 p-8 bg-slate-50 rounded-[2rem] border border-slate-100 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden group">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700"></div>
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
                 
-                <div class="w-24 h-24 rounded-2xl bg-white p-4 shadow-sm border border-slate-100 flex-shrink-0 relative z-10">
-                    <img src="<?php echo e(asset('img/favicon.svg')); ?>" alt="Dirtech Logo" class="w-full h-full object-contain">
+                <div class="lg:col-span-8">
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($post->featured_image): ?>
+                        <div class="rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-500/10 mb-12 relative z-20 max-h-[450px] aspect-video">
+                            <img src="<?php echo e(storage_url($post->featured_image)); ?>" alt="<?php echo e($post->title); ?>" class="w-full h-full object-cover">
+                        </div>
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(count($toc) > 0): ?>
+                        <div class="mb-12 p-8 bg-slate-50 rounded-[2rem] border border-slate-100">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
+                                    <i class="fa-solid fa-list-ul"></i>
+                                </div>
+                                <h3 class="text-xl font-black text-slate-900 tracking-tight">Daftar Isi</h3>
+                            </div>
+                            <nav class="space-y-3">
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $toc; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <a href="#<?php echo e($item['id']); ?>" 
+                                       class="group flex items-start gap-3 text-slate-600 hover:text-blue-600 transition-colors font-bold <?php echo e($item['level'] == 3 ? 'ml-8 text-sm' : 'text-base'); ?>">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2.5 group-hover:bg-blue-600 transition-colors flex-shrink-0"></span>
+                                        <?php echo e($item['text']); ?>
+
+                                    </a>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                            </nav>
+                        </div>
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+
+                    <div class="prose prose-slate prose-lg lg:prose-xl max-w-none text-slate-600 leading-relaxed font-normal">
+                        <?php echo $processedContent; ?>
+
+                    </div>
+
+                    
+                    <div class="mt-16 p-8 bg-slate-50 rounded-[2rem] border border-slate-100 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700"></div>
+                        
+                        <div class="w-24 h-24 rounded-2xl bg-white p-4 shadow-sm border border-slate-100 flex-shrink-0 relative z-10">
+                            <img src="<?php echo e(asset('img/favicon.svg')); ?>" alt="Dirtech Logo" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <div class="relative z-10 text-center md:text-left">
+                            <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+                                <h4 class="text-xl font-black text-slate-900 tracking-tight">Dirtech <span class="text-blue-600">Editorial Team</span></h4>
+                                <span class="px-3 py-0.5 bg-blue-600 text-white rounded-full text-[8px] font-black uppercase tracking-wider self-center md:self-auto">Verified Expert</span>
+                            </div>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                                Dirtech adalah partner teknologi terpercaya yang menghadirkan solusi digital inovatif mulai dari jasa pembuatan website premium, install VPS, migrasi website, hingga pembuatan Google Business Profile.
+                            </p>
+                            <div class="flex items-center justify-center md:justify-start gap-4">
+                                <a href="<?php echo e(route('home')); ?>" class="text-slate-400 hover:text-blue-600 transition-colors text-sm font-bold flex items-center gap-1">
+                                    <i class="fa-solid fa-earth-asia"></i> Website
+                                </a>
+                                <span class="w-1 h-1 bg-slate-200 rounded-full"></span>
+                                <a href="https://wa.me/<?php echo e(config('contact.whatsapp')); ?>" class="text-slate-400 hover:text-emerald-500 transition-colors text-sm font-bold flex items-center gap-1">
+                                    <i class="fa-brands fa-whatsapp"></i> Konsultasi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 
-                <div class="relative z-10 text-center md:text-left">
-                    <div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
-                        <h4 class="text-xl font-black text-slate-900 tracking-tight">Dirtech <span class="text-blue-600">Editorial Team</span></h4>
-                        <span class="px-3 py-0.5 bg-blue-600 text-white rounded-full text-[8px] font-black uppercase tracking-wider self-center md:self-auto">Verified Expert</span>
+                <aside class="lg:col-span-4 space-y-12">
+                    
+                    <div>
+                        <h3 class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-6 flex items-center gap-3">
+                            Kategori Artikel
+                            <span class="flex-1 h-px bg-slate-100"></span>
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <a href="<?php echo e(route('blog', ['category' => $category->slug])); ?>" 
+                                   class="px-4 py-2 bg-slate-50 border border-slate-100 hover:border-blue-600 hover:bg-blue-50 text-slate-600 hover:text-blue-600 rounded-xl text-xs font-bold transition-all flex items-center gap-2">
+                                    <?php echo e($category->name); ?>
+
+                                    <span class="bg-white px-1.5 py-0.5 rounded-md border border-slate-100 text-[10px]"><?php echo e($category->posts_count); ?></span>
+                                </a>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        </div>
                     </div>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-4 max-w-2xl">
-                        Dirtech adalah partner teknologi terpercaya yang menghadirkan solusi digital inovatif mulai dari jasa pembuatan website premium, install VPS, migrasi website, hingga pembuatan Google Business Profile untuk membantu bisnis Anda tumbuh lebih cepat.
-                    </p>
-                    <div class="flex items-center justify-center md:justify-start gap-4">
-                        <a href="<?php echo e(route('home')); ?>" class="text-slate-400 hover:text-blue-600 transition-colors text-sm font-bold flex items-center gap-1">
-                            <i class="fa-solid fa-earth-asia"></i> Website
-                        </a>
-                        <span class="w-1 h-1 bg-slate-200 rounded-full"></span>
-                        <a href="https://wa.me/<?php echo e(config('contact.whatsapp')); ?>" class="text-slate-400 hover:text-emerald-500 transition-colors text-sm font-bold flex items-center gap-1">
-                            <i class="fa-brands fa-whatsapp"></i> Konsultasi
-                        </a>
+
+                    
+                    <div>
+                        <h3 class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-6 flex items-center gap-3">
+                            Artikel Terbaru
+                            <span class="flex-1 h-px bg-slate-100"></span>
+                        </h3>
+                        <div class="space-y-6">
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $recentPosts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rp): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <a href="<?php echo e(route('blog.show', $rp->slug)); ?>" class="group flex items-center gap-4">
+                                    <div class="w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 flex-shrink-0">
+                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($rp->featured_image): ?>
+                                            <img src="<?php echo e(storage_url($rp->featured_image)); ?>" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                        <?php else: ?>
+                                            <div class="w-full h-full flex items-center justify-center">
+                                                <i class="fa-solid fa-image text-slate-300"></i>
+                                            </div>
+                                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <h4 class="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug mb-1">
+                                            <?php echo e($rp->title); ?>
+
+                                        </h4>
+                                        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                                            <?php echo e($rp->published_at->format('M d, Y')); ?>
+
+                                        </p>
+                                    </div>
+                                </a>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        </div>
                     </div>
-                </div>
+
+                </aside>
             </div>
 
             

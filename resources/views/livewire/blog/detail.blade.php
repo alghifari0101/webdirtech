@@ -51,6 +51,31 @@
 
         .prose h2, .prose h3 {
             scroll-margin-top: 100px;
+            color: #0f172a !important; /* slate-900 */
+            font-weight: 900 !important;
+        }
+
+        .prose h2 {
+            font-size: 1.875rem !important; /* text-3xl */
+            line-height: 2.25rem !important;
+            margin-top: 3rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        .prose h3 {
+            font-size: 1.5rem !important; /* text-2xl */
+            line-height: 2rem !important;
+            margin-top: 2.5rem !important;
+            margin-bottom: 1.25rem !important;
+        }
+
+        .prose p {
+            margin-bottom: 1.5em !important;
+        }
+
+        .prose b, .prose strong {
+            font-weight: 700 !important;
+            color: #1e293b !important; /* slate-800 */
         }
     </style>
     {{-- Header Section --}}
@@ -96,7 +121,7 @@
                             <nav class="space-y-3">
                                 @foreach($toc as $item)
                                     <a href="#{{ $item['id'] }}" 
-                                       class="group flex items-start gap-3 text-slate-600 hover:text-blue-600 transition-colors font-bold {{ $item['level'] == 3 ? 'ml-8 text-sm' : 'text-base' }}">
+                                       class="group flex items-start gap-3 text-slate-600 hover:text-blue-600 transition-colors font-medium {{ $item['level'] == 3 ? 'ml-8 text-sm' : 'text-base' }}">
                                         <span class="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2.5 group-hover:bg-blue-600 transition-colors flex-shrink-0"></span>
                                         {{ $item['text'] }}
                                     </a>
@@ -140,22 +165,6 @@
 
                 {{-- Sidebar --}}
                 <aside class="lg:col-span-4 space-y-12">
-                    {{-- Categories --}}
-                    <div>
-                        <h3 class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-6 flex items-center gap-3">
-                            Kategori Artikel
-                            <span class="flex-1 h-px bg-slate-100"></span>
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            @foreach($categories as $category)
-                                <a href="{{ route('blog', ['category' => $category->slug]) }}" 
-                                   class="px-4 py-2 bg-slate-50 border border-slate-100 hover:border-blue-600 hover:bg-blue-50 text-slate-600 hover:text-blue-600 rounded-xl text-xs font-bold transition-all flex items-center gap-2">
-                                    {{ $category->name }}
-                                    <span class="bg-white px-1.5 py-0.5 rounded-md border border-slate-100 text-[10px]">{{ $category->posts_count }}</span>
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
 
                     {{-- Recent Posts --}}
                     <div>

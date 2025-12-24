@@ -49,7 +49,6 @@ final class Detail extends Component
             $toc = $tocData['toc'];
         }
 
-        $categories = Category::withCount('posts')->get();
         $recentPosts = Post::where('id', '!=', $this->post->id)
             ->published()
             ->latest()
@@ -60,7 +59,6 @@ final class Detail extends Component
             'relatedPosts' => $relatedPosts,
             'toc' => $toc,
             'processedContent' => $processedContent,
-            'categories' => $categories,
             'recentPosts' => $recentPosts
         ])->layoutData([
             'title' => $this->post->title . ' | Dirtech Blog',
