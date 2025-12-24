@@ -28,14 +28,14 @@ final class SitemapController extends Controller
             'service.migration',
             'service.gmb',
             'contact',
-            'ask',
+            'blog',
         ];
 
-        $asks = Ask::latest()->get();
+        $posts = \App\Models\Post::published()->latest()->get();
 
         return response()->view('sitemap.index', [
             'staticRoutes' => $staticRoutes,
-            'asks' => $asks,
+            'posts' => $posts,
         ])->header('Content-Type', 'text/xml');
     }
 }

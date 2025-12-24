@@ -15,6 +15,11 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Quill Rich Text Editor -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
+    
     <!-- Tailwind CSS (via CDN for quick professional UI) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -68,10 +73,16 @@
                 <span class="font-medium">Dashboard</span>
             </a>
             
-            <a href="{{ route('admin.asks') }}" 
-               class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg transition-all {{ request()->routeIs('admin.asks') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
-                <i class="fa-solid fa-circle-question w-5"></i>
-                <span class="font-medium">Tanya Jawab (Ask)</span>
+            <a href="{{ route('admin.posts') }}" 
+               class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg transition-all {{ request()->routeIs('admin.posts') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
+                <i class="fa-solid fa-newspaper w-5"></i>
+                <span class="font-medium">Manajemen Blog</span>
+            </a>
+            
+            <a href="{{ route('admin.categories') }}" 
+               class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg transition-all {{ request()->routeIs('admin.categories') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
+                <i class="fa-solid fa-layer-group w-5"></i>
+                <span class="font-medium">Kategori Blog</span>
             </a>
 
             <div class="pt-4 pb-2 border-t border-slate-100">

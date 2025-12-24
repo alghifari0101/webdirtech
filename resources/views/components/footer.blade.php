@@ -38,7 +38,7 @@
                 <ul class="space-y-4 text-sm">
                     <li><a href="#" class="hover:text-white transition-colors">Kebijakan Privasi</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">Syarat & Ketentuan</a></li>
-                    <li><a href="{{ route('ask') }}" class="hover:text-white transition-colors">FAQ / Ask</a></li>
+                    <li><a href="{{ route('blog') }}" class="hover:text-white transition-colors">Blog & Artikel</a></li>
                     <li><a href="{{ route('contact') }}" class="hover:text-white transition-colors">Hubungi Kami</a></li>
                 </ul>
             </div>

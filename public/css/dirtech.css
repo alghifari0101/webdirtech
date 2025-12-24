@@ -1019,3 +1019,64 @@ ul {
         margin-top: 1rem;
     }
 }
+
+/* Blog Detail Image Alignment Fix - Robust Version */
+.prose img[style*="float: left"],
+.prose img[style*="float:left"] {
+    float: left !important;
+    margin-right: 2rem !important;
+    margin-bottom: 1rem !important;
+    margin-top: 0.5rem !important;
+    max-width: 50% !important;
+    display: inline-block !important;
+}
+
+.prose img[style*="float: right"],
+.prose img[style*="float:right"] {
+    float: right !important;
+    margin-left: 2rem !important;
+    margin-bottom: 1rem !important;
+    margin-top: 0.5rem !important;
+    max-width: 50% !important;
+    display: inline-block !important;
+}
+
+.prose img[style*="margin: auto"],
+.prose img[style*="margin:auto"],
+.prose img[style*="display: block"][style*="margin-left: auto"] {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+}
+
+/* Fix for Quill alignment classes if present */
+.prose .ql-align-center {
+    text-align: center !important;
+}
+
+.prose .ql-align-center img {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+}
+
+.prose .ql-align-right {
+    text-align: right !important;
+}
+
+.prose .ql-align-right img {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    display: block !important;
+}
+
+.prose .ql-align-left {
+    text-align: left !important;
+}
+
+/* Ensure images don't overflow */
+.prose img {
+    max-width: 100%;
+    height: auto;
+}

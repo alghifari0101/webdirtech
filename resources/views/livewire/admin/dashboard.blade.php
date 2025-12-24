@@ -4,11 +4,11 @@
         <!-- Stat Card 1 -->
         <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-5">
             <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl">
-                <i class="fa-solid fa-circle-question"></i>
+                <i class="fa-solid fa-newspaper"></i>
             </div>
             <div>
-                <p class="text-sm font-medium text-slate-500">Total Ask</p>
-                <h3 class="text-2xl font-bold text-slate-800">{{ $stats['total_asks'] }}</h3>
+                <p class="text-sm font-medium text-slate-500">Artikel Blog</p>
+                <h3 class="text-2xl font-bold text-slate-800">{{ $stats['total_posts'] }}</h3>
             </div>
         </div>
 
@@ -51,21 +51,21 @@
         <!-- Recent Ask Table -->
         <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
             <div class="px-6 py-5 border-b border-slate-100 flex justify-between items-center">
-                <h3 class="font-outfit font-bold text-lg text-slate-800">Tanya Jawab Terbaru</h3>
-                <a href="{{ route('admin.asks') }}" class="text-primary text-sm font-semibold hover:underline">Lihat Semua</a>
+                <h3 class="font-outfit font-bold text-lg text-slate-800">Artikel Blog Terbaru</h3>
+                <a href="{{ route('admin.posts') }}" class="text-primary text-sm font-semibold hover:underline">Lihat Semua</a>
             </div>
             <div class="p-6">
                 <div class="space-y-4">
-                    @forelse($recent_asks as $ask)
-                        <div class="flex items-start gap-4 p-3 rounded-lg hover:bg-slate-50 transition-colors border-l-4 border-primary">
+                    @forelse($recent_posts as $post)
+                        <div class="flex items-start gap-4 p-3 rounded-lg hover:bg-slate-50 transition-colors border-l-4 border-rose-500">
                             <div class="flex-1">
-                                <h4 class="font-bold text-slate-800 line-clamp-1">{{ $ask->question }}</h4>
-                                <p class="text-sm text-slate-500 mt-1 line-clamp-2">{{ $ask->answer }}</p>
+                                <h4 class="font-bold text-slate-800 line-clamp-1">{{ $post->title }}</h4>
+                                <p class="text-sm text-slate-500 mt-1 line-clamp-2">{{ Str::limit(strip_tags($post->content), 100) }}</p>
                             </div>
-                            <span class="text-xs text-slate-400 whitespace-nowrap">{{ $ask->created_at->diffForHumans() }}</span>
+                            <span class="text-xs text-slate-400 whitespace-nowrap">{{ $post->created_at->diffForHumans() }}</span>
                         </div>
                     @empty
-                        <p class="text-center text-slate-400 py-4 italic">Belum ada data tanya jawab.</p>
+                        <p class="text-center text-slate-400 py-4 italic">Belum ada artikel blog.</p>
                     @endforelse
                 </div>
             </div>

@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <a href="#" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">Portofolio</a>
-                <a href="<?php echo e(route('ask')); ?>" class="text-sm font-bold <?php echo e(request()->routeIs('ask') ? 'text-accent' : 'text-slate-600 hover:text-primary'); ?> transition-colors">Ask</a>
+                <a href="<?php echo e(route('blog')); ?>" class="text-sm font-bold <?php echo e(request()->routeIs('blog*') ? 'text-accent' : 'text-slate-600 hover:text-primary'); ?> transition-colors">Blog</a>
                 <a href="<?php echo e(route('contact')); ?>" class="text-sm font-bold <?php echo e(request()->routeIs('contact') ? 'text-accent' : 'text-slate-600 hover:text-primary'); ?> transition-colors">Kontak</a>
             </div>
 
@@ -69,7 +69,7 @@
                 <a href="<?php echo e(route('service.gmb')); ?>" class="block text-sm font-semibold text-slate-600 hover:text-accent">Pembuatan Google Bisnis</a>
             </div>
             <a href="#" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Portofolio</a>
-            <a href="<?php echo e(route('ask')); ?>" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Ask / FAQ</a>
+            <a href="<?php echo e(route('blog')); ?>" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Blog / Artikel</a>
             <a href="<?php echo e(route('contact')); ?>" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Kontak</a>
             <div class="pt-6">
                 <a href="https://wa.me/<?php echo e(config('contact.whatsapp')); ?>" class="block w-full py-4 bg-primary text-white text-center font-bold rounded-xl shadow-lg">Konsultasi Gratis</a>

@@ -1,0 +1,209 @@
+<div class="p-6">
+    <div class="flex justify-between items-center mb-6">
+        <div>
+            <h1 class="text-2xl font-bold text-slate-900 italic">Manajemen <span class="text-blue-600 underline">Blog</span></h1>
+            <p class="text-slate-500 text-sm">Tulis dan kelola artikel edukatif untuk SEO yang lebih baik.</p>
+        </div>
+        <button wire:click="create" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold transition-all flex items-center gap-2 shadow-lg shadow-blue-500/20">
+            <i class="fa-solid fa-plus text-xs"></i> Tulis Artikel
+        </button>
+    </div>
+
+    @if (session()->has('message'))
+        <div class="mb-6 p-4 bg-emerald-50 border border-emerald-100 text-emerald-600 rounded-xl font-bold flex items-center gap-3">
+            <i class="fa-solid fa-circle-check"></i> {{ session('message') }}
+        </div>
+    @endif
+
+    <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-slate-50 border-b border-slate-100">
+                    <th class="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Artikel</th>
+                    <th class="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Kategori</th>
+                    <th class="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Status</th>
+                    <th class="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Tanggal</th>
+                    <th class="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest text-right">Aksi</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-50">
+                @forelse($posts as $post)
+                    <tr class="hover:bg-slate-50/50 transition-colors">
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-4">
+                                @if($post->featured_image)
+                                    <img src="{{ storage_url($post->featured_image) }}" class="w-12 h-12 rounded-lg object-cover border border-slate-100">
+                                @else
+                                    <div class="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center text-slate-300">
+                                        <i class="fa-solid fa-image"></i>
+                                    </div>
+                                @endif
+                                <div>
+                                    <div class="font-bold text-slate-900 leading-tight">{{ $post->title }}</div>
+                                    <div class="text-[10px] text-slate-400 font-medium">/blog/{{ $post->slug }}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-[10px] font-black uppercase">
+                                {{ $post->category?->name ?? 'Uncategorized' }}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4">
+                            @if($post->is_published)
+                                <span class="text-emerald-500 font-bold text-xs flex items-center gap-1">
+                                    <i class="fa-solid fa-circle text-[8px]"></i> Terbit
+                                </span>
+                            @else
+                                <span class="text-slate-400 font-bold text-xs flex items-center gap-1">
+                                    <i class="fa-solid fa-circle text-[8px]"></i> Draft
+                                </span>
+                            @endif
+                        </td>
+                        <td class="px-6 py-4 text-sm text-slate-500 font-medium">
+                            {{ $post->created_at->format('d/m/Y') }}
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <div class="flex justify-end gap-2">
+                                <button wire:click="edit({{ $post->id }})" class="p-2 text-slate-400 hover:text-blue-600 transition-colors">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button onclick="confirm('Hapus artikel ini?') || event.stopImmediatePropagation()" wire:click="delete({{ $post->id }})" class="p-2 text-slate-400 hover:text-rose-600 transition-colors">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5" class="px-6 py-12 text-center text-slate-400 italic">Belum ada artikel.</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+        <div class="px-6 py-4 border-t border-slate-50">
+            {{ $posts->links() }}
+        </div>
+    </div>
+
+    @if($isOpen)
+        <div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+            <div class="bg-white w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+                <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                    <h2 class="text-xl font-bold text-slate-900 italic">
+                        {{ $form->id ? 'Edit' : 'Tulis' }} <span class="text-blue-600 underlined">Artikel Blog</span>
+                    </h2>
+                    <button wire:click="closeModal" class="text-slate-400 hover:text-slate-600 transition-colors">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+                
+                <form wire:submit="store" class="p-8 overflow-y-auto space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-black text-slate-500 uppercase tracking-widest">Judul Artikel</label>
+                            <input type="text" wire:model="form.title" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all font-bold text-slate-900" placeholder="Masukkan judul menarik...">
+                            @error('form.title') <span class="text-rose-500 text-xs font-bold">{{ $message }}</span> @enderror
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-black text-slate-500 uppercase tracking-widest">Kategori</label>
+                            <select wire:model="form.category_id" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all font-bold text-slate-900">
+                                <option value="">Pilih Kategori</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('form.category_id') <span class="text-rose-500 text-xs font-bold">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-black text-slate-500 uppercase tracking-widest">Ringkasan (Excerpt)</label>
+                        <textarea wire:model="form.excerpt" rows="2" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-slate-600 leading-relaxed" placeholder="Tulis ringkasan singkat untuk hasil pencarian..."></textarea>
+                        @error('form.excerpt') <span class="text-rose-500 text-xs font-bold">{{ $message }}</span> @enderror
+                    </div>
+
+                    <div class="space-y-2" wire:ignore
+                         x-data="{ 
+                            content: @entangle('form.content'),
+                            quill: null,
+                            init() {
+                                if (this.quill) return;
+                                
+                                // Register ImageResize module
+                                if (typeof ImageResize !== 'undefined' && !Quill.imports['modules/imageResize']) {
+                                    Quill.register('modules/imageResize', ImageResize);
+                                }
+                                
+                                this.quill = new Quill($refs.editor, {
+                                    theme: 'snow',
+                                    placeholder: 'Tulis konten lengkap artikel Anda di sini...',
+                                    modules: {
+                                        toolbar: [
+                                            [{ 'header': [1, 2, 3, false] }],
+                                            ['bold', 'italic', 'underline', 'strike'],
+                                            ['link', 'blockquote', 'code-block', 'image'],
+                                            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                                            ['clean']
+                                        ],
+                                        imageResize: {
+                                            displaySize: true,
+                                            modules: [ 'Resize', 'DisplaySize', 'Toolbar' ]
+                                        }
+                                    }
+                                });
+
+                                if (this.content) {
+                                    this.quill.root.innerHTML = this.content;
+                                }
+
+                                this.quill.on('text-change', () => {
+                                    this.content = this.quill.root.innerHTML;
+                                });
+
+                                this.$watch('content', value => {
+                                    if (value !== this.quill.root.innerHTML) {
+                                        this.quill.root.innerHTML = value || '';
+                                    }
+                                });
+
+                                window.addEventListener('content-reset', () => {
+                                    this.quill.root.innerHTML = '';
+                                });
+
+                                window.addEventListener('post-edit', event => {
+                                    this.quill.root.innerHTML = event.detail.content || '';
+                                });
+                            }
+                         }">
+                        <label class="text-xs font-black text-slate-500 uppercase tracking-widest">Isi Konten</label>
+                        <div x-ref="editor" class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden min-h-[300px]" style="font-family: 'Inter', sans-serif;"></div>
+                        @error('form.content') <span class="text-rose-500 text-xs font-bold">{{ $message }}</span> @enderror
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
+                        <div class="space-y-2">
+                            <label class="text-xs font-black text-slate-500 uppercase tracking-widest">Gambar Unggulan</label>
+                            <input type="file" wire:model="tempImage" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all font-bold text-slate-900">
+                            @error('tempImage') <span class="text-rose-500 text-xs font-bold">{{ $message }}</span> @enderror
+                        </div>
+
+                        <div class="flex items-center gap-3 pb-3">
+                            <input type="checkbox" wire:model="form.is_published" id="is_published" class="w-5 h-5 rounded border-slate-300 text-blue-600 focus:ring-blue-600 transition-all">
+                            <label for="is_published" class="text-sm font-bold text-slate-700 cursor-pointer">Terbitkan Sekarang</label>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex justify-end gap-4">
+                        <button type="button" wire:click="closeModal" class="px-6 py-3 font-bold text-slate-400 hover:text-slate-600 transition-colors">Batal</button>
+                        <button type="submit" class="px-10 py-3 bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition-all">
+                            <span wire:loading.remove>Simpan Artikel</span>
+                            <span wire:loading>Memproses...</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endif
+</div>

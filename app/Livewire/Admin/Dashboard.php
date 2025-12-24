@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Admin;
 
-use App\Models\Ask;
+use App\Models\Post;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
@@ -25,17 +25,17 @@ final class Dashboard extends Component
     public function render(): View
     {
         $stats = [
-            'total_asks' => Ask::count(),
-            'vps_requests' => 12, // Placeholder for future feature
-            'website_projects' => 8, // Placeholder for future feature
-            'active_clients' => 24, // Placeholder for future feature
+            'total_posts' => Post::count(),
+            'vps_requests' => 12, // Placeholder
+            'website_projects' => 8, // Placeholder
+            'active_clients' => 24, // Placeholder
         ];
 
-        $recent_asks = Ask::latest()->take(5)->get();
+        $recent_posts = Post::latest()->take(5)->get();
 
         return view('livewire.admin.dashboard', [
             'stats' => $stats,
-            'recent_asks' => $recent_asks,
+            'recent_posts' => $recent_posts,
         ])->title('Admin Dashboard');
     }
 }

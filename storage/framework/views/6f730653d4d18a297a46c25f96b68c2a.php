@@ -15,6 +15,11 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Quill Rich Text Editor -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
+    
     <!-- Tailwind CSS (via CDN for quick professional UI) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -45,11 +50,11 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-900" x-data="{ sidebarOpen: true }">
+<body class="bg-slate-50 font-sans text-slate-900 overflow-x-hidden" x-data="{ sidebarOpen: window.innerWidth > 1024 }">
     
     <!-- Sidebar -->
     <aside 
-        class="fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-xl transition-transform duration-300 transform"
+        class="fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-xl transition-transform duration-300 transform lg:translate-x-0"
         :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
     >
         <div class="flex items-center justify-between h-20 px-6 bg-secondary text-white">
@@ -69,10 +74,16 @@
                 <span class="font-medium">Dashboard</span>
             </a>
             
-            <a href="<?php echo e(route('admin.asks')); ?>" 
-               class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg transition-all <?php echo e(request()->routeIs('admin.asks') ? 'active' : 'hover:bg-slate-100 text-slate-600'); ?>">
-                <i class="fa-solid fa-circle-question w-5"></i>
-                <span class="font-medium">Tanya Jawab (Ask)</span>
+            <a href="<?php echo e(route('admin.posts')); ?>" 
+               class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg transition-all <?php echo e(request()->routeIs('admin.posts') ? 'active' : 'hover:bg-slate-100 text-slate-600'); ?>">
+                <i class="fa-solid fa-newspaper w-5"></i>
+                <span class="font-medium">Manajemen Blog</span>
+            </a>
+            
+            <a href="<?php echo e(route('admin.categories')); ?>" 
+               class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg transition-all <?php echo e(request()->routeIs('admin.categories') ? 'active' : 'hover:bg-slate-100 text-slate-600'); ?>">
+                <i class="fa-solid fa-layer-group w-5"></i>
+                <span class="font-medium">Kategori Blog</span>
             </a>
 
             <div class="pt-4 pb-2 border-t border-slate-100">
@@ -124,27 +135,27 @@
         :class="sidebarOpen ? 'lg:ml-64' : ''"
     >
         <!-- Top Header -->
-        <header class="h-20 bg-white shadow-sm flex items-center justify-between px-8 sticky top-0 z-40">
-            <div class="flex items-center gap-4">
-                <button @click="sidebarOpen = !sidebarOpen" class="p-2 rounded-md hover:bg-slate-100 text-slate-600">
-                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+        <header class="h-16 md:h-20 bg-white shadow-sm flex items-center justify-between px-4 md:px-8 sticky top-0 z-40">
+            <div class="flex items-center gap-3 md:gap-4">
+                <button @click="sidebarOpen = !sidebarOpen" class="p-2 rounded-lg hover:bg-slate-100 text-slate-600 transition-colors">
+                    <i class="fa-solid fa-bars-staggered text-lg"></i>
                 </button>
-                <h2 class="font-outfit font-bold text-xl text-slate-800"><?php echo e($title ?? 'Dashboard'); ?></h2>
+                <h2 class="font-outfit font-bold text-lg md:text-xl text-slate-800 truncate max-w-[150px] md:max-w-none"><?php echo e($title ?? 'Dashboard'); ?></h2>
             </div>
 
-            <div class="flex items-center gap-6">
-                <div class="hidden md:flex flex-col items-end">
-                    <span class="text-sm font-bold text-slate-800">Admin Dirtech</span>
-                    <span class="text-xs text-slate-500">Administrator</span>
+            <div class="flex items-center gap-3 md:gap-6">
+                <div class="hidden sm:flex flex-col items-end">
+                    <span class="text-sm font-bold text-slate-800">Admin</span>
+                    <span class="text-[10px] font-black uppercase text-rose-500 tracking-widest">Master</span>
                 </div>
-                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">
+                <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-black shadow-lg shadow-rose-200">
                     AD
                 </div>
             </div>
         </header>
 
         <!-- Content Area -->
-        <main class="p-8">
+        <main class="p-4 md:p-8">
             <?php echo e($slot); ?>
 
         </main>
