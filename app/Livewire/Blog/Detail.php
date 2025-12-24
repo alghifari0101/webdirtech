@@ -22,7 +22,10 @@ final class Detail extends Component
      */
     public function mount(Post $post): void
     {
-        if (!$post->is_published || ($post->published_at && $post->published_at->isFuture())) {
+        $isAdmin = auth()->check() && auth()->user()->role === 'admin';
+        $isPublished = $post->is_published && (!$post->published_at || $post->published_at->isPast());
+
+        if (!$isPublished && !$isAdmin) {
             abort(404);
         }
         $this->post = $post;

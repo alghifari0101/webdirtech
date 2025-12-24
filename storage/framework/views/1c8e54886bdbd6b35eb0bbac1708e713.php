@@ -77,8 +77,7 @@
     <!-- Assets -->
     <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
 
-    <!-- Custom Styles for Landing & Service Pages -->
-    <link rel="stylesheet" href="<?php echo e(asset('css/dirtech.css')); ?>">
+
 
     <?php echo \Livewire\Mechanisms\FrontendAssets\FrontendAssets::styles(); ?>
 

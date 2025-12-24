@@ -1,132 +1,3 @@
-@import 'tailwindcss';
-
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
-
-@theme {
-    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
-    --font-outfit: 'Outfit', sans-serif;
-    --color-primary: #0f172a;
-    --color-accent: #D31A1A;
-}
-
-/* Override dirtech.css for consistent dropdown styling */
-.relative.group>div {
-    border-radius: 1rem !important;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
-    width: 16rem !important;
-}
-
-/* Blog Detail Image Alignment Fix - Robust Version */
-.prose img[style*="float: left"],
-.prose img[style*="float:left"] {
-    float: left !important;
-    margin-right: 2rem !important;
-    margin-bottom: 1rem !important;
-    margin-top: 0.5rem !important;
-    max-width: 50% !important;
-}
-
-.prose img[style*="float: right"],
-.prose img[style*="float:right"] {
-    float: right !important;
-    margin-left: 2rem !important;
-    margin-bottom: 1rem !important;
-    margin-top: 0.5rem !important;
-    max-width: 50% !important;
-}
-
-.prose img[style*="margin: auto"],
-.prose img[style*="margin:auto"],
-.prose img[style*="display: block"][style*="margin-left: auto"] {
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    float: none !important;
-}
-
-/* Fix for Quill alignment classes if present */
-.prose .ql-align-center {
-    text-align: center !important;
-}
-
-.prose .ql-align-center img {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: block !important;
-}
-
-.prose .ql-align-right {
-    text-align: right !important;
-}
-
-.prose .ql-align-right img {
-    margin-left: auto !important;
-    margin-right: 0 !important;
-    display: block !important;
-}
-
-.prose .ql-align-left {
-    text-align: left !important;
-}
-
-/* Ensure images don't overflow */
-.prose img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Blog Typography Overrides */
-html {
-    scroll-behavior: smooth;
-}
-
-.prose h2,
-.prose h3 {
-    scroll-margin-top: 100px;
-    color: #0f172a !important;
-    /* slate-900 */
-    font-weight: 900 !important;
-}
-
-.prose h2 {
-    font-size: 1.875rem !important;
-    /* text-3xl */
-    line-height: 2.25rem !important;
-    margin-top: 2rem !important;
-    margin-bottom: 1.25rem !important;
-}
-
-.prose h3 {
-    font-size: 1.5rem !important;
-    /* text-2xl */
-    line-height: 2rem !important;
-    margin-top: 1.5rem !important;
-    margin-bottom: 1rem !important;
-}
-
-.prose p {
-    margin-bottom: 1rem !important;
-    margin-top: 0 !important;
-}
-
-/* Handle empty paragraphs from double enters */
-.prose p:empty,
-.prose p>br:only-child {
-    display: none !important;
-}
-
-.prose b,
-.prose strong {
-    font-weight: 700 !important;
-    color: #1e293b !important;
-    /* slate-800 */
-}
-
-/* DIRTECH CSS LEGACY STYLES */
 :root {
     --primary: #0f172a;
     /* Slate 900 */
@@ -263,6 +134,120 @@ ul {
     margin-right: 0.5rem;
     color: var(--accent);
 }
+
+/* Navbar - REMOVED: Now using Tailwind classes in header component */
+/*
+.navbar {
+    padding: 1rem 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-size: 1.8rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.brand-icon {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: var(--dark-blue);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+.dropdown-toggle:hover {
+    color: var(--accent);
+}
+*/
+
+/* Dropdown - REMOVED: Now using Tailwind classes in header component */
+/*
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: pointer;
+}
+
+.dropdown-toggle .text-xs {
+    font-size: 0.7rem;
+    padding-top: 2px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 220px;
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--dark-blue);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    border-left: 2px solid transparent;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f8fafc;
+    color: var(--accent);
+    border-left-color: var(--accent);
+    padding-left: 1.8rem;
+}
+
+.dropdown-menu a.active-dropdown-item {
+    background-color: #f8fafc;
+    color: var(--accent);
+    border-left-color: var(--accent);
+    padding-left: 1.8rem;
+}
+*/
 
 .nav-actions {
     display: flex;
