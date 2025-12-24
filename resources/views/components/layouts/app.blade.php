@@ -75,6 +75,9 @@
     <!-- Assets -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <!-- Custom Styles for Landing & Service Pages -->
+    <link rel="stylesheet" href="{{ asset('css/dirtech.css') }}">
+
     @livewireStyles
 </head>
 <body>
