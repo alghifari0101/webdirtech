@@ -14,15 +14,23 @@ use Livewire\Attributes\Validate;
 final class PostForm extends Form
 {
     public ?int $id = null;
-
-    #[Validate('required|integer|exists:categories,id')]
     public ?int $category_id = null;
-
-    #[Validate('required|string|max:255')]
     public string $title = '';
 
-    #[Validate('nullable|string|max:255')]
+    #[Validate]
     public string $slug = '';
+
+    public function rules(): array
+    {
+        return [
+            'category_id' => 'required|integer|exists:categories,id',
+            'title' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:posts,slug,' . ($this->id ?? 'NULL'),
+            'content' => 'required|string',
+            'excerpt' => 'nullable|string|max:500',
+            'is_published' => 'boolean',
+        ];
+    }
 
     #[Validate('required|string')]
     public string $content = '';

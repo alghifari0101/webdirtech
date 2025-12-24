@@ -98,12 +98,34 @@
                     </button>
                 </div>
                 
-                <form wire:submit="store" class="p-8 overflow-y-auto space-y-6">
+                <form wire:submit="store" class="p-8 overflow-y-auto space-y-6"
+                      x-data="{ 
+                          autoSlug: {{ $form->id ? 'false' : 'true' }},
+                          slugify(text) {
+                              return text.toLowerCase()
+                                  .replace(/[^\w\s-]/g, '')
+                                  .replace(/[\s_-]+/g, '-')
+                                  .replace(/^-+|-+$/g, '');
+                          }
+                      }">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="text-xs font-black text-slate-500 uppercase tracking-widest">Judul Artikel</label>
-                            <input type="text" wire:model="form.title" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all font-bold text-slate-900" placeholder="Masukkan judul menarik...">
+                            <input type="text" wire:model="form.title" 
+                                   @input="if(autoSlug) $wire.set('form.slug', slugify($event.target.value))"
+                                   class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all font-bold text-slate-900" placeholder="Masukkan judul menarik...">
                             @error('form.title') <span class="text-rose-500 text-xs font-bold">{{ $message }}</span> @enderror
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-black text-slate-500 uppercase tracking-widest">Slug (URL)</label>
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm">/blog/</span>
+                                <input type="text" wire:model="form.slug" 
+                                       @input="autoSlug = false"
+                                       class="w-full pl-16 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all font-medium text-slate-600" placeholder="slug-artikel">
+                            </div>
+                            @error('form.slug') <span class="text-rose-500 text-xs font-bold">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="space-y-2">
