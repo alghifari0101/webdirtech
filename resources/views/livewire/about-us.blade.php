@@ -1,7 +1,7 @@
 <div>
     <!-- Page Header -->
     <div class="page-header">
-        <div class="container">
+        <div class="container mx-auto">
             <h1>Tentang Kami</h1>
             <div class="breadcrumb">
                 <a href="/">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span>Tentang Kami</span>
@@ -11,7 +11,7 @@
 
     <!-- About Content -->
     <section class="about-section">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="about-grid">
                 <!-- Images Left -->
                 <div class="about-images">
@@ -46,7 +46,7 @@
 
     <!-- Vision & Mission -->
     <section class="features-section" style="background-color: #f8fafc; margin-top: 0;">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="section-center-header text-center mb-5">
                 <h2>Visi & Misi</h2>
                 <p>Komitmen kami untuk Anda</p>

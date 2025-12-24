@@ -13,8 +13,8 @@
     --color-accent: #D31A1A;
 }
 
-/* Override dirtech.css for consistent dropdown styling */
-.relative.group>div {
+/* Override dirtech.css for consistent dropdown styling - Only for Nav Menus */
+.nav-links .relative.group>div {
     border-radius: 1rem !important;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
     width: 16rem !important;
@@ -155,7 +155,7 @@ html {
     box-sizing: border-box;
 } */
 
-body {
+body:not(.is-modern) {
     font-family: var(--font-body);
     background-color: var(--bg-light);
     color: var(--text-main);
@@ -164,32 +164,32 @@ body {
 }
 
 /* Typography */
-h1,
-h2,
-h3,
-h4,
-.brand {
+body:not(.is-modern) h1,
+body:not(.is-modern) h2,
+body:not(.is-modern) h3,
+body:not(.is-modern) h4,
+body:not(.is-modern) .brand {
     font-family: var(--font-heading);
     color: var(--dark-blue);
     line-height: 1.2;
 }
 
-a {
+body:not(.is-modern) a {
     text-decoration: none;
     color: inherit;
     transition: all 0.3s;
 }
 
-ul {
+body:not(.is-modern) ul {
     list-style: none;
 }
 
 /* Utilities */
-/* .container {
+body:not(.is-modern) .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
-} */
+}
 
 .btn {
     display: inline-flex;

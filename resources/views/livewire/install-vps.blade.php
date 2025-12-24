@@ -1,7 +1,7 @@
 <div>
     <!-- Page Header -->
     <div class="page-header" style="background-image: linear-gradient(rgba(11, 19, 43, 0.9), rgba(11, 19, 43, 0.8)), url('https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
-        <div class="container">
+        <div class="container mx-auto">
             <h1 class="text-3xl md:text-5xl lg:text-7xl">Jasa Install VPS & Jasa Setting VPS</h1>
             <div class="breadcrumb">
                 <a href="/">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span>Layanan</span> <i class="fa-solid fa-chevron-right"></i> <span>Install VPS</span>
@@ -11,7 +11,7 @@
 
     <!-- Service Details -->
     <section class="about-section">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="about-grid">
                 <!-- Content Left -->
                 <div class="about-content">
@@ -43,7 +43,7 @@
 
     <!-- Pricing Section -->
     <section class="features-section" style="background-color: #f8fafc; margin-top: 0; padding-top: 5rem;">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="section-center-header text-center mb-5">
                 <h2>Pilihan Paket Jasa Install VPS</h2>
                 <p>Pilih paket konfigurasi yang sesuai dengan kebutuhan Anda</p>
@@ -111,7 +111,7 @@
 
     <!-- Configuration Services Section -->
     <section class="features-section" style="padding-top: 6rem; padding-bottom: 2rem;">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="section-center-header text-center mb-10" style="margin-bottom: 3rem;">
                 <span class="about-subtitle">Layanan Lengkap</span>
                 <h2>Konfigurasi VPS yang Kami Tangani</h2>
@@ -161,7 +161,7 @@
 
     <!-- Process Section -->
     <section class="about-section" style="background-color: #f8fafc;">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="section-center-header text-center mb-5">
                 <h2>Alur Pengerjaan Setup VPS</h2>
                 <p>Proses yang terstruktur untuk hasil yang maksimal</p>

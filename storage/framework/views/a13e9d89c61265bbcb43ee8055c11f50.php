@@ -1,8 +1,8 @@
 <div>
     <!-- Page Header -->
     <div class="page-header" style="background-image: linear-gradient(rgba(11, 19, 43, 0.9), rgba(11, 19, 43, 0.8)), url('https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
-        <div class="container">
-            <h1>Jasa Install VPS & Jasa Setting VPS</h1>
+        <div class="container mx-auto">
+            <h1 class="text-3xl md:text-5xl lg:text-7xl">Jasa Install VPS & Jasa Setting VPS</h1>
             <div class="breadcrumb">
                 <a href="/">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span>Layanan</span> <i class="fa-solid fa-chevron-right"></i> <span>Install VPS</span>
             </div>
@@ -11,7 +11,7 @@
 
     <!-- Service Details -->
     <section class="about-section">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="about-grid">
                 <!-- Content Left -->
                 <div class="about-content">
@@ -43,13 +43,13 @@
 
     <!-- Pricing Section -->
     <section class="features-section" style="background-color: #f8fafc; margin-top: 0; padding-top: 5rem;">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="section-center-header text-center mb-5">
                 <h2>Pilihan Paket Jasa Install VPS</h2>
                 <p>Pilih paket konfigurasi yang sesuai dengan kebutuhan Anda</p>
             </div>
             
-            <div class="features-grid pricing-grid">
+            <div class="features-grid pricing-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Basic -->
                 <div class="pricing-card">
                     <div class="pricing-header">
@@ -111,14 +111,14 @@
 
     <!-- Configuration Services Section -->
     <section class="features-section" style="padding-top: 6rem; padding-bottom: 2rem;">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="section-center-header text-center mb-10" style="margin-bottom: 3rem;">
                 <span class="about-subtitle">Layanan Lengkap</span>
                 <h2>Konfigurasi VPS yang Kami Tangani</h2>
                 <p>Dari setup dasar hingga konfigurasi enterprise-level, kami siap membantu Anda.</p>
             </div>
 
-            <div class="features-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-solid fa-gauge"></i></div>
@@ -161,13 +161,13 @@
 
     <!-- Process Section -->
     <section class="about-section" style="background-color: #f8fafc;">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="section-center-header text-center mb-5">
                 <h2>Alur Pengerjaan Setup VPS</h2>
                 <p>Proses yang terstruktur untuk hasil yang maksimal</p>
             </div>
             
-            <div class="features-grid" style="grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4">
                 <div class="feature-card text-center" style="border:none; box-shadow:none; background: transparent;">
                     <div class="feature-icon mx-auto" style="width:60px; height:60px; display:flex; align-items:center; justify-content:center; background:white; border-radius:50%; color:var(--accent); font-size:1.2rem; margin-bottom:1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                         <i class="fa-solid fa-clipboard-list"></i>

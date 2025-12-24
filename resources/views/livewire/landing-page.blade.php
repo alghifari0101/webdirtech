@@ -1,7 +1,7 @@
 <div>
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="hero-grid">
                 <!-- Left: Content -->
                 <div class="hero-content">
@@ -69,7 +69,7 @@
 
     <!-- Trusted By Section -->
     <section class="trusted-section">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="trusted-label">Trusted By Enterprise Clients</div>
             <div class="trusted-logos">
                 <span>TECH CORP</span>
@@ -83,7 +83,7 @@
 
     <!-- Features/Cards Section -->
     <section id="services" class="features-section">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
                 <!-- Service 1 -->
                 <a href="{{ route('service.vps') }}" class="feature-card block group hover:no-underline">
@@ -126,7 +126,7 @@
 
     <!-- About Section -->
     <section class="about-section">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="about-grid">
                 <!-- Images Left -->
                 <div class="about-images">
@@ -171,7 +171,7 @@
     </section>
     <!-- FAQ Section -->
     <section class="faq-section" style="background-color: #fff;">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="section-center-header text-center mb-5">
                 <span class="about-subtitle">FAQ</span>
                 <h2>Pertanyaan Umum</h2>
@@ -228,7 +228,7 @@
 
     <!-- Testimonials Section -->
     <section class="testimonials-section" style="background-color: #f8fafc;">
-        <div class="container">
+        <div class="container mx-auto">
             <div class="section-center-header text-center mb-5">
                 <span class="about-subtitle">Testimoni</span>
                 <h2>Apa Kata Mereka?</h2>
@@ -280,7 +280,7 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <div class="container">
+        <div class="container mx-auto">
             <h2>Siap Mendigitalkan Bisnis Anda?</h2>
             <p>Konsultasikan kebutuhan teknologi Anda bersama tim ahli kami sekarang juga.</p>
             <a href="https://wa.me/{{ config('contact.whatsapp') }}" class="btn btn-white">Hubungi Kami via WhatsApp</a>

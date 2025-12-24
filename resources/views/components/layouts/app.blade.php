@@ -79,7 +79,7 @@
 
     @livewireStyles
 </head>
-<body>
+<body class="{{ (request()->routeIs('blog*') || request()->routeIs('contact')) ? 'is-modern' : '' }}">
     <x-header />
     
     <main>
