@@ -41,7 +41,11 @@
                 <!-- Right: Visuals -->
                 <div class="hero-visual">
                     <div class="floating-card">
-                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Work Preview" width="1200" height="800" fetchpriority="high" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.05);">
+                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200&fm=webp" 
+                             srcset="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600&fm=webp 600w, 
+                                     https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200&fm=webp 1200w"
+                             sizes="(max-width: 640px) 600px, 1200px"
+                             alt="Work Preview" width="1200" height="800" fetchpriority="high" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.05);">
                     </div>
                     
                     <!-- Floating UI 1: Dashboard Dark (Overlapping image) -->
@@ -131,10 +135,10 @@
                 <!-- Images Left -->
                 <div class="about-images">
                     <div class="about-img-card">
-                        <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Diskusi Tim" width="800" height="600" loading="lazy">
+                        <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp" alt="Diskusi Tim" width="800" height="600" loading="lazy">
                     </div>
                     <div class="about-img-card">
-                        <img src="https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Professional IT" width="800" height="600" loading="lazy">
+                        <img src="https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=800&fm=webp" alt="Professional IT" width="800" height="600" loading="lazy">
                     </div>
                 </div>
 
@@ -241,7 +245,7 @@
                     <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
                     <p class="review-text">"Layanan setup VPS-nya sangat memuaskan. Server stabil dan aman, support-nya juga sangat responsif membantu migrasi data kami."</p>
                     <div class="reviewer-profile">
-                        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Client 1" width="80" height="80" loading="lazy">
+                        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=200&fm=webp" alt="Client 1" width="80" height="80" loading="lazy">
                         <div>
                             <h4>Budi Santoso</h4>
                             <p>CEO, TechStartup.id</p>
@@ -254,7 +258,7 @@
                     <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
                     <p class="review-text">"Website baru kami terlihat sangat profesional dan cepat. Traffic pengunjung meningkat signifikan sejak redesign dengan tim Dirtech."</p>
                     <div class="reviewer-profile">
-                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Client 2" width="80" height="80" loading="lazy">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=200&fm=webp" alt="Client 2" width="80" height="80" loading="lazy">
                         <div>
                             <h4>Sari Rahayu</h4>
                             <p>Owner, BatikModern</p>
@@ -267,7 +271,7 @@
                     <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
                     <p class="review-text">"Sangat terbantu dengan jasa Google Bisnis-nya. Toko kami jadi mudah ditemukan di Maps dan review pelanggan jadi lebih termanage."</p>
                     <div class="reviewer-profile">
-                        <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Client 3" width="80" height="80" loading="lazy">
+                        <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=200&fm=webp" alt="Client 3" width="80" height="80" loading="lazy">
                         <div>
                             <h4>Agus Wijaya</h4>
                             <p>Manager, Cafe KopiLokal</p>
