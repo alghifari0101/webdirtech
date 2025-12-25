@@ -6,7 +6,7 @@
     @endif
 
     {{-- Header Section --}}
-    <header class="relative pt-6 pb-2 lg:pt-8 lg:pb-4 overflow-hidden bg-white border-b border-slate-50 px-4 md:px-0">
+    <header class="relative pt-4 pb-2 lg:pt-8 lg:pb-4 overflow-hidden bg-white border-b border-slate-50 px-4 md:px-0">
         <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
             <a href="{{ route('blog') }}" class="inline-flex items-center gap-2 text-blue-600 font-bold text-[9px] uppercase tracking-widest mb-2 hover:gap-4 transition-all">
                 <i class="fa-solid fa-arrow-left"></i> Kembali ke Blog
@@ -26,7 +26,7 @@
     </header>
 
     {{-- Content Section --}}
-    <section class="py-12">
+    <section class="py-6 md:py-12">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
                 {{-- Main Content --}}
@@ -65,8 +65,8 @@
                     <div class="mt-16 p-8 bg-slate-50 rounded-[2rem] border border-slate-100 flex flex-col md:flex-row items-start md:items-center gap-8 relative overflow-hidden group">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700"></div>
                         
-                        <div class="w-24 h-24 rounded-2xl bg-white p-4 shadow-sm border border-slate-100 flex-shrink-0 relative z-10">
-                            <img src="{{ asset('img/favicon.svg') }}" alt="Dirtech Logo" class="w-full h-full object-contain">
+                        <div class="w-16 h-16 md:w-24 md:h-24 rounded-2xl bg-white p-3 md:p-4 shadow-sm border border-slate-100 flex-shrink-0 relative z-10">
+                            <img src="{{ asset('img/favicon.svg') }}" alt="Dirtech Logo" width="64" height="64" class="w-full h-full object-contain">
                         </div>
                         
                         <div class="relative z-10 text-left">

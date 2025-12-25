@@ -119,9 +119,21 @@ final class Detail extends Component
                 $img->setAttribute('title', $this->post->title);
             }
             
-            // Add native lazy loading
+            // Add native lazy loading and optimize Pexels URLs
             if (!$img->hasAttribute('loading')) {
                 $img->setAttribute('loading', 'lazy');
+            }
+
+            $src = $img->getAttribute('src');
+            if (Str::contains($src, 'images.pexels.com')) {
+                // Add fm=webp and w=800 if not present
+                if (!Str::contains($src, 'fm=')) {
+                    $src .= (Str::contains($src, '?') ? '&' : '?') . 'fm=webp';
+                }
+                if (!Str::contains($src, 'w=')) {
+                    $src .= (Str::contains($src, '?') ? '&' : '?') . 'w=800';
+                }
+                $img->setAttribute('src', $src);
             }
         }
         
