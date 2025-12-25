@@ -34,7 +34,7 @@
                 <!-- Image Right -->
                  <div class="about-images" style="grid-template-columns: 1fr;">
                     <div class="about-img-card" style="height: 400px; border-radius: 20px;">
-                        <img src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Server Room">
+                        <img src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Server Room" width="800" height="400" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
             </div>

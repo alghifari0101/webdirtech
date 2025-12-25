@@ -41,7 +41,7 @@
                 <!-- Right: Visuals -->
                 <div class="hero-visual">
                     <div class="floating-card">
-                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Work Preview" style="width: 100%; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.05);">
+                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Work Preview" width="1200" height="800" fetchpriority="high" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.05);">
                     </div>
                     
                     <!-- Floating UI 1: Dashboard Dark (Overlapping image) -->

@@ -16,10 +16,10 @@
                 <!-- Images Left -->
                 <div class="about-images">
                     <div class="about-img-card">
-                        <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Office Culture">
+                        <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Office Culture" width="800" height="350" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="about-img-card">
-                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Brainstorming">
+                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Brainstorming" width="800" height="350" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
 
