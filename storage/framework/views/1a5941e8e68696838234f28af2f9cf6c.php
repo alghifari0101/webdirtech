@@ -44,7 +44,7 @@
                     <article class="group relative flex flex-col bg-white rounded-3xl border border-slate-100 overflow-hidden transition-all duration-500 shadow-sm">
                         <a href="<?php echo e(route('blog.show', $post->slug)); ?>" class="block aspect-[16/10] overflow-hidden relative">
                             <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($post->featured_image): ?>
-                                <img src="<?php echo e(storage_url($post->featured_image)); ?>" alt="<?php echo e($post->title); ?>" class="w-full h-full object-cover transition-transform duration-700">
+                                <img src="<?php echo e(storage_url($post->featured_image)); ?>" alt="<?php echo e($post->title); ?>" width="600" height="375" loading="lazy" class="w-full h-full object-cover transition-transform duration-700">
                             <?php else: ?>
                                 <div class="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
                                     <i class="fa-solid fa-image text-4xl text-slate-300"></i>

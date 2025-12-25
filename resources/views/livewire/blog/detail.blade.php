@@ -1,7 +1,7 @@
 <article class="bg-white">
     @if($post->featured_image)
         @push('head')
-            <link rel="preload" as="image" href="{{ storage_url($post->featured_image) }}" fetchpriority="high">
+            <link rel="preload" as="image" href="{{ optimized_url($post->featured_image) }}" fetchpriority="high">
         @endpush
     @endif
 
@@ -33,7 +33,7 @@
                 <div class="lg:col-span-8">
                     @if($post->featured_image)
                         <div class="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-500/10 mb-8 md:mb-12 relative z-20 max-h-[450px] aspect-video bg-slate-50">
-                            <img src="{{ storage_url($post->featured_image) }}" alt="{{ $post->title }}" title="{{ $post->title }}" loading="eager" fetchpriority="high" width="1200" height="675" class="w-full h-full object-cover">
+                            <img src="{{ optimized_url($post->featured_image) }}" alt="{{ $post->title }}" title="{{ $post->title }}" loading="eager" fetchpriority="high" width="1200" height="675" class="w-full h-full object-cover">
                         </div>
                     @endif
 
@@ -104,7 +104,7 @@
                                 <a href="{{ route('blog.show', $rp->slug) }}" class="group flex items-center gap-4">
                                     <div class="w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 flex-shrink-0">
                                         @if($rp->featured_image)
-                                            <img src="{{ storage_url($rp->featured_image) }}" width="80" height="80" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                            <img src="{{ optimized_url($rp->featured_image) }}" width="80" height="80" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                                         @else
                                             <div class="w-full h-full flex items-center justify-center">
                                                 <i class="fa-solid fa-image text-slate-300"></i>
@@ -156,7 +156,7 @@
                     <article class="bg-white p-2 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
                         <a href="{{ route('blog.show', $rp->slug) }}" class="block aspect-video rounded-2xl overflow-hidden mb-6 bg-slate-50">
                             @if($rp->featured_image)
-                                <img src="{{ storage_url($rp->featured_image) }}" width="400" height="225" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <img src="{{ optimized_url($rp->featured_image) }}" width="400" height="225" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             @else
                                 <div class="w-full h-full bg-slate-100 flex items-center justify-center text-slate-300">
                                     <i class="fa-solid fa-image text-2xl"></i>

@@ -6,10 +6,10 @@
                 <span class="flex items-center gap-2 opacity-80"><i class="fa-solid fa-phone text-accent"></i> +62 815-4110-8598</span>
             </div>
             <div class="top-socials flex gap-4">
-                <a href="#" class="opacity-60 hover:opacity-100 transition-opacity"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="opacity-60 hover:opacity-100 transition-opacity"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" class="opacity-60 hover:opacity-100 transition-opacity"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="opacity-60 hover:opacity-100 transition-opacity"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="opacity-60 hover:opacity-100 transition-opacity" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="opacity-60 hover:opacity-100 transition-opacity" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="opacity-60 hover:opacity-100 transition-opacity" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="opacity-60 hover:opacity-100 transition-opacity" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
 
             <div class="nav-actions flex items-center gap-4">
                 <a href="https://wa.me/<?php echo e(config('contact.whatsapp')); ?>" class="hidden md:flex px-6 py-2.5 bg-primary text-white text-sm font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-primary/10">Konsultasi Gratis</a>
-                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden w-10 h-10 flex items-center justify-center bg-slate-50 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden w-10 h-10 flex items-center justify-center bg-slate-50 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors" aria-label="Toggle mobile menu">
                     <i :class="mobileMenuOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars-staggered'"></i>
                 </button>
             </div>
