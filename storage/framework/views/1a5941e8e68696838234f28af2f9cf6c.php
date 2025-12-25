@@ -9,7 +9,7 @@
             <h1 class="text-5xl lg:text-7xl font-black text-white tracking-tighter mb-8 leading-[0.9]">
                 Insights & <span class="text-blue-500 italic">Digital Stories</span>
             </h1>
-            <p class="text-lg lg:text-xl text-slate-400 max-w-2xl mx-auto mb-12 font-medium">
+            <p class="text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto mb-12 font-medium">
                 Temukan panduan mendalam dan strategi taktis untuk mengakselerasi pertumbuhan bisnis Anda di era digital.
             </p>
 

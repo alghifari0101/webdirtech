@@ -2,9 +2,9 @@
     <!-- Page Header -->
     <div class="page-header" style="background-image: linear-gradient(rgba(11, 19, 43, 0.9), rgba(11, 19, 43, 0.8)), url('https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
         <div class="container mx-auto">
-            <h1 class="text-3xl md:text-5xl lg:text-7xl">Jasa Install VPS & Jasa Setting VPS</h1>
+            <h1 class="text-3xl md:text-5xl lg:text-7xl text-white">Jasa Install VPS & Jasa Setting VPS</h1>
             <div class="breadcrumb">
-                <a href="/">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span>Layanan</span> <i class="fa-solid fa-chevron-right"></i> <span>Install VPS</span>
+                <a href="/" class="text-white">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span class="text-slate-300">Layanan</span> <i class="fa-solid fa-chevron-right"></i> <span class="text-slate-300">Install VPS</span>
             </div>
         </div>
     </div>

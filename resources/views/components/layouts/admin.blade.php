@@ -142,7 +142,7 @@
                 <h2 class="font-outfit font-bold text-lg md:text-xl text-slate-800 truncate max-w-[150px] md:max-w-none">{{ $title ?? 'Dashboard' }}</h2>
             </div>
 
-            <div class="flex items-center gap-3 md:gap-6">
+            <div class="flex items-center gap-3 md:gap-4">
                 <div class="hidden sm:flex flex-col items-end">
                     <span class="text-sm font-bold text-slate-800">Admin</span>
                     <span class="text-[10px] font-black uppercase text-rose-500 tracking-widest">Master</span>
@@ -150,6 +150,12 @@
                 <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-black shadow-lg shadow-rose-200">
                     AD
                 </div>
+                <div class="h-8 w-px bg-slate-100 mx-1 hidden md:block"></div>
+                <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" 
+                        class="flex p-2.5 rounded-xl bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-600 transition-all border border-slate-100 shadow-sm"
+                        title="Keluar">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
             </div>
         </header>
 

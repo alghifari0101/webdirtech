@@ -324,10 +324,11 @@ body:not(.is-modern) .container {
 
 .hero-description {
     font-size: 1.25rem;
-    color: #475569;
+    color: #334155; /* Darker slate for better readability on light gray bg */
     margin-bottom: 45px;
     max-width: 520px;
     line-height: 1.6;
+    font-weight: 500;
 }
 
 .hero-actions {
@@ -394,9 +395,9 @@ body:not(.is-modern) .container {
 }
 
 .stat-item p {
-    font-size: 0.9rem;
-    color: #64748b;
-    font-weight: 600;
+    font-size: 0.95rem;
+    color: #475569; /* Darker for better contrast */
+    font-weight: 700;
     margin-top: 5px;
 }
 
@@ -728,8 +729,9 @@ body:not(.is-modern) .container {
 
 .page-header h1 {
     font-size: 3rem;
-    color: white;
+    color: white !important; /* Ensure it stays white on dark background */
     margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .breadcrumb {
@@ -737,13 +739,14 @@ body:not(.is-modern) .container {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.7); /* Lighter color for better contrast on dark bg */
     font-size: 0.95rem;
 }
 
 .breadcrumb a {
-    color: white;
-    font-weight: 500;
+    color: white !important;
+    font-weight: 700;
+    opacity: 0.9;
 }
 
 .breadcrumb a:hover {

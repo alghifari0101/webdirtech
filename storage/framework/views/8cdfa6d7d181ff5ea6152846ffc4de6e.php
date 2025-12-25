@@ -2,9 +2,9 @@
     <!-- Page Header -->
     <div class="page-header" style="background-image: linear-gradient(rgba(11, 19, 43, 0.9), rgba(11, 19, 43, 0.8)), url('https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); padding: 8rem 0 4rem 0;">
         <div class="container mx-auto">
-            <h1 class="text-3xl md:text-5xl lg:text-7xl">Jasa Pembuatan Website Profesional</h1>
+            <h1 class="text-3xl md:text-5xl lg:text-7xl text-white">Jasa Pembuatan Website Profesional</h1>
             <div class="breadcrumb">
-                <a href="/">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span>Layanan</span> <i class="fa-solid fa-chevron-right"></i> <span>Pembuatan Website</span>
+                <a href="/" class="text-white">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span class="text-slate-300">Layanan</span> <i class="fa-solid fa-chevron-right"></i> <span class="text-slate-300">Pembuatan Website</span>
             </div>
         </div>
     </div>
@@ -253,6 +253,47 @@
                     </div>
                     <h4 style="font-size:1.1rem; margin-bottom:0.5rem;">4. Testing & Launch</h4>
                     <p style="font-size:0.9rem;">Uji coba fungsionalitas, revisi final, dan website siap online.</p>
+                </div>
+            </div>
+        </div>
+    <!-- FAQ Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="section-center-header text-center mb-16">
+                <span class="about-subtitle">Tanya Jawab</span>
+                <h2>FAQ Jasa Pembuatan Website</h2>
+                <p>Informasi lengkap mengenai proses dan layanan pembuatan website kami.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div x-data="{ open: false }" class="border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Apakah website yang dibuat bisa diedit sendiri?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Ya, kami menggunakan CMS yang user-friendly sehingga Anda dapat dengan mudah mengedit teks, gambar, dan konten lainnya tanpa perlu keahlian koding.
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }" class="border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Apakah harga sudah termasuk domain dan hosting?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Ya, untuk paket Landing Page dan Company Profile, harga yang tertera sudah termasuk gratis nama domain (.com) dan hosting selama 1 tahun pertama.
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }" class="border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Berapa lama waktu yang dibutuhkan untuk pembuatan website?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Waktu pengerjaan bervariasi tergantung paket. Landing Page biasanya selesai dalam 3-5 hari kerja, sementara paket yang lebih kompleks seperti Toko Online membutuhkan waktu 7-14 hari kerja.
+                    </div>
                 </div>
             </div>
         </div>

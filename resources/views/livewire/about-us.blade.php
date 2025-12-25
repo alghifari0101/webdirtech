@@ -2,9 +2,9 @@
     <!-- Page Header -->
     <div class="page-header">
         <div class="container mx-auto">
-            <h1>Tentang Kami</h1>
+            <h1 class="text-white">Tentang Kami</h1>
             <div class="breadcrumb">
-                <a href="/">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span>Tentang Kami</span>
+                <a href="/" class="text-white">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span class="text-slate-300">Tentang Kami</span>
             </div>
         </div>
     </div>

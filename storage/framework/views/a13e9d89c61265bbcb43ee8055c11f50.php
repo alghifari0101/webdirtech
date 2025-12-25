@@ -2,9 +2,9 @@
     <!-- Page Header -->
     <div class="page-header" style="background-image: linear-gradient(rgba(11, 19, 43, 0.9), rgba(11, 19, 43, 0.8)), url('https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
         <div class="container mx-auto">
-            <h1 class="text-3xl md:text-5xl lg:text-7xl">Jasa Install VPS & Jasa Setting VPS</h1>
+            <h1 class="text-3xl md:text-5xl lg:text-7xl text-white">Jasa Install VPS & Jasa Setting VPS</h1>
             <div class="breadcrumb">
-                <a href="/">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span>Layanan</span> <i class="fa-solid fa-chevron-right"></i> <span>Install VPS</span>
+                <a href="/" class="text-white">Beranda</a> <i class="fa-solid fa-chevron-right"></i> <span class="text-slate-300">Layanan</span> <i class="fa-solid fa-chevron-right"></i> <span class="text-slate-300">Install VPS</span>
             </div>
         </div>
     </div>
@@ -198,6 +198,47 @@
                     </div>
                     <h4 style="font-size:1.1rem; margin-bottom:0.5rem;">4. Handover & Dokumentasi</h4>
                     <p style="font-size:0.9rem;">Serah terima akses, dokumentasi lengkap, dan panduan maintenance.</p>
+                </div>
+            </div>
+        </div>
+    <!-- FAQ Section -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="section-center-header text-center mb-16">
+                <span class="about-subtitle">Tanya Jawab</span>
+                <h2>FAQ Seputar Jasa Install VPS</h2>
+                <p>Pertanyaan yang sering diajukan mengenai layanan konfigurasi server kami.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div x-data="{ open: false }" class="border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Berapa lama proses pengerjaan jasa install VPS?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Proses pengerjaan biasanya berkisar antara 1 hingga 3 jam, tergantung pada kompleksitas konfigurasi yang Anda pesan.
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }" class="border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Apakah saya akan mendapatkan akses root penuh?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Tentu saja, setelah pengerjaan selesai, kami akan menyerahkan detail akses login root sepenuhnya kepada Anda.
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }" class="border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-slate-900">Control panel apa yang direkomendasikan untuk VPS?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Kami merekomendasikan CyberPanel, aaPanel, atau cPanel, disesuaikan dengan anggaran dan kebutuhan teknis website Anda.
+                    </div>
                 </div>
             </div>
         </div>

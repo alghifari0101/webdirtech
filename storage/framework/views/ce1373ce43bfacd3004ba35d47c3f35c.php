@@ -152,5 +152,47 @@
             </div>
         </div>
     </section>
+    
+    <section class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-accent font-black tracking-widest uppercase text-xs mb-4 block">Q&A Session</span>
+                <h2 class="text-4xl lg:text-5xl font-black text-primary tracking-tighter mb-6">FAQ Jasa Migrasi</h2>
+                <p class="text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto">Jawaban atas pertanyaan yang paling sering diajukan mengenai pemindahan website Anda ke infrastruktur baru.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div x-data="{ open: false }" class="border border-slate-200 rounded-[2rem] overflow-hidden shadow-sm bg-white">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-primary">Apakah ada downtime saat proses migrasi website?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Kami menjamin Zero Downtime. Website Anda tetap akan bisa diakses secara normal oleh pengunjung selama proses pemindahan data berlangsung.
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }" class="border border-slate-200 rounded-[2rem] overflow-hidden shadow-sm bg-white">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-primary">Apakah data email juga ikut dipindahkan?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Ya, kami melayani migrasi akun email beserta seluruh riwayat pesannya, asalkan server tujuan mendukung protokol IMAP.
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }" class="border border-slate-200 rounded-[2rem] overflow-hidden shadow-sm bg-white">
+                    <button @click="open = !open" class="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span class="font-bold text-primary">Berapa lama proses propagasi DNS berlangsung?</span>
+                        <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300" :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse class="px-8 py-6 bg-slate-50 border-t border-slate-100 text-slate-600 leading-relaxed">
+                        Propagasi DNS biasanya berlangsung antara 1 hingga 24 jam. Namun, kami melakukan optimasi pada TTL DNS agar prosesnya bisa berjalan lebih cepat.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 <?php /**PATH C:\laravel\dirtech\resources\views/livewire/website-migration.blade.php ENDPATH**/ ?>
