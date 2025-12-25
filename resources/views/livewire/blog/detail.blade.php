@@ -1,7 +1,12 @@
 <article class="bg-white">
+    @if($post->featured_image)
+        @push('head')
+            <link rel="preload" as="image" href="{{ storage_url($post->featured_image) }}" fetchpriority="high">
+        @endpush
+    @endif
 
     {{-- Header Section --}}
-    <header class="relative pt-6 pb-2 lg:pt-8 lg:pb-4 overflow-hidden bg-white border-b border-slate-50">
+    <header class="relative pt-6 pb-2 lg:pt-8 lg:pb-4 overflow-hidden bg-white border-b border-slate-50 px-4 md:px-0">
         <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
             <a href="{{ route('blog') }}" class="inline-flex items-center gap-2 text-blue-600 font-bold text-[9px] uppercase tracking-widest mb-2 hover:gap-4 transition-all">
                 <i class="fa-solid fa-arrow-left"></i> Kembali ke Blog
@@ -27,8 +32,8 @@
                 {{-- Main Content --}}
                 <div class="lg:col-span-8">
                     @if($post->featured_image)
-                        <div class="rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-500/10 mb-12 relative z-20 max-h-[450px] aspect-video">
-                            <img src="{{ storage_url($post->featured_image) }}" alt="{{ $post->title }}" title="{{ $post->title }}" loading="eager" fetchpriority="high" class="w-full h-full object-cover">
+                        <div class="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl shadow-blue-500/10 mb-8 md:mb-12 relative z-20 max-h-[450px] aspect-video bg-slate-50">
+                            <img src="{{ storage_url($post->featured_image) }}" alt="{{ $post->title }}" title="{{ $post->title }}" loading="eager" fetchpriority="high" width="1200" height="675" class="w-full h-full object-cover">
                         </div>
                     @endif
 
@@ -149,9 +154,9 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 @foreach($relatedPosts as $rp)
                     <article class="bg-white p-2 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
-                        <a href="{{ route('blog.show', $rp->slug) }}" class="block aspect-video rounded-2xl overflow-hidden mb-6">
+                        <a href="{{ route('blog.show', $rp->slug) }}" class="block aspect-video rounded-2xl overflow-hidden mb-6 bg-slate-50">
                             @if($rp->featured_image)
-                                <img src="{{ storage_url($rp->featured_image) }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <img src="{{ storage_url($rp->featured_image) }}" width="400" height="225" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             @else
                                 <div class="w-full h-full bg-slate-100 flex items-center justify-center text-slate-300">
                                     <i class="fa-solid fa-image text-2xl"></i>

@@ -85,6 +85,7 @@
 
 
 
+    @stack('head')
     @livewireStyles
 </head>
 <body class="{{ (request()->routeIs('home') || request()->routeIs('blog*') || request()->routeIs('contact') || request()->routeIs('service.*') || request()->routeIs('about')) ? 'is-modern' : '' }}">
