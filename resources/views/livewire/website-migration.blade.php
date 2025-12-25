@@ -16,8 +16,8 @@
                             <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
                         </a>
                         <div class="flex -space-x-3">
-                            <img class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Client">
-                            <img class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Client">
+                            <img class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Client" width="48" height="48" loading="lazy">
+                            <img class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Client" width="48" height="48" loading="lazy">
                             <div class="w-12 h-12 rounded-full border-4 border-white bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-400 shadow-sm">+50</div>
                         </div>
                         <span class="text-sm font-bold text-slate-400 italic">Telah membantu puluhan bisnis pindah dengan aman</span>

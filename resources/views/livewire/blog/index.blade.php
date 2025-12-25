@@ -43,7 +43,7 @@
                     <article class="group relative flex flex-col bg-white rounded-3xl border border-slate-100 overflow-hidden transition-all duration-500 shadow-sm">
                         <a href="{{ route('blog.show', $post->slug) }}" class="block aspect-[16/10] overflow-hidden relative">
                             @if($post->featured_image)
-                                <img src="{{ storage_url($post->featured_image) }}" alt="{{ $post->title }}" class="w-full h-full object-cover transition-transform duration-700">
+                                <img src="{{ storage_url($post->featured_image) }}" alt="{{ $post->title }}" width="600" height="375" loading="lazy" class="w-full h-full object-cover transition-transform duration-700">
                             @else
                                 <div class="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
                                     <i class="fa-solid fa-image text-4xl text-slate-300"></i>

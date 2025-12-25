@@ -99,7 +99,7 @@
                                 <a href="{{ route('blog.show', $rp->slug) }}" class="group flex items-center gap-4">
                                     <div class="w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 flex-shrink-0">
                                         @if($rp->featured_image)
-                                            <img src="{{ storage_url($rp->featured_image) }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                            <img src="{{ storage_url($rp->featured_image) }}" width="80" height="80" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                                         @else
                                             <div class="w-full h-full flex items-center justify-center">
                                                 <i class="fa-solid fa-image text-slate-300"></i>
