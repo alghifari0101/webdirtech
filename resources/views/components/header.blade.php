@@ -29,8 +29,8 @@
                         Layanan <i class="fa-solid fa-chevron-down text-[10px] opacity-50"></i>
                     </button>
                     <div class="absolute top-full left-0 w-64 bg-white border border-slate-100 shadow-2xl rounded-2xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 mt-2">
-                        <a href="/layanan/install-vps" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.vps') ? 'text-accent' : 'text-slate-700' }}">Jasa Install VPS</a>
-                        <a href="/layanan/pembuatan-website" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.website') ? 'text-accent' : 'text-slate-700' }}">Pembuatan Website</a>
+                        <a href="/jasa/install-vps" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.vps') ? 'text-accent' : 'text-slate-700' }}">Jasa Install VPS</a>
+                        <a href="/jasa/pembuatan-website" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.website') ? 'text-accent' : 'text-slate-700' }}">Pembuatan Website</a>
                         <a href="{{ route('service.migration') }}" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.migration') ? 'text-accent' : 'text-slate-700' }}">Migrasi Website</a>
                         <a href="{{ route('service.gmb') }}" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.gmb') ? 'text-accent' : 'text-slate-700' }}">Pembuatan Google Bisnis</a>
                     </div>

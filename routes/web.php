@@ -7,18 +7,14 @@ Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap')
 
 Route::get('/', \App\Livewire\LandingPage::class)->name('home');
 Route::get('/tentang-kami', \App\Livewire\AboutUs::class)->name('about');
-Route::get('/layanan/install-vps', \App\Livewire\InstallVps::class)->name('service.vps');
-Route::get('/layanan/pembuatan-website', \App\Livewire\CreateWebsite::class)->name('service.website');
-Route::get('/layanan/migrasi-website', \App\Livewire\WebsiteMigration::class)->name('service.migration');
-Route::get('/layanan/google-bisnis', \App\Livewire\GoogleBusiness::class)->name('service.gmb');
+Route::get('/jasa/install-vps', \App\Livewire\InstallVps::class)->name('service.vps');
+Route::get('/jasa/pembuatan-website', \App\Livewire\CreateWebsite::class)->name('service.website');
+Route::get('/jasa/migrasi-website', \App\Livewire\WebsiteMigration::class)->name('service.migration');
+Route::get('/jasa/google-bisnis', \App\Livewire\GoogleBusiness::class)->name('service.gmb');
 Route::get('/kontak', \App\Livewire\ContactUs::class)->name('contact');
 Route::get('/blog', \App\Livewire\Blog\Index::class)->name('blog');
 Route::get('/blog/category/{category}', \App\Livewire\Blog\Index::class)->name('blog.category');
 Route::get('/blog/{post}', \App\Livewire\Blog\Detail::class)->name('blog.show');
-
-// Legacy Redirects for SEO
-Route::get('/tanya', fn() => redirect()->route('blog', [], 301));
-Route::get('/tanya/{any?}', fn() => redirect()->route('blog', [], 301))->where('any', '.*');
 
 // Guest Routes
 Route::middleware('guest')->group(function () {
