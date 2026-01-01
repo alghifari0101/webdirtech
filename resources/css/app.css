@@ -126,6 +126,44 @@ html {
     /* slate-800 */
 }
 
+/* List Styling - Ensure bullets and numbering display */
+.prose ul {
+    list-style-type: disc !important;
+    margin-left: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    padding-left: 0.5rem !important;
+}
+
+.prose ul li {
+    margin-bottom: 0.5rem !important;
+    padding-left: 0.25rem !important;
+}
+
+.prose ol {
+    list-style-type: decimal !important;
+    margin-left: 1.5rem !important;
+    margin-bottom: 1rem !important;
+    padding-left: 0.5rem !important;
+}
+
+.prose ol li {
+    margin-bottom: 0.5rem !important;
+    padding-left: 0.25rem !important;
+}
+
+/* Nested lists */
+.prose ul ul,
+.prose ol ul {
+    list-style-type: circle !important;
+    margin-top: 0.5rem !important;
+}
+
+.prose ul ol,
+.prose ol ol {
+    list-style-type: lower-alpha !important;
+    margin-top: 0.5rem !important;
+}
+
 /* DIRTECH CSS LEGACY STYLES */
 :root {
     --primary: #0f172a;
