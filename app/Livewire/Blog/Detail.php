@@ -152,6 +152,7 @@ final class Detail extends Component
             '@context' => 'https://schema.org',
             '@type' => 'Article',
             'headline' => $this->post->title,
+            'description' => $this->post->excerpt ?: Str::limit(strip_tags($this->post->content), 160),
             'image' => [
                 '@type' => 'ImageObject',
                 'url' => $this->post->featured_image ? storage_url($this->post->featured_image) : asset('img/og-blog.png'),
@@ -164,10 +165,22 @@ final class Detail extends Component
                 'logo' => asset('img/logo-dirtech.png')
             ],
             'datePublished' => $this->post->published_at->toIso8601String(),
+            'dateModified' => $this->post->updated_at->toIso8601String(),
             'author' => [
                 '@type' => 'Organization',
                 'name' => 'Tim Editorial Dirtech'
-            ]
+            ],
+            'mainEntityOfPage' => [
+                '@type' => 'WebPage',
+                '@id' => route('blog.show', $this->post->slug)
+            ],
+            'url' => route('blog.show', $this->post->slug),
+            'keywords' => implode(', ', array_filter([
+                $this->post->category?->name,
+                $this->post->title,
+                'Dirtech',
+                'Blog'
+            ]))
         ];
 
         $faqs = $this->extractFaqs();
