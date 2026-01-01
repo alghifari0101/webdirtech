@@ -63,8 +63,8 @@
             <a href="/" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Beranda</a>
             <div class="space-y-3 pt-2 border-b border-slate-50 pb-4">
                 <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Layanan Kami</p>
-                <a href="/layanan/install-vps" class="block text-sm font-semibold text-slate-600 hover:text-accent">Jasa Install VPS</a>
-                <a href="/layanan/pembuatan-website" class="block text-sm font-semibold text-slate-600 hover:text-accent">Pembuatan Website</a>
+                <a href="/jasa/install-vps" class="block text-sm font-semibold text-slate-600 hover:text-accent">Jasa Install VPS</a>
+                <a href="/jasa/pembuatan-website" class="block text-sm font-semibold text-slate-600 hover:text-accent">Pembuatan Website</a>
                 <a href="{{ route('service.migration') }}" class="block text-sm font-semibold text-slate-600 hover:text-accent">Migrasi Website</a>
                 <a href="{{ route('service.gmb') }}" class="block text-sm font-semibold text-slate-600 hover:text-accent">Pembuatan Google Bisnis</a>
             </div>
