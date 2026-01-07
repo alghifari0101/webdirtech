@@ -104,13 +104,21 @@
                     </button>
                 </div>
 
-                @if ($errors->any())
+                @if (session()->has('error') || $errors->any())
                     <div class="px-8 py-4 bg-rose-50 border-b border-rose-100">
-                        <ul class="list-disc list-inside text-rose-600 text-xs font-bold space-y-1">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+                        @if (session()->has('error'))
+                            <div class="text-rose-600 font-bold mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-exclamation"></i> {{ session('error') }}
+                            </div>
+                        @endif
+
+                        @if ($errors->any())
+                            <ul class="list-disc list-inside text-rose-600 text-xs font-bold space-y-1">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </div>
                 @endif
                 
