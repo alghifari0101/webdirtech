@@ -46,5 +46,10 @@ final class AppServiceProvider extends ServiceProvider
         if (app()->isProduction()) {
             \Illuminate\Support\Facades\URL::forceScheme('https');
         }
+
+        // Define 'admin' gate for authorization
+        \Illuminate\Support\Facades\Gate::define('admin', function (\App\Models\User $user) {
+            return $user->role === 'admin';
+        });
     }
 }
