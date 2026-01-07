@@ -47,6 +47,30 @@
             border-right: 4px solid #e11d48;
             color: #e11d48;
         }
+
+        /* HARD RESET Spacing untuk Quill Editor */
+        .ql-editor p, .ql-editor h1, .ql-editor h2, .ql-editor h3, .ql-editor ul, .ql-editor ol {
+            margin-bottom: 0px !important;
+            margin-top: 0px !important;
+            padding-bottom: 0px !important;
+            padding-top: 0px !important;
+        }
+        
+        /* Celah kecil antar paragraf agar tidak menempel total */
+        .ql-editor p:not(:last-child) {
+            margin-bottom: 2px !important; 
+        }
+
+        .ql-editor {
+            line-height: 1.4 !important;
+            font-size: 15px !important;
+        }
+
+        .ql-editor a {
+            color: #2563eb !important;
+            text-decoration: underline !important;
+            font-weight: 700 !important;
+        }
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-900 overflow-x-hidden" x-data="{ sidebarOpen: window.innerWidth > 1024 }">

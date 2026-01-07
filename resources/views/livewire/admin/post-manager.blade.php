@@ -19,28 +19,7 @@
         <div class="mb-6 p-4 bg-rose-50 border border-rose-100 text-rose-600 rounded-xl font-bold flex items-center gap-3">
             <i class="fa-solid fa-circle-exclamation"></i> {{ session('error') }}
         </div>
-    @endif
-    
-    <style>
-        /* Reset spacing to absolute minimum in Quill */
-        .ql-editor p {
-            margin: 0 !important;
-            padding: 0 !important;
-            line-height: 1.5 !important;
-        }
-        /* Add a very small gap between paragraphs for visual clarity */
-        .ql-editor p:not(:last-child) {
-            margin-bottom: 4px !important;
-        }
-        .ql-editor {
-            font-size: 15px !important;
-        }
-        .ql-editor a {
-            color: #2563eb !important;
-            text-decoration: underline !important;
-            font-weight: 700 !important;
-        }
-    </style>
+@endif
 
     <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
         <table class="w-full text-left border-collapse">
