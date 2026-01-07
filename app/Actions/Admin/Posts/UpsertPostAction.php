@@ -38,11 +38,11 @@ final class UpsertPostAction
 
         // Rule 3.2: Sanitize HTML content to prevent XSS
         if (!empty($data['content'])) {
-            $data['content'] = clean($data['content']);
+            $data['content'] = \clean($data['content']);
         }
 
         if (!empty($data['excerpt'])) {
-            $data['excerpt'] = clean($data['excerpt']);
+            $data['excerpt'] = \clean($data['excerpt']);
         }
 
         if ($id) {
