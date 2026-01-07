@@ -61,6 +61,13 @@
             margin-bottom: 2px !important; 
         }
 
+        /* Sembunyikan paragraf kosong yang sering dibuat Quill saat Enter */
+        .ql-editor p:empty, .ql-editor p > br:only-child {
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 10px !important; /* Beri celah sedikit saja */
+        }
+
         .ql-editor {
             line-height: 1.4 !important;
             font-size: 15px !important;
