@@ -10,7 +10,7 @@
                         <div class="hero-subtitle">Welcome to Solvency</div>
                         <h1>Personalized Credit Repair Services</h1>
                         <p>We are leading credit repair services company all over the world doing over 40 years.</p>
-                        <a href="#" class="btn btn-white">Get Started</a>
+                        <a href="#" class="btn btn-white py-3 px-8">Get Started</a>
                         
                         <div class="wave-decoration">
                             <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,8 +26,8 @@
                     <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Business Meeting">
                     
                     <!-- Slider Arrows -->
-                    <div class="slider-arrow arrow-prev"><i class="fa-solid fa-chevron-left"></i></div>
-                    <div class="slider-arrow arrow-next"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="slider-arrow arrow-prev w-12 h-12 flex items-center justify-center"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="slider-arrow arrow-next w-12 h-12 flex items-center justify-center"><i class="fa-solid fa-chevron-right"></i></div>
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@
             <h1 class="text-2xl font-bold text-slate-900 italic">Manajemen <span class="text-blue-600 underline">Blog</span></h1>
             <p class="text-slate-500 text-sm">Tulis dan kelola artikel edukatif untuk SEO yang lebih baik.</p>
         </div>
-        <button wire:click="create" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold transition-all flex items-center gap-2 shadow-lg shadow-blue-500/20">
+        <button wire:click="create" class="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20">
             <i class="fa-solid fa-plus text-xs"></i> Tulis Artikel
         </button>
     </div>
@@ -18,7 +18,7 @@
     <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
         <table class="w-full text-left border-collapse">
             <thead>
-                <tr class="bg-slate-50 border-b border-slate-100">
+                <tr class="bg-slate-50 border-b border-slate-100 hidden md:table-row">
                     <th class="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Artikel</th>
                     <th class="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Kategori</th>
                     <th class="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Status</th>
@@ -28,8 +28,8 @@
             </thead>
             <tbody class="divide-y divide-slate-50">
                 @forelse($posts as $post)
-                    <tr class="hover:bg-slate-50/50 transition-colors">
-                        <td class="px-6 py-4">
+                    <tr class="hover:bg-slate-50/50 transition-colors flex flex-col md:table-row p-4 md:p-0 border-b md:border-b-0 border-slate-100">
+                        <td class="px-0 md:px-6 py-2 md:py-4">
                             <div class="flex items-center gap-4">
                                 @if($post->featured_image)
                                     <img src="{{ storage_url($post->featured_image) }}" class="w-12 h-12 rounded-lg object-cover border border-slate-100">
@@ -38,18 +38,18 @@
                                         <i class="fa-solid fa-image"></i>
                                     </div>
                                 @endif
-                                <div>
-                                    <div class="font-bold text-slate-900 leading-tight">{{ $post->title }}</div>
-                                    <div class="text-[10px] text-slate-400 font-medium">/blog/{{ $post->slug }}</div>
+                                <div class="overflow-hidden">
+                                    <div class="font-bold text-slate-900 leading-tight truncate">{{ $post->title }}</div>
+                                    <div class="text-[10px] text-slate-400 font-medium truncate">/blog/{{ $post->slug }}</div>
                                 </div>
                             </div>
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-0 md:px-6 py-2 md:py-4">
                             <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-[10px] font-black uppercase">
                                 {{ $post->category?->name ?? 'Uncategorized' }}
                             </span>
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-0 md:px-6 py-2 md:py-4">
                             @if($post->is_published)
                                 <span class="text-emerald-500 font-bold text-xs flex items-center gap-1">
                                     <i class="fa-solid fa-circle text-[8px]"></i> Terbit
@@ -60,16 +60,16 @@
                                 </span>
                             @endif
                         </td>
-                        <td class="px-6 py-4 text-sm text-slate-500 font-medium">
+                        <td class="px-0 md:px-6 py-2 md:py-4 text-sm text-slate-500 font-medium">
                             {{ $post->created_at->format('d/m/Y') }}
                         </td>
-                        <td class="px-6 py-4 text-right">
-                            <div class="flex justify-end gap-2">
-                                <button wire:click="edit({{ $post->id }})" class="p-2 text-slate-400 hover:text-blue-600 transition-colors">
-                                    <i class="fa-solid fa-pen-to-square"></i>
+                        <td class="px-0 md:px-6 py-4 md:py-4 text-left md:text-right mt-2 md:mt-0 border-t md:border-t-0 border-slate-50 pt-4 md:pt-4">
+                            <div class="flex justify-start md:justify-end gap-2">
+                                <button wire:click="edit({{ $post->id }})" class="p-3 text-slate-400 hover:text-blue-600 transition-colors">
+                                    <i class="fa-solid fa-pen-to-square text-lg"></i>
                                 </button>
-                                <button onclick="confirm('Hapus artikel ini?') || event.stopImmediatePropagation()" wire:click="delete({{ $post->id }})" class="p-2 text-slate-400 hover:text-rose-600 transition-colors">
-                                    <i class="fa-solid fa-trash"></i>
+                                <button onclick="confirm('Hapus artikel ini?') || event.stopImmediatePropagation()" wire:click="delete({{ $post->id }})" class="p-3 text-slate-400 hover:text-rose-600 transition-colors">
+                                    <i class="fa-solid fa-trash text-lg"></i>
                                 </button>
                             </div>
                         </td>

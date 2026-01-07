@@ -13,6 +13,7 @@ use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\Layout;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Refactored User Manager component.
@@ -80,6 +81,7 @@ final class UserManager extends Component
      */
     public function store(UpsertUserAction $action): void
     {
+        Gate::authorize('admin');
         $this->form->validate();
 
         $action->execute($this->form->all(), $this->form->userId);
@@ -99,6 +101,7 @@ final class UserManager extends Component
      */
     public function edit(int $id): void
     {
+        Gate::authorize('admin');
         $user = User::findOrFail($id);
         $this->form->setFromUser($user);
         
@@ -115,6 +118,7 @@ final class UserManager extends Component
      */
     public function delete(int $id, DeleteUserAction $action): void
     {
+        Gate::authorize('admin');
         try {
             $action->execute($id, (int) auth()->id());
             session()->flash('message', 'User Berhasil Dihapus.');

@@ -35,6 +35,15 @@ final class UpsertPostAction
             $data['excerpt'] = Str::limit(strip_tags($data['content']), 160);
         }
 
+        // Rule 3.2: Sanitize HTML content to prevent XSS
+        if (!empty($data['content'])) {
+            $data['content'] = clean($data['content']);
+        }
+
+        if (!empty($data['excerpt'])) {
+            $data['excerpt'] = clean($data['excerpt']);
+        }
+
         return Post::updateOrCreate(['id' => $id], $data);
     }
 }

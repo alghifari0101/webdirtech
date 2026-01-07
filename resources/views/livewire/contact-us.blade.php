@@ -26,7 +26,7 @@
                     </div>
                     <h3 class="text-2xl font-black text-primary mb-4 tracking-tight">WhatsApp Support</h3>
                     <p class="text-slate-500 text-sm leading-relaxed mb-8">Respon cepat untuk pertanyaan seputar layanan dan penawaran harga.</p>
-                    <a href="https://wa.me/{{ config('contact.whatsapp') }}" class="inline-flex items-center gap-2 font-bold text-accent group-hover:gap-4 transition-all">
+                    <a href="https://wa.me/{{ config('contact.whatsapp') }}" class="inline-flex items-center gap-2 py-3 font-bold text-accent group-hover:gap-4 transition-all">
                         Chat via WhatsApp <i class="fa-solid fa-arrow-right text-sm"></i>
                     </a>
                 </div>
@@ -38,7 +38,7 @@
                     </div>
                     <h3 class="text-2xl font-black text-primary mb-4 tracking-tight">Email Inquiry</h3>
                     <p class="text-slate-500 text-sm leading-relaxed mb-8">Kirimkan detail kerjasama atau kendala teknis Anda melalui email kami.</p>
-                    <a href="mailto:support@dirtech.web.id" class="inline-flex items-center gap-2 font-bold text-primary group-hover:gap-4 transition-all">
+                    <a href="mailto:support@dirtech.web.id" class="inline-flex items-center gap-2 py-3 font-bold text-primary group-hover:gap-4 transition-all">
                         Kirim Email <i class="fa-solid fa-arrow-right text-sm"></i>
                     </a>
                 </div>

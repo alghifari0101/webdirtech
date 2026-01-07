@@ -23,7 +23,7 @@
                 <h3 class="text-xl font-outfit font-bold text-slate-800 tracking-tight">Manajemen User</h3>
                 <p class="text-slate-500 text-sm mt-1">Kelola akun administrator dan staff yang memiliki akses ke dashboard.</p>
             </div>
-            <button wire:click="create()" class="bg-primary hover:bg-rose-700 text-white font-bold py-2.5 px-6 rounded-xl shadow-lg shadow-rose-200 transition-all flex items-center gap-2">
+            <button wire:click="create()" class="w-full md:w-auto bg-primary hover:bg-rose-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-rose-200 transition-all flex items-center justify-center gap-2">
                 <i class="fa-solid fa-user-plus text-sm"></i>
                 Tambah User
             </button>
@@ -36,7 +36,7 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
                 <input wire:model.live.debounce.300ms="search" type="text" 
-                    class="block w-full pl-10 pr-3 py-2.5 border border-slate-200 rounded-xl text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" 
+                    class="block w-full pl-10 pr-3 py-3 border border-slate-200 rounded-xl text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" 
                     placeholder="Cari user (nama atau email)...">
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="overflow-x-auto rounded-xl border border-slate-100">
             <table class="w-full text-left border-collapse">
                 <thead>
-                    <tr class="bg-slate-50">
+                    <tr class="bg-slate-50 hidden md:table-row">
                         <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">User</th>
                         <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">Role</th>
                         <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100 text-center">Aksi</th>
@@ -52,8 +52,8 @@
                 </thead>
                 <tbody class="divide-y divide-slate-50">
                     @forelse($users as $user)
-                        <tr class="hover:bg-slate-50 transition-colors">
-                            <td class="px-6 py-4">
+                        <tr class="hover:bg-slate-50 transition-colors flex flex-col md:table-row p-4 md:p-0 border-b md:border-b-0 border-slate-100">
+                            <td class="px-0 md:px-6 py-2 md:py-4">
                                 <div class="flex items-center gap-3">
                                     <div class="w-10 h-10 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center font-bold text-sm">
                                         {{ strtoupper(substr($user->name, 0, 2)) }}
@@ -64,21 +64,21 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-0 md:px-6 py-2 md:py-4">
                                 <span class="px-3 py-1 rounded-full text-xs font-bold {{ $user->role === 'admin' ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-600' }}">
                                     {{ ucfirst($user->role) }}
                                 </span>
                             </td>
-                            <td class="px-6 py-4 text-center">
-                                <div class="flex justify-center items-center gap-2">
-                                    <button wire:click="edit({{ $user->id }})" class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Edit">
-                                        <i class="fa-solid fa-pen-to-square"></i>
+                            <td class="px-0 md:px-6 py-4 md:py-4 text-left md:text-center mt-2 md:mt-0 border-t md:border-t-0 border-slate-50 pt-4 md:pt-4">
+                                <div class="flex justify-start md:justify-center items-center gap-2">
+                                    <button wire:click="edit({{ $user->id }})" class="p-3 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Edit">
+                                        <i class="fa-solid fa-pen-to-square text-lg"></i>
                                     </button>
                                     @if($user->id !== auth()->id())
                                         <button wire:click="delete({{ $user->id }})" 
                                             onclick="confirm('Apakah Anda yakin ingin menghapus user ini?') || event.stopImmediatePropagation()"
-                                            class="p-2 text-rose-600 hover:bg-rose-50 rounded-lg transition-colors" title="Hapus">
-                                            <i class="fa-solid fa-trash-can"></i>
+                                            class="p-3 text-rose-600 hover:bg-rose-50 rounded-lg transition-colors" title="Hapus">
+                                            <i class="fa-solid fa-trash-can text-lg"></i>
                                         </button>
                                     @endif
                                 </div>

@@ -27,12 +27,12 @@
             {{-- Category Filter --}}
             <div class="flex flex-wrap items-center justify-center gap-3 mb-16">
                 <button wire:click="$set('category', null)" 
-                    class="px-6 py-2.5 rounded-xl font-bold text-sm transition-all {{ is_null($category) ? 'bg-slate-900 text-white shadow-xl shadow-slate-900/20' : 'bg-slate-50 text-slate-500 hover:bg-slate-100' }}">
+                    class="px-6 py-3 rounded-xl font-bold text-sm transition-all {{ is_null($category) ? 'bg-slate-900 text-white shadow-xl shadow-slate-900/20' : 'bg-slate-50 text-slate-500 hover:bg-slate-100' }}">
                     Semua Topik
                 </button>
                 @foreach($categories as $cat)
                     <button wire:click="$set('category', '{{ $cat->slug }}')" 
-                        class="px-6 py-2.5 rounded-xl font-bold text-sm transition-all {{ $category === $cat->slug ? 'bg-blue-600 text-white shadow-xl shadow-blue-500/20' : 'bg-slate-50 text-slate-500 hover:bg-slate-100' }}">
+                        class="px-6 py-3 rounded-xl font-bold text-sm transition-all {{ $category === $cat->slug ? 'bg-blue-600 text-white shadow-xl shadow-blue-500/20' : 'bg-slate-50 text-slate-500 hover:bg-slate-100' }}">
                         {{ $cat->name }}
                     </button>
                 @endforeach

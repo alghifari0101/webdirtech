@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Category Manager component.
@@ -34,6 +35,7 @@ final class CategoryManager extends Component
      */
     public function save(): void
     {
+        Gate::authorize('admin');
         $this->validate(['name' => 'required|string|max:100|unique:categories,name,' . $this->editingId]);
 
         Category::updateOrCreate(['id' => $this->editingId], [
@@ -50,6 +52,7 @@ final class CategoryManager extends Component
      */
     public function edit(int $id): void
     {
+        Gate::authorize('admin');
         $category = Category::findOrFail($id);
         $this->editingId = $id;
         $this->name = $category->name;
@@ -60,6 +63,7 @@ final class CategoryManager extends Component
      */
     public function delete(int $id): void
     {
+        Gate::authorize('admin');
         $category = Category::findOrFail($id);
         if ($category->posts()->count() > 0) {
             session()->flash('error', 'Kategori tidak bisa dihapus karena masih memiliki artikel.');

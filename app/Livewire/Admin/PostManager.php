@@ -13,6 +13,7 @@ use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Post Manager component.
@@ -70,6 +71,7 @@ final class PostManager extends Component
      */
     public function store(UpsertPostAction $action): void
     {
+        Gate::authorize('admin');
         if ($this->tempImage) {
             $path = $this->tempImage->store('blog', 'public');
             $this->form->featured_image = $path;
@@ -94,6 +96,7 @@ final class PostManager extends Component
      */
     public function edit(int $id): void
     {
+        Gate::authorize('admin');
         $post = Post::findOrFail($id);
         $this->form->setPost($post);
 
@@ -109,6 +112,7 @@ final class PostManager extends Component
      */
     public function delete(int $id): void
     {
+        Gate::authorize('admin');
         $post = Post::findOrFail($id);
         $post->delete();
         session()->flash('message', 'Artikel berhasil dihapus.');
