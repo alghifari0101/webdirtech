@@ -42,41 +42,13 @@
     @livewireStyles
     <style>
         [x-cloak] { display: none !important; }
+@endif
+
+    <style>
         .sidebar-link.active {
             background-color: rgba(225, 29, 72, 0.1);
             border-right: 4px solid #e11d48;
             color: #e11d48;
-        }
-
-        /* HARD RESET Spacing untuk Quill Editor */
-        .ql-editor p, .ql-editor h1, .ql-editor h2, .ql-editor h3, .ql-editor ul, .ql-editor ol {
-            margin-bottom: 0px !important;
-            margin-top: 0px !important;
-            padding-bottom: 0px !important;
-            padding-top: 0px !important;
-        }
-        
-        /* Celah kecil antar paragraf agar tidak menempel total */
-        .ql-editor p:not(:last-child) {
-            margin-bottom: 2px !important; 
-        }
-
-        /* Sembunyikan paragraf kosong yang sering dibuat Quill saat Enter */
-        .ql-editor p:empty, .ql-editor p > br:only-child {
-            margin: 0 !important;
-            padding: 0 !important;
-            height: 10px !important; /* Beri celah sedikit saja */
-        }
-
-        .ql-editor {
-            line-height: 1.4 !important;
-            font-size: 15px !important;
-        }
-
-        .ql-editor a {
-            color: #2563eb !important;
-            text-decoration: underline !important;
-            font-weight: 700 !important;
         }
     </style>
 </head>
@@ -197,5 +169,39 @@
     </div>
 
     @livewireScripts
+
+    <style>
+        /* CSS ini diletakkan di bawah untuk memastikan override semua style Quill */
+        .ql-editor p, .ql-editor h1, .ql-editor h2, .ql-editor h3, .ql-editor ul, .ql-editor ol, .ql-editor li {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        /* Memberikan celah sangat tipis antar paragraf */
+        .ql-editor p:not(:last-child) {
+            margin-bottom: 4px !important; 
+        }
+
+        .ql-editor {
+            line-height: 1.4 !important;
+            font-size: 15px !important;
+        }
+
+        .ql-editor a {
+            color: #2563eb !important;
+            text-decoration: underline !important;
+            font-weight: 700 !important;
+        }
+        
+        /* Mengurangi padding internal editor */
+        .ql-container.ql-snow {
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 0 0 12px 12px !important;
+        }
+        
+        .ql-editor {
+            padding: 10px 15px !important;
+        }
+    </style>
 </body>
 </html>
