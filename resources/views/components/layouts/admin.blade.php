@@ -42,9 +42,6 @@
     @livewireStyles
     <style>
         [x-cloak] { display: none !important; }
-@endif
-
-    <style>
         .sidebar-link.active {
             background-color: rgba(225, 29, 72, 0.1);
             border-right: 4px solid #e11d48;
