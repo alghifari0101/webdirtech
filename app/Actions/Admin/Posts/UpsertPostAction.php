@@ -20,6 +20,7 @@ final class UpsertPostAction
      */
     public function execute(array $data): Post
     {
+        \Illuminate\Support\Facades\Log::info('UpsertPostAction::execute start', ['data' => $data]);
         $id = $data['id'] ?? null;
         unset($data['id']);
 

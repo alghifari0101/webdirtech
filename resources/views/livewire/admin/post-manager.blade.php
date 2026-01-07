@@ -103,6 +103,16 @@
                         <i class="fa-solid fa-xmark text-xl"></i>
                     </button>
                 </div>
+
+                @if ($errors->any())
+                    <div class="px-8 py-4 bg-rose-50 border-b border-rose-100">
+                        <ul class="list-disc list-inside text-rose-600 text-xs font-bold space-y-1">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 
                 <form wire:submit="store" class="p-8 overflow-y-auto space-y-6"
                       x-data="{ 

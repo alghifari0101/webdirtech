@@ -71,15 +71,19 @@ final class PostManager extends Component
      */
     public function store(UpsertPostAction $action): void
     {
+        \Illuminate\Support\Facades\Log::info('PostManager::store called', ['form' => $this->form->all()]);
         Gate::authorize('admin');
         
         try {
             if ($this->tempImage) {
+                \Illuminate\Support\Facades\Log::info('Storing temp image');
                 $path = $this->tempImage->store('blog', 'public');
                 $this->form->featured_image = $path;
             }
 
+            \Illuminate\Support\Facades\Log::info('Triggering form store');
             $this->form->store($action);
+            \Illuminate\Support\Facades\Log::info('Form store success');
 
             session()->flash('message', 
                 $this->form->id ? 'Artikel berhasil diperbarui.' : 'Artikel berhasil ditambahkan.');
@@ -88,6 +92,9 @@ final class PostManager extends Component
             $this->form->reset();
             $this->tempImage = null;
             $this->dispatch('content-reset');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            \Illuminate\Support\Facades\Log::warning('Validation failed', ['errors' => $e->errors()]);
+            throw $e;
         } catch (\Throwable $e) {
             \Illuminate\Support\Facades\Log::error('Error saving article: ' . $e->getMessage(), [
                 'exception' => $e,
@@ -122,6 +129,7 @@ final class PostManager extends Component
      */
     public function delete(int $id): void
     {
+        Log::info('PostManager::delete called', ['id' => $id]);
         Gate::authorize('admin');
         $post = Post::findOrFail($id);
         $post->delete();
