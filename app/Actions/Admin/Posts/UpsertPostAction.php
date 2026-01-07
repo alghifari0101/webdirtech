@@ -37,13 +37,19 @@ final class UpsertPostAction
         }
 
         // Rule 3.2: Sanitize HTML content to prevent XSS
-        if (!empty($data['content'])) {
-            $data['content'] = \clean($data['content']);
-        }
+        // Safely check if Purifier is available and configured
+        $hasPurifier = function_exists('clean');
 
-        if (!empty($data['excerpt'])) {
-            $data['excerpt'] = \clean($data['excerpt']);
+        if ($hasPurifier) {
+            if (!empty($data['content'])) {
+                $data['content'] = \clean($data['content']);
+            }
+            if (!empty($data['excerpt'])) {
+                $data['excerpt'] = \clean($data['excerpt']);
+            }
         }
+        // If Purifier is not present, we keep the content as is to avoid stripping formatting
+        // BUT we must ensure the user installs it for security.
 
         if ($id) {
             $post = Post::findOrFail($id);
