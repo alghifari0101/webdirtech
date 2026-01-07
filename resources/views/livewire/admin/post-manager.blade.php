@@ -20,6 +20,24 @@
             <i class="fa-solid fa-circle-exclamation"></i> {{ session('error') }}
         </div>
     @endif
+    
+    <style>
+        .ql-editor p {
+            margin-bottom: 0.75rem !important;
+        }
+        .ql-editor p:last-child {
+            margin-bottom: 0 !important;
+        }
+        .ql-editor {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .ql-editor a {
+            color: #2563eb !important;
+            text-decoration: underline !important;
+            font-weight: 700 !important;
+        }
+    </style>
 
     <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
         <table class="w-full text-left border-collapse">

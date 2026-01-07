@@ -113,6 +113,19 @@ html {
     margin-top: 0 !important;
 }
 
+.prose a {
+    color: #2563eb !important;
+    /* blue-600 */
+    text-decoration: underline !important;
+    font-weight: 700 !important;
+    transition: color 0.2s;
+}
+
+.prose a:hover {
+    color: #1d4ed8 !important;
+    /* blue-700 */
+}
+
 /* Handle empty paragraphs from double enters */
 .prose p:empty,
 .prose p>br:only-child {
