@@ -65,7 +65,7 @@ final class Detail extends Component
             'recentPosts' => $recentPosts
         ])->layoutData([
             'title' => $this->post->title . ' | Dirtech Blog',
-            'description' => $this->post->excerpt ?: Str::limit(strip_tags($this->post->content), 160),
+            'description' => Str::limit(strip_tags($this->post->excerpt ?: $this->post->content), 160),
             'ogType' => 'article',
             'ogImage' => $this->post->featured_image ? storage_url($this->post->featured_image) : 'img/og-blog.png',
             'schema' => $this->getCombinedSchema()
@@ -152,7 +152,7 @@ final class Detail extends Component
             '@context' => 'https://schema.org',
             '@type' => 'Article',
             'headline' => $this->post->title,
-            'description' => $this->post->excerpt ?: Str::limit(strip_tags($this->post->content), 160),
+            'description' => Str::limit(strip_tags($this->post->excerpt ?: $this->post->content), 160),
             'image' => [
                 '@type' => 'ImageObject',
                 'url' => $this->post->featured_image ? storage_url($this->post->featured_image) : asset('img/og-blog.png'),

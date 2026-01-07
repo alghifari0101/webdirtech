@@ -45,7 +45,7 @@ final class UpsertPostAction
                 $data['content'] = \clean($data['content']);
             }
             if (!empty($data['excerpt'])) {
-                $data['excerpt'] = \clean($data['excerpt']);
+                $data['excerpt'] = strip_tags(\clean($data['excerpt']));
             }
         }
         // If Purifier is not present, we keep the content as is to avoid stripping formatting
