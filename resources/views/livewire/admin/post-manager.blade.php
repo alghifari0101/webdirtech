@@ -15,6 +15,12 @@
         </div>
     @endif
 
+    @if (session()->has('error'))
+        <div class="mb-6 p-4 bg-rose-50 border border-rose-100 text-rose-600 rounded-xl font-bold flex items-center gap-3">
+            <i class="fa-solid fa-circle-exclamation"></i> {{ session('error') }}
+        </div>
+    @endif
+
     <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
         <table class="w-full text-left border-collapse">
             <thead>

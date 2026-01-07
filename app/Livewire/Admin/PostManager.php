@@ -72,20 +72,30 @@ final class PostManager extends Component
     public function store(UpsertPostAction $action): void
     {
         Gate::authorize('admin');
-        if ($this->tempImage) {
-            $path = $this->tempImage->store('blog', 'public');
-            $this->form->featured_image = $path;
+        
+        try {
+            if ($this->tempImage) {
+                $path = $this->tempImage->store('blog', 'public');
+                $this->form->featured_image = $path;
+            }
+
+            $this->form->store($action);
+
+            session()->flash('message', 
+                $this->form->id ? 'Artikel berhasil diperbarui.' : 'Artikel berhasil ditambahkan.');
+
+            $this->closeModal();
+            $this->form->reset();
+            $this->tempImage = null;
+            $this->dispatch('content-reset');
+        } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\Log::error('Error saving article: ' . $e->getMessage(), [
+                'exception' => $e,
+                'form_data' => $this->form->all()
+            ]);
+            
+            session()->flash('error', 'Terjadi kesalahan saat menyimpan artikel: ' . $e->getMessage());
         }
-
-        $this->form->store($action);
-
-        session()->flash('message', 
-            $this->form->id ? 'Artikel berhasil diperbarui.' : 'Artikel berhasil ditambahkan.');
-
-        $this->closeModal();
-        $this->form->reset();
-        $this->tempImage = null;
-        $this->dispatch('content-reset');
     }
 
     /**
