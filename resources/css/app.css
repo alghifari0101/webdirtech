@@ -234,10 +234,16 @@ body:not(.is-modern) ul {
 }
 
 /* Utilities */
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
 body:not(.is-modern) .container {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
 }
 
 .btn {
