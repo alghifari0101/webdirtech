@@ -8,10 +8,12 @@ return [
     'settings'      => [
         'default' => [
             'HTML.Doctype'             => 'HTML 4.01 Transitional',
-            'HTML.Allowed'             => 'h1,h2,h3,h4,h5,h6,b,strong,i,em,a[href|title|target|rel],ul,ol,li,p[style|class],br,span[style|class],img[width|height|alt|src|style|class|loading],blockquote,pre,code,div[style|class],iframe[src|width|height|frameborder|allowfullscreen|style|class]',
+            'HTML.Allowed'             => 'h1,h2,h3,h4,h5,h6,b,strong,i,em,a[href|title|target|rel],ul,ol,li,p[style|class],br,span[style|class],img[width|height|alt|src|style|class|loading],blockquote,pre,code,div[style|class],iframe[src|width|height|frameborder|allowfullscreen|style|class|title]',
             'CSS.AllowedProperties'    => 'font,font-size,font-weight,font-style,font-family,text-decoration,padding-left,color,background-color,text-align,width,height,margin,margin-left,margin-right,margin-top,margin-bottom,border',
             'AutoFormat.AutoParagraph' => true,
             'AutoFormat.RemoveEmpty'   => true,
+            'HTML.SafeIframe'      => true,
+            'URI.SafeIframeRegexp' => '%^(http://|https://|//)(www.youtube.com/embed/|player.vimeo.com/video/|www.google.com/maps/embed)%',
         ],
         'test'    => [
             'Attr.EnableID' => 'true',
