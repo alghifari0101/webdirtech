@@ -16,8 +16,6 @@ final class PostForm extends Form
     public ?int $id = null;
     public ?int $category_id = null;
     public string $title = '';
-
-    #[Validate]
     public string $slug = '';
 
     public function rules(): array
@@ -28,20 +26,14 @@ final class PostForm extends Form
             'slug' => 'required|string|max:255|unique:posts,slug,' . ($this->id ?? 'NULL'),
             'content' => 'required|string',
             'excerpt' => 'nullable|string|max:500',
+            'featured_image' => 'nullable|string',
             'is_published' => 'boolean',
         ];
     }
 
-    #[Validate('required|string')]
     public string $content = '';
-
-    #[Validate('nullable|string|max:500')]
     public string $excerpt = '';
-
-    #[Validate('nullable|string')]
     public ?string $featured_image = null;
-
-    #[Validate('boolean')]
     public bool $is_published = false;
 
     /**

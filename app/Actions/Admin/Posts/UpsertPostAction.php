@@ -27,11 +27,11 @@ final class UpsertPostAction
             $data['slug'] = Str::slug($data['title']);
         }
 
-        if ($data['is_published'] && empty($data['published_at'])) {
+        if (($data['is_published'] ?? false) && empty($data['published_at'] ?? null)) {
             $data['published_at'] = now();
         }
 
-        if (empty($data['excerpt']) && !empty($data['content'])) {
+        if (empty($data['excerpt'] ?? null) && !empty($data['content'] ?? '')) {
             $data['excerpt'] = Str::limit(strip_tags($data['content']), 160);
         }
 
@@ -44,6 +44,12 @@ final class UpsertPostAction
             $data['excerpt'] = clean($data['excerpt']);
         }
 
-        return Post::updateOrCreate(['id' => $id], $data);
+        if ($id) {
+            $post = Post::findOrFail($id);
+            $post->update($data);
+            return $post;
+        }
+
+        return Post::create($data);
     }
 }
