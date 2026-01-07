@@ -22,17 +22,20 @@
     @endif
     
     <style>
-        .ql-editor p {
-            margin-bottom: 0.75rem !important;
+        /* Force tight spacing in Quill editor */
+        .ql-container .ql-editor p {
+            margin-bottom: 0px !important;
+            padding-bottom: 8px !important;
+            margin-top: 0px !important;
         }
-        .ql-editor p:last-child {
-            margin-bottom: 0 !important;
+        .ql-container .ql-editor p:last-child {
+            padding-bottom: 0px !important;
         }
-        .ql-editor {
-            font-size: 16px;
-            line-height: 1.6;
+        .ql-container .ql-editor {
+            font-size: 15px !important;
+            line-height: 1.5 !important;
         }
-        .ql-editor a {
+        .ql-container .ql-editor a {
             color: #2563eb !important;
             text-decoration: underline !important;
             font-weight: 700 !important;
