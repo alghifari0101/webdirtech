@@ -8,12 +8,14 @@ return [
     'settings'      => [
         'default' => [
             'HTML.Doctype'             => 'HTML 4.01 Transitional',
-            'HTML.Allowed'             => 'h1,h2,h3,h4,h5,h6,b,strong,i,em,a[href|title|target|rel],ul,ol,li,p[style|class],br,span[style|class],img[width|height|alt|src|style|class|loading],blockquote,pre,code,div[style|class],iframe[src|width|height|frameborder|allowfullscreen|style|class|title]',
+            'HTML.Allowed'             => 'h1,h2,h3,h4,h5,h6,b,strong,i,em,a[href|title|target|rel],ul,ol,li,p[style|class],br,span[style|class],img[width|height|alt|src|style|class],blockquote,pre,code,div[style|class],iframe[src|width|height|frameborder|allowfullscreen|style|class|title]',
             'CSS.AllowedProperties'    => 'font,font-size,font-weight,font-style,font-family,text-decoration,padding-left,color,background-color,text-align,width,height,margin,margin-left,margin-right,margin-top,margin-bottom,border',
             'AutoFormat.AutoParagraph' => true,
             'AutoFormat.RemoveEmpty'   => true,
-            'HTML.SafeIframe'      => true,
-            'URI.SafeIframeRegexp' => '%^(http://|https://|//)(www.youtube.com/embed/|player.vimeo.com/video/|www.google.com/maps/embed)%',
+            'HTML.SafeIframe'          => true,
+            'URI.SafeIframeRegexp'     => '%^(http://|https://|//)(www.youtube.com/embed/|player.vimeo.com/video/|www.google.com/maps/embed)%',
+            'HTML.DefinitionID'        => 'html5-definitions',
+            'HTML.DefinitionRev'       => 1,
         ],
         'test'    => [
             'Attr.EnableID' => 'true',
@@ -72,6 +74,7 @@ return [
             ],
             'attributes' => [
                 ['iframe', 'allowfullscreen', 'Bool'],
+                ['img', 'loading', 'Enum#lazy,eager'],
                 ['table', 'height', 'Text'],
                 ['td', 'border', 'Text'],
                 ['th', 'border', 'Text'],
