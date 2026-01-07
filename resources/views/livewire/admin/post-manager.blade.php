@@ -22,20 +22,20 @@
     @endif
     
     <style>
-        /* Force tight spacing in Quill editor */
-        .ql-container .ql-editor p {
-            margin-bottom: 0px !important;
-            padding-bottom: 8px !important;
-            margin-top: 0px !important;
-        }
-        .ql-container .ql-editor p:last-child {
-            padding-bottom: 0px !important;
-        }
-        .ql-container .ql-editor {
-            font-size: 15px !important;
+        /* Reset spacing to absolute minimum in Quill */
+        .ql-editor p {
+            margin: 0 !important;
+            padding: 0 !important;
             line-height: 1.5 !important;
         }
-        .ql-container .ql-editor a {
+        /* Add a very small gap between paragraphs for visual clarity */
+        .ql-editor p:not(:last-child) {
+            margin-bottom: 4px !important;
+        }
+        .ql-editor {
+            font-size: 15px !important;
+        }
+        .ql-editor a {
             color: #2563eb !important;
             text-decoration: underline !important;
             font-weight: 700 !important;
