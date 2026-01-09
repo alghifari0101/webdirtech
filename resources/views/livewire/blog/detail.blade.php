@@ -15,7 +15,7 @@
                 <span class="px-3 py-0.5 bg-blue-50 text-blue-600 rounded-full text-[8px] font-black uppercase tracking-wider">
                     {{ $post->category->name }}
                 </span>
-                <span class="text-slate-400 text-[9px] font-bold uppercase tracking-widest">
+                <span class="text-slate-500 text-[9px] font-bold uppercase tracking-widest">
                     {{ $post->published_at->format('M d, Y') }}
                 </span>
             </div>
@@ -43,7 +43,7 @@
                                 <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
                                     <i class="fa-solid fa-list-ul"></i>
                                 </div>
-                                <h3 class="text-xl font-black text-slate-900 tracking-tight">Daftar Isi</h3>
+                                <h2 class="text-xl font-black text-slate-900 tracking-tight">Daftar Isi</h2>
                             </div>
                             <nav class="space-y-3">
                                 @foreach($toc as $item)
@@ -78,11 +78,11 @@
                                 Dirtech adalah partner teknologi terpercaya yang menghadirkan solusi digital inovatif mulai dari jasa pembuatan website premium, install VPS, migrasi website, hingga pembuatan Google Business Profile.
                             </p>
                             <div class="flex items-center justify-start gap-4">
-                                <a href="{{ route('home') }}" class="text-slate-400 hover:text-blue-600 transition-colors text-sm font-bold flex items-center gap-1">
+                                <a href="{{ route('home') }}" class="text-slate-500 hover:text-blue-600 transition-colors text-sm font-bold flex items-center gap-1">
                                     <i class="fa-solid fa-earth-asia"></i> Website
                                 </a>
                                 <span class="w-1 h-1 bg-slate-200 rounded-full"></span>
-                                <a href="https://wa.me/{{ config('contact.whatsapp') }}" class="text-slate-400 hover:text-emerald-500 transition-colors text-sm font-bold flex items-center gap-1">
+                                <a href="https://wa.me/{{ config('contact.whatsapp') }}" class="text-slate-500 hover:text-emerald-500 transition-colors text-sm font-bold flex items-center gap-1">
                                     <i class="fa-brands fa-whatsapp"></i> Konsultasi
                                 </a>
                             </div>
@@ -95,16 +95,16 @@
 
                     {{-- Recent Posts --}}
                     <div>
-                        <h3 class="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-6 flex items-center gap-3">
+                        <h2 class="text-xs font-black text-slate-500 uppercase tracking-[0.2em] mb-6 flex items-center gap-3">
                             Artikel Terbaru
                             <span class="flex-1 h-px bg-slate-100"></span>
-                        </h3>
+                        </h2>
                         <div class="space-y-6">
                             @foreach($recentPosts as $rp)
-                                <a href="{{ route('blog.show', $rp->slug) }}" class="group flex items-center gap-4">
+                                <a href="{{ route('blog.show', $rp->slug) }}" aria-label="{{ $rp->title }}" class="group flex items-center gap-4">
                                     <div class="w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 flex-shrink-0">
                                         @if($rp->featured_image)
-                                            <img src="{{ optimized_url($rp->featured_image) }}" width="80" height="80" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                            <img src="{{ optimized_url($rp->featured_image) }}" alt="{{ $rp->title }}" width="80" height="80" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                                         @else
                                             <div class="w-full h-full flex items-center justify-center">
                                                 <i class="fa-solid fa-image text-slate-300"></i>
@@ -112,10 +112,10 @@
                                         @endif
                                     </div>
                                     <div class="flex-1 min-w-0">
-                                        <h4 class="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug mb-1">
+                                        <h3 class="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug mb-1">
                                             {{ $rp->title }}
-                                        </h4>
-                                        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                                        </h3>
+                                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">
                                             {{ $rp->published_at->format('M d, Y') }}
                                         </p>
                                     </div>
@@ -154,9 +154,9 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 @foreach($relatedPosts as $rp)
                     <article class="bg-white p-2 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
-                        <a href="{{ route('blog.show', $rp->slug) }}" class="block aspect-video rounded-2xl overflow-hidden mb-6 bg-slate-50">
+                        <a href="{{ route('blog.show', $rp->slug) }}" aria-label="{{ $rp->title }}" class="block aspect-video rounded-2xl overflow-hidden mb-6 bg-slate-50">
                             @if($rp->featured_image)
-                                <img src="{{ optimized_url($rp->featured_image) }}" width="400" height="225" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <img src="{{ optimized_url($rp->featured_image) }}" alt="{{ $rp->title }}" width="400" height="225" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             @else
                                 <div class="w-full h-full bg-slate-100 flex items-center justify-center text-slate-300">
                                     <i class="fa-solid fa-image text-2xl"></i>
@@ -164,10 +164,10 @@
                             @endif
                         </a>
                         <div class="px-4 pb-6">
-                            <h4 class="text-lg font-black text-slate-900 leading-tight mb-2 group-hover:text-blue-600 transition-colors">
+                            <h3 class="text-lg font-black text-slate-900 leading-tight mb-2 group-hover:text-blue-600 transition-colors">
                                 <a href="{{ route('blog.show', $rp->slug) }}">{{ $rp->title }}</a>
-                            </h4>
-                            <div class="text-[10px] font-black text-slate-400 uppercase tracking-widest">{{ $rp->published_at->format('M d, Y') }}</div>
+                            </h3>
+                            <div class="text-[10px] font-black text-slate-500 uppercase tracking-widest">{{ $rp->published_at->format('M d, Y') }}</div>
                         </div>
                     </article>
                 @endforeach

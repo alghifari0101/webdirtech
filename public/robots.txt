@@ -1,2 +1,8 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin/
+Disallow: /nova/
+Disallow: /storage/*.zip
+Disallow: /storage/*.pdf
+
+Sitemap: https://dirtech.web.id/sitemap.xml

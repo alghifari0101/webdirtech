@@ -40,8 +40,8 @@
     <!-- LD+JSON Schema -->
     <script type="application/ld+json">
     {!! json_encode([
-        '@@context' => 'https://schema.org',
-        '@@type' => 'Organization',
+        '@context' => 'https://schema.org',
+        '@type' => 'Organization',
         'name' => 'Dirtech Solutions',
         'url' => url('/'),
         'logo' => asset('img/logo-dirtech.png'),
@@ -49,7 +49,7 @@
             'https://wa.me/' . config('contact.whatsapp')
         ],
         'contactPoint' => [
-            '@@type' => 'ContactPoint',
+            '@type' => 'ContactPoint',
             'telephone' => '+' . config('contact.whatsapp'),
             'contactType' => 'customer service',
             'areaServed' => 'ID',
@@ -73,6 +73,10 @@
     {{-- Preload critical fonts --}}
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@700&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    {{-- Preload FontAwesome Critical Webfonts (Fix for 'Ensure text remains visible') --}}
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- FontAwesome (Non-blocking) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
