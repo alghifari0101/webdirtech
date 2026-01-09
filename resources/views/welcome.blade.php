@@ -1,5 +1,9 @@
 <x-layouts.app title="Dirtech - Solusi Digital Terpadu">
     
+    @push('head')
+        <link rel="preload" as="image" href="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" fetchpriority="high">
+    @endpush
+
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
@@ -23,7 +27,12 @@
 
                 <!-- Right: Image -->
                 <div class="hero-image">
-                    <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Business Meeting">
+                    <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                         alt="Business Meeting"
+                         width="1260" 
+                         height="750" 
+                         fetchpriority="high"
+                         class="w-full h-auto">
                     
                     <!-- Slider Arrows -->
                     <div class="slider-arrow arrow-prev w-12 h-12 flex items-center justify-center"><i class="fa-solid fa-chevron-left"></i></div>
@@ -74,10 +83,18 @@
                 <!-- Images Left -->
                 <div class="about-images">
                     <div class="about-img-card">
-                        <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Team Discussion">
+                        <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                             alt="Team Discussion"
+                             width="800"
+                             height="533"
+                             loading="lazy">
                     </div>
                     <div class="about-img-card">
-                        <img src="https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Smiling Professional">
+                        <img src="https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                             alt="Smiling Professional"
+                             width="800"
+                             height="533"
+                             loading="lazy">
                     </div>
                 </div>
 

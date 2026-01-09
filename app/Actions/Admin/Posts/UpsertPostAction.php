@@ -54,9 +54,22 @@ final class UpsertPostAction
         if ($id) {
             $post = Post::findOrFail($id);
             $post->update($data);
+            
+            // Eagerly optimize image
+            if (!empty($post->featured_image)) {
+                \App\Services\ImageOptimizer::webp($post->featured_image);
+            }
+            
             return $post;
         }
 
-        return Post::create($data);
+        $post = Post::create($data);
+        
+        // Eagerly optimize image
+        if (!empty($post->featured_image)) {
+            \App\Services\ImageOptimizer::webp($post->featured_image);
+        }
+
+        return $post;
     }
 }

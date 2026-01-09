@@ -21,12 +21,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', \App\Livewire\Auth\Login::class)->name('login');
 });
 
-Route::post('/logout', function () {
-    auth()->logout();
-    request()->session()->invalidate();
-    request()->session()->regenerateToken();
-    return redirect('/');
-})->name('logout')->middleware('auth');
+Route::post('/logout', \App\Http\Controllers\Auth\LogoutController::class)->name('logout')->middleware('auth');
 
 // Admin Routes
 Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {

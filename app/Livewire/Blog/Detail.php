@@ -7,6 +7,7 @@ namespace App\Livewire\Blog;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
@@ -46,11 +47,16 @@ final class Detail extends Component
         $processedContent = $this->post->content;
         $toc = [];
 
-        if ($processedContent) {
-            $tocData = $this->generateTocAndProcessedContent($processedContent);
-            $processedContent = $tocData['content'];
-            $toc = $tocData['toc'];
-        }
+        // Cache key based on post ID and update timestamp to ensure freshness
+        $cacheKey = "post_content_{$this->post->id}_{$this->post->updated_at->timestamp}";
+
+        // Rule 7.1: Application caching for expensive operations
+        $contentData = Cache::remember($cacheKey, now()->addDays(7), function () use ($processedContent) {
+            return $this->generateTocAndProcessedContent($processedContent);
+        });
+
+        $processedContent = $contentData['content'];
+        $toc = $contentData['toc'];
 
         $recentPosts = Post::where('id', '!=', $this->post->id)
             ->published()
@@ -125,6 +131,29 @@ final class Detail extends Component
             }
 
             $src = $img->getAttribute('src');
+            
+            // Handle Local Storage Images for CLS Optimization
+            if (Str::startsWith($src, '/storage/')) {
+                // Try to get dimensions
+                try {
+                    $relativePath = Str::after($src, '/storage/');
+                    $fullPath = storage_path('app/public/' . $relativePath);
+                    
+                    if (file_exists($fullPath)) {
+                        [$width, $height] = getimagesize($fullPath);
+                        
+                        if (!$img->hasAttribute('width')) {
+                            $img->setAttribute('width', (string)$width);
+                        }
+                        if (!$img->hasAttribute('height')) {
+                            $img->setAttribute('height', (string)$height);
+                        }
+                    }
+                } catch (\Exception $e) {
+                    // Fail silently, don't break the page render
+                }
+            }
+
             if (Str::contains($src, 'images.pexels.com')) {
                 // Add fm=webp and w=800 if not present
                 if (!Str::contains($src, 'fm=')) {
