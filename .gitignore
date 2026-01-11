@@ -26,3 +26,12 @@
 !/storage/framework/views/.gitignore
 /storage/app/public/*
 !/storage/app/public/.gitignore
+
+/storage/*.key
+/storage/pail
+/vendor
+Homestead.json
+Homestead.yaml
+Thumbs.db
+.phpunit.result.cache
+/storage/framework/views/*.blade.php
