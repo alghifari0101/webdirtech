@@ -41,8 +41,69 @@
         </div>
     </section>
 
+    <!-- Target Audience Section -->
+    <section class="py-20 bg-slate-50 border-t border-b border-slate-100">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                            <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 mb-2">Semua Jenjang</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">Lulusan SMA/K, D3, S1, hingga S2/S3. Kami sesuaikan layout sesuai level akademik.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                            <div class="w-12 h-12 bg-accent/10 text-accent rounded-xl flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 mb-2">Semua Profesi</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">Admin, Marketing, IT, Guru, Medis, hingga Executive. Optimasi keyword sesuai bidang.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                            <div class="w-12 h-12 bg-emerald-500/10 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-seedling"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 mb-2">Fresh Graduate</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">Tonjolkan prestasi akademik dan organisasi meski belum punya pengalaman kerja.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                            <div class="w-12 h-12 bg-amber-500/10 text-amber-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 mb-2">Professional</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">Fokus pada pencapaian (achievements) dan metrik performa kerja Anda.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="about-subtitle">Fleksibilitas Tanpa Batas</span>
+                    <h2 class="text-3xl lg:text-4xl font-black text-primary mb-6 leading-tight">Satu Solusi Untuk <br><span class="text-accent italic">Seluruh Karir Anda</span></h2>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        Apapun latar belakang pendidikan dan bidang pekerjaan yang Anda incar, sistem kami dirancang untuk menghasilkan CV yang adaptif dan relevan bagi rekruter.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                            <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-check text-primary"></i>
+                            </div>
+                            <p class="text-sm font-bold text-slate-700">Cocok untuk lamaran di BUMN, Corporate, hingga Startup.</p>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                            <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-check text-primary"></i>
+                            </div>
+                            <p class="text-sm font-bold text-slate-700">Support format Bahasa Indonesia dan Bahasa Inggris.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
-    <section class="features-section" style="background-color: #f8fafc; margin-top: 0; padding-top: 5rem;">
+    <section id="pricing" class="features-section" style="background-color: #f8fafc; margin-top: 0; padding-top: 5rem;">
         <div class="container mx-auto">
             <div class="section-center-header text-center mb-5">
                 <h2>Paket Jasa Pembuatan CV</h2>

@@ -38,7 +38,7 @@
                     </div>
                     <h3 class="text-2xl font-black text-primary mb-4 tracking-tight">Email Inquiry</h3>
                     <p class="text-slate-500 text-sm leading-relaxed mb-8">Kirimkan detail kerjasama atau kendala teknis Anda melalui email kami.</p>
-                    <a href="mailto:support@dirtech.web.id" class="inline-flex items-center gap-2 py-3 font-bold text-primary group-hover:gap-4 transition-all">
+                    <a href="mailto:{{ config('contact.email') }}" class="inline-flex items-center gap-2 py-3 font-bold text-primary group-hover:gap-4 transition-all">
                         Kirim Email <i class="fa-solid fa-arrow-right text-sm"></i>
                     </a>
                 </div>
@@ -49,7 +49,7 @@
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
                     <h3 class="text-2xl font-black text-primary mb-4 tracking-tight">Lokasi Kantor</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8">Pekalongan, Jawa Tengah, Indonesia. Melayani klien dari seluruh Nusantara.</p>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8">{{ config('contact.address') }}. Melayani klien dari seluruh Nusantara.</p>
                     <span class="inline-flex items-center gap-2 font-bold text-slate-400">
                         Visit our Office <i class="fa-solid fa-chevron-right text-sm"></i>
                     </span>

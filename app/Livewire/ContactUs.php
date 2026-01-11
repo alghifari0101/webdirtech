@@ -37,7 +37,7 @@ final class ContactUs extends Component
                     'contactPoint' => [
                         '@type' => 'ContactPoint',
                         'contactType' => 'customer support',
-                        'email' => 'support@dirtech.web.id'
+                        'email' => config('contact.email')
                     ]
                 ]
             ]
