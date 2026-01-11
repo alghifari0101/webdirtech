@@ -51,5 +51,10 @@ final class AppServiceProvider extends ServiceProvider
         \Illuminate\Support\Facades\Gate::define('admin', function (\App\Models\User $user) {
             return $user->role === 'admin';
         });
+
+        // Define 'member' gate for active CV users
+        \Illuminate\Support\Facades\Gate::define('member', function (\App\Models\User $user) {
+            return $user->role === 'member' && $user->is_active;
+        });
     }
 }

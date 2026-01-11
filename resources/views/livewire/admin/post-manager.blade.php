@@ -208,6 +208,39 @@
                                     this.content = this.quill.root.innerHTML;
                                 });
 
+                                // Custom Image Handler for Server-side Upload
+                                this.quill.getModule('toolbar').addHandler('image', () => {
+                                    const input = document.createElement('input');
+                                    input.setAttribute('type', 'file');
+                                    input.setAttribute('accept', 'image/*');
+                                    input.click();
+
+                                    input.onchange = async () => {
+                                        const file = input.files[0];
+                                        if (!file) return;
+
+                                        const formData = new FormData();
+                                        formData.append('image', file);
+                                        formData.append('_token', '{{ csrf_token() }}');
+
+                                        try {
+                                            const response = await fetch('{{ route("admin.blog.upload-image") }}', {
+                                                method: 'POST',
+                                                body: formData
+                                            });
+
+                                            if (!response.ok) throw new Error('Upload failed');
+
+                                            const result = await response.json();
+                                            const range = this.quill.getSelection();
+                                            this.quill.insertEmbed(range ? range.index : 0, 'image', result.url);
+                                        } catch (error) {
+                                            console.error('Error uploading image:', error);
+                                            alert('Gagal mengunggah gambar. Silakan coba lagi.');
+                                        }
+                                    };
+                                });
+
                                 this.$watch('content', value => {
                                     if (value !== this.quill.root.innerHTML) {
                                         this.quill.root.innerHTML = value || '';

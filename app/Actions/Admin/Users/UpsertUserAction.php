@@ -17,21 +17,27 @@ final class UpsertUserAction
     /**
      * Execute the action.
      * 
-     * @param array{name: string, email: string, role: string, password?: string} $data
+     * @param array{name: string, email: string, role: string, is_active?: bool, password?: string} $data
      * @param int|null $userId
      * @return User
      */
     public function execute(array $data, ?int $userId = null): User
     {
+        $sanitizedData = [
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'] ?? null,
+            'role' => $data['role'],
+            'is_active' => (bool) ($data['is_active'] ?? false),
+        ];
+
         if (isset($data['password']) && !empty($data['password'])) {
-            $data['password'] = Hash::make($data['password']);
-        } else {
-            unset($data['password']);
+            $sanitizedData['password'] = Hash::make($data['password']);
         }
 
         return User::updateOrCreate(
             ['id' => $userId],
-            $data
+            $sanitizedData
         );
     }
 }

@@ -39,4 +39,8 @@ return [
         'search_console' => env('GOOGLE_SEARCH_CONSOLE_VERIFICATION'),
     ],
 
+    'gemini' => [
+        'api_key' => env('GEMINI_API_KEY'),
+    ],
+
 ];

@@ -24,10 +24,16 @@ final class UserForm extends Form
     public string $email = '';
 
     #[Validate]
+    public ?string $phone = '';
+
+    #[Validate]
     public string $password = '';
 
     #[Validate]
-    public string $role = 'user';
+    public string $role = 'member';
+
+    #[Validate]
+    public bool $is_active = false;
 
     /**
      * Validation rules for the form.
@@ -39,8 +45,10 @@ final class UserForm extends Form
         return [
             'name' => 'required|min:3',
             'email' => 'required|email|unique:users,email,' . $this->userId,
-            'role' => 'required|in:admin,user',
+            'phone' => 'nullable|min:10|max:15',
+            'role' => 'required|in:admin,user,member',
             'password' => $this->userId ? 'nullable|min:6' : 'required|min:6',
+            'is_active' => 'boolean',
         ];
     }
 
@@ -51,7 +59,7 @@ final class UserForm extends Form
      */
     public function clear(): void
     {
-        $this->reset(['userId', 'name', 'email', 'password', 'role']);
+        $this->reset(['userId', 'name', 'email', 'phone', 'password', 'role', 'is_active']);
     }
 
     /**
@@ -65,7 +73,9 @@ final class UserForm extends Form
         $this->userId = $user->id;
         $this->name = $user->name;
         $this->email = $user->email;
+        $this->phone = $user->phone;
         $this->role = $user->role;
+        $this->is_active = $user->is_active;
         $this->password = '';
     }
 }

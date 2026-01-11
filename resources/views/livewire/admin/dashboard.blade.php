@@ -35,15 +35,15 @@
         </div>
 
         <!-- Stat Card 4 -->
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-5">
-            <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl">
-                <i class="fa-solid fa-users"></i>
+        <a href="{{ route('admin.payments') }}" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-5 hover:border-amber-400 transition-colors group">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl group-hover:bg-amber-500 group-hover:text-white transition-all">
+                <i class="fa-solid fa-receipt"></i>
             </div>
             <div>
-                <p class="text-sm font-medium text-slate-500">Klien Aktif</p>
-                <h3 class="text-2xl font-bold text-slate-800">{{ $stats['active_clients'] }}</h3>
+                <p class="text-sm font-medium text-slate-500">Bayar Pending</p>
+                <h3 class="text-2xl font-bold text-slate-800">{{ \App\Models\Payment::where('status', 'pending')->count() }}</h3>
             </div>
-        </div>
+        </a>
     </div>
 
     <!-- Recent Activity Section -->

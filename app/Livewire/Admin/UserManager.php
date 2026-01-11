@@ -39,6 +39,7 @@ final class UserManager extends Component
     #[Layout('components.layouts.admin')]
     public function render(): View
     {
+        Gate::authorize('admin');
         $users = User::query()
             ->when($this->search, fn($q) => $q->where('name', 'like', "%{$this->search}%")
                 ->orWhere('email', 'like', "%{$this->search}%")
@@ -58,6 +59,7 @@ final class UserManager extends Component
      */
     public function create(): void
     {
+        Gate::authorize('admin');
         $this->form->clear();
         $this->isEdit = false;
         $this->isOpen = true;
@@ -70,6 +72,7 @@ final class UserManager extends Component
      */
     public function closeModal(): void
     {
+        Gate::authorize('admin');
         $this->isOpen = false;
     }
 
@@ -125,5 +128,22 @@ final class UserManager extends Component
         } catch (ValidationException $e) {
             session()->flash('error', $e->getMessage());
         }
+    }
+
+    /**
+     * Toggle active status.
+     * 
+     * @param int $id
+     * @return void
+     */
+    public function toggleStatus(int $id): void
+    {
+        Gate::authorize('admin');
+        $user = User::findOrFail($id);
+        $user->is_active = !$user->is_active;
+        $user->save();
+        $user->refresh();
+
+        session()->flash('message', 'Status User Berhasil Diubah ke ' . ($user->is_active ? 'Aktif' : 'Nonaktif'));
     }
 }

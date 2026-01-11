@@ -108,6 +108,12 @@
                 <i class="fa-solid fa-users w-5"></i>
                 <span class="font-medium">Manajemen User</span>
             </a>
+
+            <a href="{{ route('admin.payments') }}" 
+               class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg transition-all {{ request()->routeIs('admin.payments') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
+                <i class="fa-solid fa-file-invoice-dollar w-5"></i>
+                <span class="font-medium">Verifikasi Pembayaran</span>
+            </a>
             
             <a href="/" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg transition-all hover:bg-slate-100 text-slate-600">
                 <i class="fa-solid fa-house w-5"></i>

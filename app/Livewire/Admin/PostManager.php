@@ -25,7 +25,7 @@ final class PostManager extends Component
 
     public PostForm $form;
     public bool $isOpen = false;
-    public $tempImage;
+    public mixed $tempImage = null;
 
     /**
      * Render the component view.
@@ -35,6 +35,7 @@ final class PostManager extends Component
     #[Layout('components.layouts.admin')]
     public function render(): View
     {
+        Gate::authorize('admin');
         return view('livewire.admin.post-manager', [
             'posts' => Post::with('category')->latest()->paginate(10)->onEachSide(1),
             'categories' => Category::all()
@@ -48,6 +49,7 @@ final class PostManager extends Component
      */
     public function create(): void
     {
+        Gate::authorize('admin');
         $this->form->reset();
         $this->isOpen = true;
         $this->dispatch('content-reset');
@@ -60,6 +62,7 @@ final class PostManager extends Component
      */
     public function closeModal(): void
     {
+        Gate::authorize('admin');
         $this->isOpen = false;
     }
 
@@ -77,7 +80,14 @@ final class PostManager extends Component
         try {
             if ($this->tempImage) {
                 \Illuminate\Support\Facades\Log::info('Storing temp image');
-                $path = $this->tempImage->store('blog', 'public');
+                
+                // Retain original filename but make it safe and unique
+                $originalName = $this->tempImage->getClientOriginalName();
+                $extension = $this->tempImage->getClientOriginalExtension();
+                $cleanName = \Illuminate\Support\Str::slug(pathinfo($originalName, PATHINFO_FILENAME));
+                $filename = $cleanName . '-' . time() . '.' . $extension;
+
+                $path = $this->tempImage->storeAs('blog', $filename, 'public');
                 $this->form->featured_image = $path;
             }
 

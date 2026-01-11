@@ -27,8 +27,12 @@ final class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'password',
         'role',
+        'is_active',
+        'is_premium',
+        'premium_until',
     ];
 
     /**
@@ -51,6 +55,25 @@ final class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_active' => 'boolean',
+            'is_premium' => 'boolean',
+            'premium_until' => 'datetime',
         ];
+    }
+
+    /**
+     * Get dynamic premium status.
+     * If is_premium is manually set to true but premium_until is past, 
+     * this still helps but better to rely on premium_until logic.
+     */
+    public function getIsPremiumAttribute($value): bool
+    {
+        if (!$value) return false;
+        
+        if ($this->premium_until && $this->premium_until->isPast()) {
+            return false;
+        }
+
+        return (bool) $value;
     }
 }

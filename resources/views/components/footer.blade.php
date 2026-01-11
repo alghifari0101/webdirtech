@@ -27,6 +27,7 @@
                 <ul class="space-y-4 text-sm">
                     <li><a href="{{ route('service.vps') }}" class="hover:text-white transition-colors">Jasa Install VPS</a></li>
                     <li><a href="{{ route('service.website') }}" class="hover:text-white transition-colors">Jasa Pembuatan Website</a></li>
+                    <li><a href="{{ route('service.cv') }}" class="hover:text-white transition-colors">Jasa Bikin CV ATS</a></li>
                     <li><a href="{{ route('service.migration') }}" class="hover:text-white transition-colors">Jasa Migrasi Website</a></li>
                     <li><a href="{{ route('service.gmb') }}" class="hover:text-white transition-colors">Jasa Pembuatan Google Bisnis</a></li>
                 </ul>

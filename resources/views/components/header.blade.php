@@ -23,25 +23,39 @@
             </a>
             
             <div class="nav-links hidden lg:flex items-center gap-8">
-                <a href="/" class="text-sm font-bold {{ request()->routeIs('home') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">Beranda</a>
-                <div class="relative group">
-                    <button class="flex items-center gap-1 text-sm font-bold {{ request()->routeIs('service.*') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">
-                        Layanan <i class="fa-solid fa-chevron-down text-[10px] opacity-50"></i>
-                    </button>
-                    <div class="absolute top-full left-0 w-64 bg-white border border-slate-100 shadow-2xl rounded-2xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 mt-2">
-                        <a href="/jasa/install-vps" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.vps') ? 'text-accent' : 'text-slate-700' }}">Jasa Install VPS</a>
-                        <a href="/jasa/pembuatan-website" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.website') ? 'text-accent' : 'text-slate-700' }}">Pembuatan Website</a>
-                        <a href="{{ route('service.migration') }}" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.migration') ? 'text-accent' : 'text-slate-700' }}">Migrasi Website</a>
-                        <a href="{{ route('service.gmb') }}" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.gmb') ? 'text-accent' : 'text-slate-700' }}">Pembuatan Google Bisnis</a>
+                @if(request()->routeIs('member.*'))
+                    <a href="/" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">Beranda</a>
+                    <a href="{{ route('member.dashboard') }}" class="text-sm font-bold {{ request()->routeIs('member.dashboard') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">Dashboard</a>
+                    <a href="{{ route('member.cv-editor') }}" class="text-sm font-bold {{ request()->routeIs('member.cv-editor') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">Editor CV</a>
+                    <a href="{{ route('member.cover-letter') }}" class="text-sm font-bold {{ request()->routeIs('member.cover-letter') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">Surat Lamaran</a>
+                    <a href="{{ route('member.profile') }}" class="text-sm font-bold {{ request()->routeIs('member.profile') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">Pengaturan</a>
+                @else
+                    <a href="/" class="text-sm font-bold {{ request()->routeIs('home') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">Beranda</a>
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-sm font-bold {{ request()->routeIs('service.*') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">
+                            Layanan <i class="fa-solid fa-chevron-down text-[10px] opacity-50"></i>
+                        </button>
+                        <div class="absolute top-full left-0 w-64 bg-white border border-slate-100 shadow-2xl rounded-2xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 mt-2">
+                            <a href="/jasa/install-vps" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.vps') ? 'text-accent' : 'text-slate-700' }}">Jasa Install VPS</a>
+                            <a href="/jasa/pembuatan-website" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.website') ? 'text-accent' : 'text-slate-700' }}">Pembuatan Website</a>
+                            <a href="{{ route('service.migration') }}" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.migration') ? 'text-accent' : 'text-slate-700' }}">Migrasi Website</a>
+                            <a href="{{ route('service.gmb') }}" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.gmb') ? 'text-accent' : 'text-slate-700' }}">Pembuatan Google Bisnis</a>
+                            <a href="{{ route('service.cv') }}" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.cv') ? 'text-accent' : 'text-slate-700' }}">Jasa Bikin CV ATS</a>
+                        </div>
                     </div>
-                </div>
-                <a href="#" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">Portofolio</a>
-                <a href="{{ route('blog') }}" class="text-sm font-bold {{ request()->routeIs('blog*') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">Blog</a>
-                <a href="{{ route('contact') }}" class="text-sm font-bold {{ request()->routeIs('contact') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">Kontak</a>
+                    <a href="#" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">Portofolio</a>
+                    <a href="{{ route('blog') }}" class="text-sm font-bold {{ request()->routeIs('blog*') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">Blog</a>
+                    <a href="{{ route('contact') }}" class="text-sm font-bold {{ request()->routeIs('contact') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">Kontak</a>
+                @endif
             </div>
 
             <div class="nav-actions flex items-center gap-4">
-                <a href="https://wa.me/{{ config('contact.whatsapp') }}" class="hidden md:flex px-6 py-3 bg-primary text-white text-sm font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-primary/10">Konsultasi Gratis</a>
+                @auth
+                    <a href="{{ auth()->user()->role === 'admin' ? route('admin.dashboard') : route('member.dashboard') }}" class="hidden md:flex px-6 py-3 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-primary transition-all shadow-lg">Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}" class="hidden md:flex text-sm font-bold text-slate-600 hover:text-primary transition-colors">Login</a>
+                    <a href="{{ route('register') }}" class="hidden md:flex px-6 py-3 bg-primary text-white text-sm font-bold rounded-xl hover:bg-slate-800 transition-all shadow-lg shadow-primary/10">Daftar Akun</a>
+                @endauth
                 <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden w-11 h-11 flex items-center justify-center bg-slate-50 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors" aria-label="Toggle mobile menu">
                     <i :class="mobileMenuOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars-staggered'" class="text-xl"></i>
                 </button>
@@ -60,19 +74,33 @@
          class="lg:hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 shadow-xl overflow-hidden" 
          style="display: none;">
         <div class="px-6 py-8 space-y-4">
-            <a href="/" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Beranda</a>
-            <div class="space-y-3 pt-2 border-b border-slate-50 pb-4">
-                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Layanan Kami</p>
-                <a href="/jasa/install-vps" class="block text-sm font-semibold text-slate-600 hover:text-accent">Jasa Install VPS</a>
-                <a href="/jasa/pembuatan-website" class="block text-sm font-semibold text-slate-600 hover:text-accent">Pembuatan Website</a>
-                <a href="{{ route('service.migration') }}" class="block text-sm font-semibold text-slate-600 hover:text-accent">Migrasi Website</a>
-                <a href="{{ route('service.gmb') }}" class="block text-sm font-semibold text-slate-600 hover:text-accent">Pembuatan Google Bisnis</a>
-            </div>
-            <a href="#" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Portofolio</a>
-            <a href="{{ route('blog') }}" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Blog / Artikel</a>
-            <a href="{{ route('contact') }}" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Kontak</a>
-            <div class="pt-6">
-                <a href="https://wa.me/{{ config('contact.whatsapp') }}" class="block w-full py-4 bg-primary text-white text-center font-bold rounded-xl shadow-lg">Konsultasi Gratis</a>
+            @if(request()->routeIs('member.*'))
+                <a href="/" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Beranda Utama</a>
+                <a href="{{ route('member.dashboard') }}" class="block text-lg font-bold {{ request()->routeIs('member.dashboard') ? 'text-accent' : 'text-slate-900' }} border-b border-slate-50 pb-4">Dashboard</a>
+                <a href="{{ route('member.cv-editor') }}" class="block text-lg font-bold {{ request()->routeIs('member.cv-editor') ? 'text-accent' : 'text-slate-900' }} border-b border-slate-50 pb-4">Editor CV ATS</a>
+                <a href="{{ route('member.cover-letter') }}" class="block text-lg font-bold {{ request()->routeIs('member.cover-letter') ? 'text-accent' : 'text-slate-900' }} border-b border-slate-50 pb-4">Surat Lamaran</a>
+                <a href="{{ route('member.profile') }}" class="block text-lg font-bold {{ request()->routeIs('member.profile') ? 'text-accent' : 'text-slate-900' }} border-b border-slate-50 pb-4">Pengaturan Profil</a>
+            @else
+                <a href="/" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Beranda</a>
+                <div class="space-y-3 pt-2 border-b border-slate-50 pb-4">
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Layanan Kami</p>
+                    <a href="/jasa/install-vps" class="block text-sm font-semibold text-slate-600 hover:text-accent">Jasa Install VPS</a>
+                    <a href="/jasa/pembuatan-website" class="block text-sm font-semibold text-slate-600 hover:text-accent">Pembuatan Website</a>
+                    <a href="{{ route('service.migration') }}" class="block text-sm font-semibold text-slate-600 hover:text-accent">Migrasi Website</a>
+                    <a href="{{ route('service.gmb') }}" class="block text-sm font-semibold text-slate-600 hover:text-accent">Pembuatan Google Bisnis</a>
+                    <a href="{{ route('service.cv') }}" class="block text-sm font-semibold text-slate-600 hover:text-accent">Jasa Bikin CV ATS</a>
+                </div>
+                <a href="#" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Portofolio</a>
+                <a href="{{ route('blog') }}" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Blog / Artikel</a>
+                <a href="{{ route('contact') }}" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Kontak</a>
+            @endif
+            <div class="pt-6 space-y-3">
+                @auth
+                    <a href="{{ auth()->user()->role === 'admin' ? route('admin.dashboard') : route('member.dashboard') }}" class="block w-full py-4 bg-slate-900 text-white text-center font-bold rounded-xl">Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}" class="block w-full py-4 bg-slate-50 text-slate-600 text-center font-bold rounded-xl">Login</a>
+                    <a href="{{ route('register') }}" class="block w-full py-4 bg-primary text-white text-center font-bold rounded-xl shadow-lg">Daftar Akun</a>
+                @endauth
             </div>
         </div>
     </div>

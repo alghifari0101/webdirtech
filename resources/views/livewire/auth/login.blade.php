@@ -35,6 +35,13 @@
                     <div wire:loading wire:target="login" class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                 </button>
             </form>
+
+            <div class="mt-8 pt-6 border-t border-slate-100 text-center">
+                <p class="text-slate-500 text-sm font-medium">
+                    Don't have an account? 
+                    <a href="{{ route('register') }}" class="text-primary font-bold hover:underline">Create Account</a>
+                </p>
+            </div>
         </div>
     </div>
 </div>

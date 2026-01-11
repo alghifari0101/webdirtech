@@ -47,12 +47,13 @@
                     <tr class="bg-slate-50 hidden md:table-row">
                         <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">User</th>
                         <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">Role</th>
+                        <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">Status</th>
                         <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100 text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-50">
                     @forelse($users as $user)
-                        <tr class="hover:bg-slate-50 transition-colors flex flex-col md:table-row p-4 md:p-0 border-b md:border-b-0 border-slate-100">
+                        <tr wire:key="user-{{ $user->id }}" class="hover:bg-slate-50 transition-colors flex flex-col md:table-row p-4 md:p-0 border-b md:border-b-0 border-slate-100">
                             <td class="px-0 md:px-6 py-2 md:py-4">
                                 <div class="flex items-center gap-3">
                                     <div class="w-10 h-10 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center font-bold text-sm">
@@ -60,14 +61,24 @@
                                     </div>
                                     <div>
                                         <div class="font-bold text-slate-800">{{ $user->name }}</div>
-                                        <div class="text-xs text-slate-500">{{ $user->email }}</div>
+                                        <div class="text-xs text-slate-500 flex flex-col">
+                                            <span>{{ $user->email }}</span>
+                                            @if($user->phone)
+                                                <span class="text-primary font-medium mt-0.5"><i class="fa-solid fa-phone text-[10px] mr-1"></i>{{ $user->phone }}</span>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </td>
                             <td class="px-0 md:px-6 py-2 md:py-4">
-                                <span class="px-3 py-1 rounded-full text-xs font-bold {{ $user->role === 'admin' ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-600' }}">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold {{ $user->role === 'admin' ? 'bg-amber-100 text-amber-700' : ($user->role === 'member' ? 'bg-indigo-100 text-indigo-700' : 'bg-slate-100 text-slate-600') }}">
                                     {{ ucfirst($user->role) }}
                                 </span>
+                            </td>
+                            <td class="px-0 md:px-6 py-2 md:py-4">
+                                <button wire:click="toggleStatus({{ $user->id }})" class="px-3 py-1 rounded-full text-xs font-bold transition-all {{ $user->is_active ? 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200' : 'bg-rose-100 text-rose-700 hover:bg-rose-200' }}">
+                                    {{ $user->is_active ? 'Aktif' : 'Pending/Nonaktif' }}
+                                </button>
                             </td>
                             <td class="px-0 md:px-6 py-4 md:py-4 text-left md:text-center mt-2 md:mt-0 border-t md:border-t-0 border-slate-50 pt-4 md:pt-4">
                                 <div class="flex justify-start md:justify-center items-center gap-2">
@@ -136,6 +147,14 @@
                                 </div>
 
                                 <div>
+                                    <label class="block text-sm font-bold text-slate-700 mb-2">Nomor WhatsApp / HP</label>
+                                    <input type="text" wire:model="form.phone" 
+                                        class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                        placeholder="08123456789">
+                                    @error('form.phone') <span class="text-rose-600 text-xs mt-1 block font-medium">{{ $message }}</span> @enderror
+                                </div>
+
+                                <div>
                                     <label class="block text-sm font-bold text-slate-700 mb-2">Password {{ $isEdit ? '(Kosongkan jika tidak ingin diubah)' : '' }}</label>
                                     <input type="password" wire:model="form.password" 
                                         class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
@@ -144,13 +163,25 @@
                                 </div>
 
                                 <div>
-                                    <label class="block text-sm font-bold text-slate-700 mb-2">Level / Role</label>
+                                    <label class="block text-sm font-bold text-slate-700 mb-2">Role / Akses</label>
                                     <select wire:model="form.role" 
                                         class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all appearance-none">
+                                        <option value="member">Member (Layanan CV)</option>
                                         <option value="user">User / Staff</option>
                                         <option value="admin">Administrator</option>
                                     </select>
                                     @error('form.role') <span class="text-rose-600 text-xs mt-1 block font-medium">{{ $message }}</span> @enderror
+                                </div>
+
+                                <div class="flex items-center gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                                    <div class="flex-1">
+                                        <h4 class="text-sm font-bold text-slate-700">Status Aktivasi</h4>
+                                        <p class="text-xs text-slate-500">Aktifkan untuk memberikan akses dashboard.</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" wire:model="form.is_active" class="sr-only peer">
+                                        <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500"></div>
+                                    </label>
                                 </div>
                             </div>
                         </div>

@@ -29,7 +29,22 @@ final class Login extends Component
     {
         try {
             $this->form->authenticate();
-            return redirect()->intended(route('admin.dashboard'));
+            
+            $user = auth()->user();
+            if ($user->role === 'admin') {
+                return redirect()->intended(route('admin.dashboard'));
+            }
+            
+            if ($user->role === 'member') {
+                if (!$user->is_active) {
+                    auth()->logout();
+                    session()->flash('error', 'Akun Anda sedang menunggu aktivasi oleh Admin.');
+                    return redirect()->route('login');
+                }
+                return redirect()->intended(route('member.dashboard'));
+            }
+
+            return redirect()->intended(route('home'));
         } catch (ValidationException $e) {
             $this->addError('form.email', $e->getMessage());
             return null;
