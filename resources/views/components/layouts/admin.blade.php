@@ -63,8 +63,8 @@
                 <i class="fa-solid fa-server text-primary"></i>
                 DIRTECH <span class="text-xs font-normal opacity-70">ADMIN</span>
             </a>
-            <button @click="sidebarOpen = false" class="lg:hidden">
-                <i class="fa-solid fa-xmark text-xl"></i>
+            <button @click="sidebarOpen = !sidebarOpen" class="text-white hover:text-rose-200 transition-colors">
+                <i class="fa-solid fa-bars-staggered text-xl"></i>
             </button>
         </div>
 
@@ -144,7 +144,8 @@
         <!-- Top Header -->
         <header class="h-16 md:h-20 bg-white shadow-sm flex items-center justify-between px-4 md:px-8 sticky top-0 z-40">
             <div class="flex items-center gap-3 md:gap-4">
-                <button @click="sidebarOpen = !sidebarOpen" class="p-2 rounded-lg hover:bg-slate-100 text-slate-600 transition-colors">
+                <button @click="sidebarOpen = !sidebarOpen" class="p-2 rounded-lg hover:bg-slate-100 text-slate-600 transition-colors"
+                        :class="sidebarOpen ? 'lg:hidden' : ''">
                     <i class="fa-solid fa-bars-staggered text-lg"></i>
                 </button>
                 <h2 class="font-outfit font-bold text-base md:text-lg text-slate-800 truncate max-w-[150px] md:max-w-none">{{ $title ?? 'Dashboard' }}</h2>
