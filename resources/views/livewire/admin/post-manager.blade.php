@@ -25,17 +25,17 @@
         <table class="w-full text-left border-collapse">
             <thead>
                 <tr class="bg-slate-50 border-b border-slate-100 hidden md:table-row">
-                    <th class="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Artikel</th>
-                    <th class="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Kategori</th>
-                    <th class="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Status</th>
-                    <th class="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Tanggal</th>
-                    <th class="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest text-right">Aksi</th>
+                    <th class="px-4 py-3 text-xs font-black text-slate-400 uppercase tracking-widest pl-6">Artikel</th>
+                    <th class="px-4 py-3 text-xs font-black text-slate-400 uppercase tracking-widest">Kategori</th>
+                    <th class="px-4 py-3 text-xs font-black text-slate-400 uppercase tracking-widest w-32">Status</th>
+                    <th class="px-4 py-3 text-xs font-black text-slate-400 uppercase tracking-widest w-32">Tanggal</th>
+                    <th class="px-4 py-3 text-xs font-black text-slate-400 uppercase tracking-widest text-right w-32 pr-6">Aksi</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-50">
                 @forelse($posts as $post)
                     <tr class="hover:bg-slate-50/50 transition-colors flex flex-col md:table-row p-4 md:p-0 border-b md:border-b-0 border-slate-100">
-                        <td class="px-0 md:px-6 py-2 md:py-4">
+                        <td class="px-0 md:px-4 py-2 md:py-4 pl-6">
                             <div class="flex items-center gap-4">
                                 @if($post->featured_image)
                                     <img src="{{ storage_url($post->featured_image) }}" class="w-12 h-12 rounded-lg object-cover border border-slate-100">
@@ -50,12 +50,12 @@
                                 </div>
                             </div>
                         </td>
-                        <td class="px-0 md:px-6 py-2 md:py-4">
+                        <td class="px-0 md:px-4 py-2 md:py-4">
                             <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-[10px] font-black uppercase">
                                 {{ $post->category?->name ?? 'Uncategorized' }}
                             </span>
                         </td>
-                        <td class="px-0 md:px-6 py-2 md:py-4">
+                        <td class="px-0 md:px-4 py-2 md:py-4 whitespace-nowrap">
                             @if($post->is_published)
                                 <span class="text-emerald-500 font-bold text-xs flex items-center gap-1">
                                     <i class="fa-solid fa-circle text-[8px]"></i> Terbit
@@ -66,10 +66,10 @@
                                 </span>
                             @endif
                         </td>
-                        <td class="px-0 md:px-6 py-2 md:py-4 text-sm text-slate-500 font-medium">
+                        <td class="px-0 md:px-4 py-2 md:py-4 text-sm text-slate-500 font-medium whitespace-nowrap">
                             {{ $post->created_at->format('d/m/Y') }}
                         </td>
-                        <td class="px-0 md:px-6 py-4 md:py-4 text-left md:text-right mt-2 md:mt-0 border-t md:border-t-0 border-slate-50 pt-4 md:pt-4">
+                        <td class="px-0 md:px-4 py-4 md:py-4 text-left md:text-right mt-2 md:mt-0 border-t md:border-t-0 border-slate-50 pt-4 md:pt-4 pr-6 whitespace-nowrap">
                             <div class="flex justify-start md:justify-end gap-2">
                                 <button wire:click="edit({{ $post->id }})" class="p-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors shadow-sm" title="Edit Artikel">
                                     <i class="fa-solid fa-pen-to-square"></i>
