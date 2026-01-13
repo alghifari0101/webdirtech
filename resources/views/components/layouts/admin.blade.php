@@ -53,7 +53,7 @@
     
     <!-- Sidebar -->
     <aside 
-        class="fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-xl transition-transform duration-300 transform lg:translate-x-0"
+        class="fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-xl transition-transform duration-300 transform"
         :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
     >
         <div class="flex items-center justify-between h-20 px-6 bg-secondary text-white">
