@@ -3,7 +3,7 @@
         <!-- Header -->
         <div class="mb-8 flex justify-between items-end">
             <div>
-                <h1 class="text-3xl font-bold text-slate-900 mb-2">Verifikasi Pembayaran</h1>
+                <h1 class="text-2xl font-bold text-slate-900 mb-2">Verifikasi Pembayaran</h1>
                 <p class="text-slate-600 italic">Daftar bukti transfer yang perlu diperiksa dan disetujui.</p>
             </div>
             <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3">

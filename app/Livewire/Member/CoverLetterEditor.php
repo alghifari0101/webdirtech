@@ -15,6 +15,44 @@ final class CoverLetterEditor extends Component
     public string $language = 'id'; // 'id' or 'en'
     public ?string $result = null;
 
+    // AI Inputs
+    public string $companyName = '';
+    public string $jobPosition = '';
+    public string $keySkills = '';
+    public string $tone = 'formal'; // formal, creative, humble
+    public bool $isGenerating = false;
+
+    public function generateWithAI(\App\Services\GeminiService $gemini): void
+    {
+        $this->validate([
+            'companyName' => 'required|min:2',
+            'jobPosition' => 'required|min:2',
+        ]);
+
+        $this->isGenerating = true;
+
+        try {
+            $response = $gemini->generateCoverLetter([
+                'company_name' => $this->companyName,
+                'job_position' => $this->jobPosition,
+                'skills' => $this->keySkills,
+                'tone' => $this->tone,
+                'language' => $this->language,
+                'user_name' => auth()->user()->name,
+                'user_email' => auth()->user()->email,
+                'user_phone' => auth()->user()->phone ?? '',
+            ]);
+
+            if ($response['success']) {
+                $this->result = $response['content'];
+            }
+        } catch (\Exception $e) {
+            // Handle error silently or show toast
+        } finally {
+            $this->isGenerating = false;
+        }
+    }
+
     public function mount(): void
     {
         \Illuminate\Support\Facades\Gate::authorize('member');

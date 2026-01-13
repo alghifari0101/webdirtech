@@ -65,10 +65,10 @@
                                 </td>
                                 <td class="px-6 py-4 text-right pointer-events-auto">
                                     <div class="flex justify-end gap-2">
-                                        <button wire:click="edit({{ $category->id }})" class="p-2 text-slate-400 hover:text-blue-600 transition-colors">
+                                        <button wire:click="edit({{ $category->id }})" class="p-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors shadow-sm" title="Edit Kategori">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
-                                        <button onclick="confirm('Hapus kategori ini? Pekerjaan ini tidak bisa dibatalkan.') || event.stopImmediatePropagation()" wire:click="delete({{ $category->id }})" class="p-2 text-slate-400 hover:text-rose-600 transition-colors">
+                                        <button onclick="confirm('Hapus kategori ini? Pekerjaan ini tidak bisa dibatalkan.') || event.stopImmediatePropagation()" wire:click="delete({{ $category->id }})" class="p-2 bg-rose-50 text-rose-600 rounded-lg hover:bg-rose-100 transition-colors shadow-sm" title="Hapus Kategori">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </div>

@@ -71,11 +71,11 @@
                         </td>
                         <td class="px-0 md:px-6 py-4 md:py-4 text-left md:text-right mt-2 md:mt-0 border-t md:border-t-0 border-slate-50 pt-4 md:pt-4">
                             <div class="flex justify-start md:justify-end gap-2">
-                                <button wire:click="edit({{ $post->id }})" class="p-3 text-slate-400 hover:text-blue-600 transition-colors">
-                                    <i class="fa-solid fa-pen-to-square text-lg"></i>
+                                <button wire:click="edit({{ $post->id }})" class="p-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors shadow-sm" title="Edit Artikel">
+                                    <i class="fa-solid fa-pen-to-square"></i>
                                 </button>
-                                <button onclick="confirm('Hapus artikel ini?') || event.stopImmediatePropagation()" wire:click="delete({{ $post->id }})" class="p-3 text-slate-400 hover:text-rose-600 transition-colors">
-                                    <i class="fa-solid fa-trash text-lg"></i>
+                                <button onclick="confirm('Hapus artikel ini?') || event.stopImmediatePropagation()" wire:click="delete({{ $post->id }})" class="p-2 bg-rose-50 text-rose-600 rounded-lg hover:bg-rose-100 transition-colors shadow-sm" title="Hapus Artikel">
+                                    <i class="fa-solid fa-trash"></i>
                                 </button>
                             </div>
                         </td>

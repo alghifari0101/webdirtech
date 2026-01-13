@@ -42,7 +42,7 @@
     @media print {
         /* Hide everything except our CV */
         header, footer, nav, aside, .no-print, [class*="lg:w-1/2"]:first-child, 
-        .fixed, .absolute:not(#cv-preview) { 
+        .fixed, .absolute:not(#cv-preview), .cursor-pointer, button, label { 
             display: none !important; 
             opacity: 0 !important;
             visibility: hidden !important;
@@ -50,7 +50,7 @@
             overflow: hidden !important;
         }
         
-        body, html, .py-12, .container, [class*="lg:w-1/2"], .sticky, .cv-container-neutral { 
+        body, html, .py-12, .container, [class*="lg:w-1/2"], .sticky, .cv-container-neutral, .flex, .grid, .cv-wrapper, .cv-scale-wrapper { 
             margin: 0 !important; 
             padding: 0 !important; 
             height: auto !important;
@@ -58,25 +58,32 @@
             width: 100% !important;
             max-width: none !important;
             display: block !important;
-            position: static !important; /* Force out of any layout context */
+            position: static !important;
             background: white !important;
             box-shadow: none !important;
             border: none !important;
             transform: none !important;
+            border-radius: 0 !important;
+            overflow: visible !important;
         }
 
         #cv-preview {
-            width: 100% !important; /* Allow full width flow */
-            margin: 0 !important;
+            width: 100% !important; /* Use 100% to fill the A4 page */
+            min-height: 297mm !important; /* Force exact A4 height */
+            height: auto !important;
+            margin: 0 !important;   /* No auto margin, fill the page */
             padding: 0 !important;
             background: white !important;
             display: block !important;
-            position: relative !important; /* Changed from absolute to relative for better flow */
-            overflow: visible !important;  /* Ensure content doesn't get clipped */
+            position: relative !important; 
+            overflow: visible !important; /* Allow content to be seen if it slightly overflows, preventing clipping */
             top: auto !important;
             left: auto !important;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
+            box-sizing: border-box !important; /* Ensure padding is included */
+            transform: none !important; /* Reset any scaling applied in preview */
+            zoom: 1 !important;
         }
 
         /* Prevent breaking inside items */

@@ -19,6 +19,7 @@ final class CvEditor extends Component
     use WithFileUploads;
 
     public mixed $photo = null;
+    public int $step = 1;
 
     public array $data = [
         'full_name' => '',
@@ -46,6 +47,17 @@ final class CvEditor extends Component
         $cv = CvData::where('user_id', auth()->id())->first();
         if ($cv) {
             $this->data = $cv->toArray();
+            
+            // Normalize legacy template names
+            $replacements = [
+                'premium_ats' => 'template_001',
+                'modern_soft' => 'template_002',
+                'professional_academic' => 'template_003',
+            ];
+            
+            if (isset($replacements[$this->data['template']])) {
+                $this->data['template'] = $replacements[$this->data['template']];
+            }
         } else {
             // Default initial data if needed
             $this->data['email'] = auth()->user()->email;
@@ -58,13 +70,24 @@ final class CvEditor extends Component
         \Illuminate\Support\Facades\Gate::authorize('member');
 
         $this->data['full_name'] = trim($this->data['full_name']);
+
+        // Final normalization before validation
+        $replacements = [
+            'premium_ats' => 'template_001',
+            'modern_soft' => 'template_002',
+            'professional_academic' => 'template_003',
+        ];
+
+        if (isset($replacements[$this->data['template']])) {
+            $this->data['template'] = $replacements[$this->data['template']];
+        }
         
         $this->validate([
             'data.full_name' => 'required|min:3',
             'data.email' => 'required|email',
             'data.linkedin' => 'nullable|string',
             'data.website' => 'nullable|string',
-            'data.template' => 'required|in:basic,modern,elegant,creative,premium_ats,modern_soft,professional_academic',
+            'data.template' => 'required|in:basic,modern,elegant,creative,template_001,template_002,template_003,template_004,template_005,template_006,template_007',
             'photo' => 'nullable|image|max:1024', // Max 1MB
         ]);
 
@@ -141,6 +164,28 @@ final class CvEditor extends Component
     {
         unset($this->data['languages'][$index]);
         $this->data['languages'] = array_values($this->data['languages']);
+    }
+
+    public function setStep(int $step): void
+    {
+        $this->step = $step;
+        $this->dispatch('step-changed', step: $step);
+    }
+
+    public function nextStep(): void
+    {
+        if ($this->step < 2) {
+            $this->step++;
+            $this->dispatch('step-changed', step: $this->step);
+        }
+    }
+
+    public function prevStep(): void
+    {
+        if ($this->step > 1) {
+            $this->step--;
+            $this->dispatch('step-changed', step: $this->step);
+        }
     }
 
     /**

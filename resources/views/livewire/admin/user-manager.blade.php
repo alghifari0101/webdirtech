@@ -82,14 +82,14 @@
                             </td>
                             <td class="px-0 md:px-6 py-4 md:py-4 text-left md:text-center mt-2 md:mt-0 border-t md:border-t-0 border-slate-50 pt-4 md:pt-4">
                                 <div class="flex justify-start md:justify-center items-center gap-2">
-                                    <button wire:click="edit({{ $user->id }})" class="p-3 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Edit">
-                                        <i class="fa-solid fa-pen-to-square text-lg"></i>
+                                    <button wire:click="edit({{ $user->id }})" class="p-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors shadow-sm" title="Edit User">
+                                        <i class="fa-solid fa-pen-to-square"></i>
                                     </button>
                                     @if($user->id !== auth()->id())
                                         <button wire:click="delete({{ $user->id }})" 
                                             onclick="confirm('Apakah Anda yakin ingin menghapus user ini?') || event.stopImmediatePropagation()"
-                                            class="p-3 text-rose-600 hover:bg-rose-50 rounded-lg transition-colors" title="Hapus">
-                                            <i class="fa-solid fa-trash-can text-lg"></i>
+                                            class="p-2 bg-rose-50 text-rose-600 rounded-lg hover:bg-rose-100 transition-colors shadow-sm" title="Hapus User">
+                                            <i class="fa-solid fa-trash-can"></i>
                                         </button>
                                     @endif
                                 </div>

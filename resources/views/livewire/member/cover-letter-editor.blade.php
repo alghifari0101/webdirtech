@@ -40,6 +40,55 @@
                     </div>
                 </div>
 
+                <!-- AI Generator Section -->
+                <div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-6">
+                    <h4 class="font-bold text-indigo-900 mb-4 flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-wand-magic-sparkles text-indigo-600"></i>
+                        {{ $language === 'id' ? 'Tulis Pakai AI' : 'Write with AI' }}
+                    </h4>
+                    
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-[11px] font-bold text-indigo-800 mb-1">{{ $language === 'id' ? 'Nama Perusahaan' : 'Company Name' }}</label>
+                            <input type="text" wire:model="companyName" class="w-full text-xs rounded-lg border-indigo-200 focus:border-indigo-500 focus:ring-indigo-500 bg-white" placeholder="Contoh: Google Indonesia">
+                             @error('companyName') <span class="text-[10px] text-red-500">{{ $message }}</span> @enderror
+                        </div>
+
+                        <div>
+                            <label class="block text-[11px] font-bold text-indigo-800 mb-1">{{ $language === 'id' ? 'Posisi yang Dilamar' : 'Target Position' }}</label>
+                            <input type="text" wire:model="jobPosition" class="w-full text-xs rounded-lg border-indigo-200 focus:border-indigo-500 focus:ring-indigo-500 bg-white" placeholder="Contoh: Digital Marketing">
+                            @error('jobPosition') <span class="text-[10px] text-red-500">{{ $message }}</span> @enderror
+                        </div>
+
+                        <div>
+                            <label class="block text-[11px] font-bold text-indigo-800 mb-1">{{ $language === 'id' ? 'Skill Kunci (Opsional)' : 'Key Skills (Optional)' }}</label>
+                            <input type="text" wire:model="keySkills" class="w-full text-xs rounded-lg border-indigo-200 focus:border-indigo-500 focus:ring-indigo-500 bg-white" placeholder="Contoh: SEO, Copywriting, Ads">
+                        </div>
+
+                        <div>
+                            <label class="block text-[11px] font-bold text-indigo-800 mb-1">{{ $language === 'id' ? 'Gaya Bahasa' : 'Tone' }}</label>
+                            <select wire:model="tone" class="w-full text-xs rounded-lg border-indigo-200 focus:border-indigo-500 focus:ring-indigo-500 bg-white">
+                                <option value="formal">Formal & Profesional</option>
+                                <option value="creative">Kreatif & Antusias</option>
+                                <option value="humble">Rendah Hati & Sopan</option>
+                            </select>
+                        </div>
+
+                        <button wire:click="generateWithAI" wire:loading.attr="disabled" class="w-full btn bg-indigo-600 hover:bg-indigo-700 text-white border-0 text-xs font-bold py-2.5 rounded-lg shadow-md shadow-indigo-200 flex items-center justify-center gap-2 mt-2">
+                            <span wire:loading.remove wire:target="generateWithAI">
+                                <i class="fa-solid fa-pen-nib"></i> {{ $language === 'id' ? 'Buatkan Surat' : 'Generate Letter' }}
+                            </span>
+                            <span wire:loading wire:target="generateWithAI" class="flex items-center gap-2">
+                                <svg class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                {{ $language === 'id' ? 'Sedang Menulis...' : 'Writing...' }}
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
                 <div class="bg-amber-50 border border-amber-100 rounded-2xl p-6">
                     <h4 class="font-bold text-amber-900 mb-2 flex items-center gap-2 text-sm">
                         <i class="fa-solid fa-lightbulb"></i>
