@@ -14,7 +14,7 @@ use Livewire\Component;
 /**
  * Payment Verification component for admins.
  */
-#[Layout('components.layouts.app')]
+#[Layout('components.layouts.admin')]
 #[Title('Verifikasi Pembayaran - Admin Dirtech')]
 final class PaymentVerification extends Component
 {
