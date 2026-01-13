@@ -49,12 +49,21 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 font-sans text-[13px] text-slate-900 overflow-x-hidden" x-data="{ sidebarOpen: window.innerWidth > 1024 }">
+<body class="bg-slate-50 font-sans text-[13px] text-slate-900 overflow-x-hidden" 
+      x-data="{ 
+          sidebarOpen: window.innerWidth > 1024,
+          init() {
+              window.addEventListener('resize', () => {
+                  if (window.innerWidth > 1024) this.sidebarOpen = true;
+              });
+          }
+      }">
     
     <!-- Sidebar -->
     <aside 
         class="fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-xl transition-transform duration-300 transform"
         :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+        :style="sidebarOpen ? 'transform: translateX(0)' : 'transform: translateX(-100%)'"
     >
         <div class="flex items-center justify-between h-20 px-6 bg-secondary text-white">
             <a href="/" class="flex items-center gap-2 font-outfit font-bold text-base tracking-wider">
