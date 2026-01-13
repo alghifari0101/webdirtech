@@ -25,13 +25,13 @@ final class Dashboard extends Component
     public function render(): View
     {
         $stats = [
-            'total_posts' => Post::count(),
-            'vps_requests' => 12, // Placeholder
-            'website_projects' => 8, // Placeholder
-            'active_clients' => 24, // Placeholder
+            'total_posts' => 0, // Post::count(),
+            'vps_requests' => 12,
+            'website_projects' => 8,
+            'active_clients' => 24,
         ];
 
-        $recent_posts = Post::latest()->take(5)->get();
+        $recent_posts = []; // Post::latest()->take(5)->get();
 
         return view('livewire.admin.dashboard', [
             'stats' => $stats,
