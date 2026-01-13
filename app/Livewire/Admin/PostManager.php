@@ -32,7 +32,7 @@ final class PostManager extends Component
      * 
      * @return View
      */
-    #[Layout('components.layouts.admin')]
+    #[Layout('components.layouts.admin-new')]
     public function render(): View
     {
         Gate::authorize('admin');

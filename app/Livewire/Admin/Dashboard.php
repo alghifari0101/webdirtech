@@ -21,7 +21,7 @@ final class Dashboard extends Component
      * 
      * @return View
      */
-    #[Layout('components.layouts.admin')]
+    #[Layout('components.layouts.admin-new')]
     public function render(): View
     {
         $stats = [

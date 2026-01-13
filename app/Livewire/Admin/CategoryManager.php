@@ -22,7 +22,7 @@ final class CategoryManager extends Component
     /**
      * Render the component view.
      */
-    #[Layout('components.layouts.admin')]
+    #[Layout('components.layouts.admin-new')]
     public function render(): View
     {
         return view('livewire.admin.category-manager', [
