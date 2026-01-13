@@ -66,56 +66,56 @@
             </button>
         </div>
 
-        <nav class="mt-4 px-3 space-y-1">
+        <nav class="mt-2 px-2 space-y-0.5">
             <a href="{{ route('admin.dashboard') }}" 
-               class="sidebar-link flex items-center gap-3 px-4 py-1.5 rounded-lg transition-all {{ request()->routeIs('admin.dashboard') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
+               class="sidebar-link flex items-center gap-3 px-3 py-1 rounded-lg transition-all {{ request()->routeIs('admin.dashboard') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
                 <i class="fa-solid fa-gauge-high w-5"></i>
                 <span class="font-medium">Dashboard</span>
             </a>
             
             <a href="{{ route('admin.posts') }}" 
-               class="sidebar-link flex items-center gap-3 px-4 py-1.5 rounded-lg transition-all {{ request()->routeIs('admin.posts') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
+               class="sidebar-link flex items-center gap-3 px-3 py-1 rounded-lg transition-all {{ request()->routeIs('admin.posts') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
                 <i class="fa-solid fa-newspaper w-5"></i>
                 <span class="font-medium">Manajemen Blog</span>
             </a>
             
             <a href="{{ route('admin.categories') }}" 
-               class="sidebar-link flex items-center gap-3 px-4 py-1.5 rounded-lg transition-all {{ request()->routeIs('admin.categories') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
+               class="sidebar-link flex items-center gap-3 px-3 py-1 rounded-lg transition-all {{ request()->routeIs('admin.categories') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
                 <i class="fa-solid fa-layer-group w-5"></i>
                 <span class="font-medium">Kategori Blog</span>
             </a>
 
-            <div class="pt-2 pb-1 border-t border-slate-100">
-                <span class="px-4 text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Layanan</span>
+            <div class="pt-1 pb-1 border-t border-slate-100">
+                <span class="px-3 text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Layanan</span>
             </div>
             
-            <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-1.5 rounded-lg transition-all hover:bg-slate-100 text-slate-600">
+            <a href="#" class="sidebar-link flex items-center gap-3 px-3 py-1 rounded-lg transition-all hover:bg-slate-100 text-slate-600">
                 <i class="fa-solid fa-terminal w-5"></i>
                 <span class="font-medium">Jasa Install VPS</span>
             </a>
             
-            <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-1.5 rounded-lg transition-all hover:bg-slate-100 text-slate-600">
+            <a href="#" class="sidebar-link flex items-center gap-3 px-3 py-1 rounded-lg transition-all hover:bg-slate-100 text-slate-600">
                 <i class="fa-solid fa-code w-5"></i>
                 <span class="font-medium">Pembuatan Website</span>
             </a>
 
-            <div class="pt-2 pb-1 border-t border-slate-100">
-                <span class="px-4 text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Lainnya</span>
+            <div class="pt-1 pb-1 border-t border-slate-100">
+                <span class="px-3 text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Lainnya</span>
             </div>
             
             <a href="{{ route('admin.users') }}" 
-               class="sidebar-link flex items-center gap-3 px-4 py-1.5 rounded-lg transition-all {{ request()->routeIs('admin.users') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
+               class="sidebar-link flex items-center gap-3 px-3 py-1 rounded-lg transition-all {{ request()->routeIs('admin.users') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
                 <i class="fa-solid fa-users w-5"></i>
                 <span class="font-medium">Manajemen User</span>
             </a>
 
             <a href="{{ route('admin.payments') }}" 
-               class="sidebar-link flex items-center gap-3 px-4 py-1.5 rounded-lg transition-all {{ request()->routeIs('admin.payments') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
+               class="sidebar-link flex items-center gap-3 px-3 py-1 rounded-lg transition-all {{ request()->routeIs('admin.payments') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
                 <i class="fa-solid fa-file-invoice-dollar w-5"></i>
                 <span class="font-medium">Verifikasi Pembayaran</span>
             </a>
             
-            <a href="/" class="sidebar-link flex items-center gap-3 px-4 py-1.5 rounded-lg transition-all hover:bg-slate-100 text-slate-600">
+            <a href="/" class="sidebar-link flex items-center gap-3 px-3 py-1 rounded-lg transition-all hover:bg-slate-100 text-slate-600">
                 <i class="fa-solid fa-house w-5"></i>
                 <span class="font-medium">Lihat Situs Utama</span>
             </a>
@@ -126,7 +126,7 @@
                 </form>
                 <a href="#" 
                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                   class="flex items-center gap-3 px-4 py-1.5 rounded-lg transition-all hover:bg-rose-50 text-rose-600 group">
+                   class="flex items-center gap-3 px-3 py-1 rounded-lg transition-all hover:bg-rose-50 text-rose-600 group">
                     <i class="fa-solid fa-right-from-bracket w-5 group-hover:scale-110 transition-transform"></i>
                     <span class="font-medium">Keluar</span>
                 </a>

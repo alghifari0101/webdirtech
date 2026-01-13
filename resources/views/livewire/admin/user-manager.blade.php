@@ -1,4 +1,4 @@
-<div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+<div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-x-auto">
     @if (session()->has('message'))
         <div class="bg-emerald-50 border-emerald-500 text-emerald-900 px-6 py-4 border-b" role="alert">
             <p class="text-sm font-bold flex items-center gap-2">
