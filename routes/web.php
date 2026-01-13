@@ -12,6 +12,10 @@ Route::get('/fix-cache-now', function() {
     return 'Cache cleared! Please go back and try to login.';
 });
 
+Route::get('/test-layout', function () {
+    return Blade::render('<x-layouts.admin>Test Layout Rendering</x-layouts.admin>');
+});
+
 Route::get('/', \App\Livewire\LandingPage::class)->name('home');
 Route::get('/tentang-kami', \App\Livewire\AboutUs::class)->name('about');
 Route::get('/jasa/install-vps', \App\Livewire\InstallVps::class)->name('service.vps');
