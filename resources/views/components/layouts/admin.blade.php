@@ -66,7 +66,7 @@
             </button>
         </div>
 
-        <nav class="mt-6 px-4 space-y-2">
+        <nav class="mt-4 px-3 space-y-1">
             <a href="{{ route('admin.dashboard') }}" 
                class="sidebar-link flex items-center gap-3 px-4 py-2 rounded-lg transition-all {{ request()->routeIs('admin.dashboard') ? 'active' : 'hover:bg-slate-100 text-slate-600' }}">
                 <i class="fa-solid fa-gauge-high w-5"></i>
@@ -85,8 +85,8 @@
                 <span class="font-medium">Kategori Blog</span>
             </a>
 
-            <div class="pt-4 pb-2 border-t border-slate-100">
-                <span class="px-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Layanan</span>
+            <div class="pt-2 pb-1 border-t border-slate-100">
+                <span class="px-4 text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Layanan</span>
             </div>
             
             <a href="#" class="sidebar-link flex items-center gap-3 px-4 py-2 rounded-lg transition-all hover:bg-slate-100 text-slate-600">
@@ -99,8 +99,8 @@
                 <span class="font-medium">Pembuatan Website</span>
             </a>
 
-            <div class="pt-4 pb-2 border-t border-slate-100">
-                <span class="px-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Lainnya</span>
+            <div class="pt-2 pb-1 border-t border-slate-100">
+                <span class="px-4 text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Lainnya</span>
             </div>
             
             <a href="{{ route('admin.users') }}" 
@@ -120,7 +120,7 @@
                 <span class="font-medium">Lihat Situs Utama</span>
             </a>
 
-            <div class="pt-4 mt-4 border-t border-slate-100">
+            <div class="pt-2 mt-2 border-t border-slate-100">
                 <form method="POST" action="{{ route('logout') }}" id="logout-form" class="hidden">
                     @csrf
                 </form>
