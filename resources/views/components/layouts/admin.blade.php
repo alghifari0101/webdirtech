@@ -50,14 +50,7 @@
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-[13px] text-slate-900 overflow-x-hidden" 
-      x-data="{ 
-          sidebarOpen: window.innerWidth > 1024,
-          init() {
-              window.addEventListener('resize', () => {
-                  if (window.innerWidth > 1024) this.sidebarOpen = true;
-              });
-          }
-      }">
+      x-data="{ sidebarOpen: true }">
     
     <!-- Sidebar -->
     <aside 
