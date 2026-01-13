@@ -72,7 +72,7 @@
             </button>
             <a href="/" class="flex items-center gap-2 font-outfit font-bold text-base tracking-wider">
                 <i class="fa-solid fa-server text-primary"></i>
-                DIRTECH <span class="text-xs font-normal opacity-70">ADMIN</span>
+                DIRTECH <span class="text-xs font-normal opacity-70">ADMIN</span> <span class="w-2 h-2 rounded-full bg-emerald-500" title="Updated Layout"></span>
             </a>
         </div>
 
