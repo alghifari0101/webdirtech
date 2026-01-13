@@ -58,14 +58,14 @@
         :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
         :style="sidebarOpen ? 'transform: translateX(0)' : 'transform: translateX(-100%)'"
     >
-        <div class="flex items-center justify-between h-20 px-6 bg-secondary text-white">
+        <div class="flex items-center h-20 px-6 bg-secondary text-white gap-4">
+            <button @click="sidebarOpen = !sidebarOpen" class="text-white hover:text-rose-200 transition-colors">
+                <i class="fa-solid fa-bars-staggered text-xl"></i>
+            </button>
             <a href="/" class="flex items-center gap-2 font-outfit font-bold text-base tracking-wider">
                 <i class="fa-solid fa-server text-primary"></i>
                 DIRTECH <span class="text-xs font-normal opacity-70">ADMIN</span>
             </a>
-            <button @click="sidebarOpen = !sidebarOpen" class="text-white hover:text-rose-200 transition-colors">
-                <i class="fa-solid fa-bars-staggered text-xl"></i>
-            </button>
         </div>
 
         <nav class="mt-2 px-2 space-y-0.5">
