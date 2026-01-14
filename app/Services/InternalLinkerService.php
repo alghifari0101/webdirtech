@@ -159,14 +159,11 @@ final class InternalLinkerService
         if ($totalP >= 18) {
             $insertIndexes[] = 14; // After 15th paragraph (gap of 10)
         }
-        if ($totalP >= 30) {
-            $insertIndexes[] = 24; // After 25th paragraph (gap of 10)
-        }
 
         $insertedCount = 0;
 
         foreach ($insertIndexes as $idx) {
-            if ($idx >= $totalP || $insertedCount >= $posts->count()) {
+            if ($insertedCount >= 2 || $idx >= $totalP || $insertedCount >= $posts->count()) {
                 break;
             }
 
