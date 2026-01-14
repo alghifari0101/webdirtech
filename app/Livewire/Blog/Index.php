@@ -25,6 +25,8 @@ final class Index extends Component
      */
     public function render(): View
     {
+        $selectedCategory = $this->category ? Category::where('slug', $this->category)->first() : null;
+
         $posts = Post::with('category')
             ->published()
             ->when($this->search, function ($query) {
@@ -41,12 +43,21 @@ final class Index extends Component
             ->latest()
             ->paginate(9);
 
+        $title = $selectedCategory 
+            ? "Artikel {$selectedCategory->name} | Dirtech Solutions" 
+            : 'Blog & Insight Digital | Dirtech Solutions';
+        
+        $description = $selectedCategory
+            ? "Kumpulan artikel dan panduan seputar {$selectedCategory->name} untuk membantu perkembangan bisnis digital Anda."
+            : 'Pelajari tips, panduan, dan tren terbaru seputar VPS, Website, dan Solusi Digital dari para ahli di Dirtech.';
+
         return view('livewire.blog.index', [
             'posts' => $posts,
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'selectedCategory' => $selectedCategory
         ])->layoutData([
-            'title' => 'Blog & Insight Digital | Dirtech Solutions',
-            'description' => 'Pelajari tips, panduan, dan tren terbaru seputar VPS, Website, dan Solusi Digital dari para ahli di Dirtech.',
+            'title' => $title,
+            'description' => $description,
             'ogType' => 'website'
         ]);
     }

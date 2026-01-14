@@ -43,6 +43,7 @@
                             <a href="{{ route('service.cv') }}" class="block px-6 py-2.5 text-sm font-semibold hover:bg-slate-50 {{ request()->routeIs('service.cv') ? 'text-accent' : 'text-slate-700' }}">Jasa Bikin CV ATS</a>
                         </div>
                     </div>
+
                     <a href="#" class="text-sm font-bold text-slate-600 hover:text-primary transition-colors">Portofolio</a>
                     <a href="{{ route('blog') }}" class="text-sm font-bold {{ request()->routeIs('blog*') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">Blog</a>
                     <a href="{{ route('contact') }}" class="text-sm font-bold {{ request()->routeIs('contact') ? 'text-accent' : 'text-slate-600 hover:text-primary' }} transition-colors">Kontak</a>
@@ -90,6 +91,7 @@
                     <a href="{{ route('service.gmb') }}" class="block text-sm font-semibold text-slate-600 hover:text-accent">Pembuatan Google Bisnis</a>
                     <a href="{{ route('service.cv') }}" class="block text-sm font-semibold text-slate-600 hover:text-accent">Jasa Bikin CV ATS</a>
                 </div>
+
                 <a href="#" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Portofolio</a>
                 <a href="{{ route('blog') }}" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Blog / Artikel</a>
                 <a href="{{ route('contact') }}" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Kontak</a>

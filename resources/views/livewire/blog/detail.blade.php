@@ -12,9 +12,9 @@
                 <i class="fa-solid fa-arrow-left"></i> Kembali ke Blog
             </a>
             <div class="flex items-center justify-center gap-3 mb-2">
-                <span class="px-3 py-0.5 bg-blue-50 text-blue-600 rounded-full text-[8px] font-black uppercase tracking-wider">
+                <a href="{{ route('blog.category', $post->category->slug) }}" class="px-3 py-0.5 bg-blue-50 text-blue-600 rounded-full text-[8px] font-black uppercase tracking-wider hover:bg-blue-600 hover:text-white transition-all">
                     {{ $post->category->name }}
-                </span>
+                </a>
                 <span class="text-slate-500 text-[9px] font-bold uppercase tracking-widest">
                     {{ $post->published_at->format('M d, Y') }}
                 </span>

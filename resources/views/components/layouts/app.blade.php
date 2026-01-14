@@ -93,7 +93,7 @@
     <style>[x-cloak] { display: none !important; }</style>
     @livewireStyles
 </head>
-<body class="{{ (request()->routeIs('home') || request()->routeIs('blog*') || request()->routeIs('contact') || request()->routeIs('service.*') || request()->routeIs('about')) ? 'is-modern' : '' }}">
+<body class="{{ (request()->routeIs('home') || request()->routeIs('blog*') || request()->routeIs('contact') || request()->routeIs('service.*') || request()->routeIs('about') || request()->routeIs('tools.*')) ? 'is-modern' : '' }}">
     <x-header />
     
     <main>

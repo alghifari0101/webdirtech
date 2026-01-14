@@ -7,10 +7,18 @@
         <div class="container mx-auto px-6 relative z-10 text-center">
             <span class="inline-block px-4 py-1.5 bg-blue-600/10 text-blue-400 rounded-full text-xs font-black uppercase tracking-widest mb-6 border border-blue-500/20">Learning Center</span>
             <h1 class="text-5xl lg:text-7xl font-black text-white tracking-tighter mb-8 leading-[0.9]">
-                Insights & <span class="text-blue-500 italic">Digital Stories</span>
+                @if($selectedCategory)
+                    Topik: <span class="text-blue-500 italic">{{ $selectedCategory->name }}</span>
+                @else
+                    Insights & <span class="text-blue-500 italic">Digital Stories</span>
+                @endif
             </h1>
             <p class="text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto mb-12 font-medium">
-                Temukan panduan mendalam dan strategi taktis untuk mengakselerasi pertumbuhan bisnis Anda di era digital.
+                @if($selectedCategory)
+                    Menampilkan kumpulan artikel dan panduan mendalam seputar {{ $selectedCategory->name }}.
+                @else
+                    Temukan panduan mendalam dan strategi taktis untuk mengakselerasi pertumbuhan bisnis Anda di era digital.
+                @endif
             </p>
 
             <div class="max-w-xl mx-auto relative group">
