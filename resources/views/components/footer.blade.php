@@ -1,9 +1,4 @@
 <footer class="footer bg-[#020617] text-slate-400 py-20 relative overflow-hidden">
-    {{-- Decorative Background --}}
-    <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-        <x-dotted-map class="w-full h-full object-cover" />
-    </div>
-
     <div class="container mx-auto px-6 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-20 mb-16">
             {{-- Brand Column --}}

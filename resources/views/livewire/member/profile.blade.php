@@ -1,15 +1,18 @@
 <div class="py-12 bg-slate-50 min-h-screen">
     <div class="container mx-auto px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="mb-10 flex items-center justify-between">
-                <div>
-                    <h1 class="text-3xl font-outfit font-extrabold text-slate-900">Pengaturan Profil</h1>
-                    <p class="text-slate-500 mt-2">Kelola informasi akun dan keamanan Anda.</p>
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-10">
+                <!-- Sidebar Navigasi -->
+                <div class="w-full md:w-80">
+                    <x-member.sidebar active="profile" />
                 </div>
-                <a href="{{ route('member.dashboard') }}" class="flex items-center gap-2 text-slate-500 hover:text-slate-800 font-bold transition-all text-sm">
-                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
-                </a>
-            </div>
+
+                <!-- Main Content -->
+                <div class="flex-1 space-y-8">
+                    <div class="mb-4">
+                        <h1 class="text-3xl font-outfit font-extrabold text-slate-900">Pengaturan Profil</h1>
+                        <p class="text-slate-500 mt-2">Kelola informasi akun dan keamanan Anda.</p>
+                    </div>
 
             <div class="grid grid-cols-1 gap-8">
                 <!-- Informasi Dasar -->
@@ -90,6 +93,10 @@
                             </button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+                    </div>
                 </div>
             </div>
         </div>

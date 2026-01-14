@@ -1,10 +1,18 @@
 <div class="py-12 bg-slate-50 min-h-screen">
-    <div class="container mx-auto px-4 max-w-4xl">
-        <!-- Header -->
-        <div class="mb-8">
-            <h1 class="text-3xl font-bold text-slate-900 mb-2">Aktivasi Fitur Premium</h1>
-            <p class="text-slate-600 italic">Buka akses semua template dan fitur download selama <strong>1 bulan</strong> hanya dengan Rp 19.000 saja.</p>
-        </div>
+    <div class="container mx-auto px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-10">
+                <!-- Sidebar Navigasi -->
+                <div class="w-full md:w-80">
+                    <x-member.sidebar active="payment" />
+                </div>
+
+                <!-- Main Content -->
+                <div class="flex-1">
+                    <div class="mb-8">
+                        <h1 class="text-3xl font-bold text-slate-900 mb-2">Aktivasi Fitur Premium</h1>
+                        <p class="text-slate-600 italic">Buka akses semua template dan fitur download selama <strong>1 bulan</strong> hanya dengan Rp 19.000 saja.</p>
+                    </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Bank Info -->
@@ -95,6 +103,10 @@
                         </button>
                     </form>
                 @endif
+            </div>
+        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -41,6 +41,7 @@ Route::middleware(['auth', 'isMember'])->prefix('dashboard')->name('member.')->g
     Route::get('/', \App\Livewire\Member\Dashboard::class)->name('dashboard');
     Route::get('/cv-editor', \App\Livewire\Member\CvEditor::class)->name('cv-editor');
     Route::get('/surat-lamaran', \App\Livewire\Member\CoverLetterEditor::class)->name('cover-letter');
+    Route::get('/ats-checker', \App\Livewire\Member\CvAtsChecker::class)->name('ats-checker');
     Route::get('/pembayaran', \App\Livewire\Member\Payment::class)->name('payment');
     Route::get('/profil', \App\Livewire\Member\Profile::class)->name('profile');
 });

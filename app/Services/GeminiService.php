@@ -7,10 +7,12 @@ namespace App\Services;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
+use App\Contracts\AiServiceInterface;
+
 /**
  * Service for interacting with Google Gemini API.
  */
-final class GeminiService
+final class GeminiService implements AiServiceInterface
 {
     protected string $apiKey;
     protected string $baseUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
@@ -182,6 +184,80 @@ final class GeminiService
 
         } catch (\Exception $e) {
             Log::error('Gemini API exception (Cover Letter)', ['message' => $e->getMessage()]);
+            return ['success' => false, 'error' => $e->getMessage()];
+        }
+    }
+
+    /**
+     * Analyze CV text against a Job Description for ATS compatibility.
+     */
+    public function analyzeCvAts(string $cvText, string $jobDescription): array
+    {
+        if (empty($this->apiKey)) {
+            return ['success' => false, 'error' => 'API key tidak dikonfigurasi'];
+        }
+
+        $prompt = "Tugas: Analisis CV terhadap Deskripsi Pekerjaan (JD) untuk kecocokan ATS (Applicant Tracking System).
+        
+        INPUT:
+        - CV TEXT: {$cvText}
+        - JOB DESCRIPTION: {$jobDescription}
+        
+        INSTRUKSI ANALISIS:
+        1. Berikan SKOR Kecocokan (0-100).
+        2. Identifikasi KEYWORDS yang ada di JD tapi tidak ada di CV.
+        3. Berikan Rekomendasi Perbaikan spesifik untuk meningkatkan skor.
+        4. Analisis Struktur & Format (apakah ATS friendly).
+        
+        FORMAT RESPONS (WAJIB JSON):
+        {
+            \"score\": number,
+            \"match_status\": \"Low/Medium/High\",
+            \"missing_keywords\": [\"keyword1\", \"keyword2\"],
+            \"strengths\": [\"poin1\", \"poin2\"],
+            \"weaknesses\": [\"poin1\", \"poin2\"],
+            \"recommendations\": [\"saran1\", \"saran2\"],
+            \"format_feedback\": \"feedback tentang format\"
+        }
+        
+        HANYA BERIKAN OUTPUT DALAM FORMAT JSON BERSIH.";
+
+        try {
+            $response = Http::timeout(60)
+                ->post($this->baseUrl . '?key=' . $this->apiKey, [
+                'contents' => [
+                    [
+                        'parts' => [
+                            ['text' => $prompt]
+                        ]
+                    ]
+                ],
+                'generationConfig' => [
+                    'temperature' => 0.2, // Lower temperature for more consistent JSON
+                    'maxOutputTokens' => 2000,
+                    'responseMimeType' => 'application/json',
+                ]
+            ]);
+
+            if ($response->successful()) {
+                $data = $response->json();
+                $result = $data['candidates'][0]['content']['parts'][0]['text'] ?? null;
+                
+                if ($result) {
+                    $jsonResult = json_decode($result, true);
+                    if ($jsonResult) {
+                        return ['success' => true, 'analysis' => $jsonResult];
+                    }
+                }
+                return ['success' => false, 'error' => 'Respons tidak valid atau bukan JSON'];
+            }
+
+            $body = $response->json();
+            $errorMsg = $body['error']['message'] ?? 'Gagal menghubungi AI';
+            return ['success' => false, 'error' => $errorMsg];
+
+        } catch (\Exception $e) {
+            Log::error('Gemini API exception (ATS Analysis)', ['message' => $e->getMessage()]);
             return ['success' => false, 'error' => $e->getMessage()];
         }
     }

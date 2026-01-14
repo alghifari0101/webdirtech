@@ -37,13 +37,16 @@ final class CvEditor extends Component
         'projects' => [],
         'languages' => [],
         'certifications' => [],
-        'section_order' => ['summary', 'experience', 'education', 'organizations', 'projects', 'certifications', 'skills', 'languages'],
-        'template' => 'cv_ats_001',
+        'section_order' => [],
+        'template' => '',
         'language' => 'id',
     ];
 
     public function mount(): void
     {
+        $this->data['template'] = config('cv.templates')[0];
+        $this->data['section_order'] = config('cv.default_section_order');
+
         \Illuminate\Support\Facades\Gate::authorize('member');
         
         $cv = CvData::where('user_id', auth()->id())->first();
@@ -51,8 +54,8 @@ final class CvEditor extends Component
             $this->data = array_merge($this->data, $cv->toArray());
             
             // If the user has an old template, migrate them to the new default
-            if (!in_array($this->data['template'], ['cv_ats_001', 'cv_ats_002', 'cv_ats_003', 'cv_ats_004'])) {
-                $this->data['template'] = 'cv_ats_001';
+            if (!in_array($this->data['template'], config('cv.templates'))) {
+                $this->data['template'] = config('cv.templates')[0];
             }
 
             // Ensure specific keys are definitely initialized if NULL in DB
@@ -64,7 +67,7 @@ final class CvEditor extends Component
             if (empty($this->data['languages'])) $this->data['languages'] = [];
             if (empty($this->data['certifications'])) $this->data['certifications'] = [];
             if (empty($this->data['section_order'])) {
-                $this->data['section_order'] = ['summary', 'experience', 'education', 'organizations', 'projects', 'certifications', 'skills', 'languages'];
+                $this->data['section_order'] = config('cv.default_section_order');
             }
         } else {
             // Default initial data if needed
@@ -84,7 +87,7 @@ final class CvEditor extends Component
             'data.email' => 'required|email',
             'data.linkedin' => 'nullable|string',
             'data.website' => 'nullable|string',
-            'data.template' => 'required|in:cv_ats_001,cv_ats_002,cv_ats_003,cv_ats_004',
+            'data.template' => 'required|in:' . implode(',', config('cv.templates')),
             'photo' => 'nullable|image|max:1024', // Max 1MB
         ]);
 
@@ -187,7 +190,7 @@ final class CvEditor extends Component
             return;
         }
 
-        $gemini = app(\App\Services\GeminiService::class);
+        $gemini = app(\App\Contracts\AiServiceInterface::class);
         $result = $gemini->polishText($this->data['certifications'][$index]['description'], 'experience'); // Reusing experience prompt style
 
         if ($result['success']) {
@@ -250,7 +253,7 @@ final class CvEditor extends Component
             return;
         }
 
-        $gemini = app(\App\Services\GeminiService::class);
+        $gemini = app(\App\Contracts\AiServiceInterface::class);
         $result = $gemini->polishText($this->data['summary'], 'summary');
 
         if ($result['success']) {
@@ -271,7 +274,7 @@ final class CvEditor extends Component
             return;
         }
 
-        $gemini = app(\App\Services\GeminiService::class);
+        $gemini = app(\App\Contracts\AiServiceInterface::class);
         $result = $gemini->polishText($this->data['experience'][$index]['description'], 'experience');
 
         if ($result['success']) {
@@ -283,6 +286,73 @@ final class CvEditor extends Component
     }
 
     /**
+     * Get localized labels for CV sections.
+     */
+    public function getLabels(): array
+    {
+        $labels = [
+            'id' => [
+                'summary' => 'Ringkasan Profil',
+                'experience' => 'Pengalaman Kerja',
+                'education' => 'Pendidikan',
+                'organization' => 'Riwayat Organisasi',
+                'skills' => 'Keahlian',
+                'projects' => 'Proyek Portofolio',
+                'languages' => 'Bahasa',
+                'contact' => 'Kontak',
+                'placeholder_name' => 'Nama Anda',
+                'placeholder_email' => 'email@anda.com',
+                'placeholder_phone' => '08xxxxxx',
+                'no_exp' => 'Belum ada pengalaman yang diisi.',
+                'no_edu' => 'Belum ada pendidikan yang diisi.',
+                'no_projects' => 'Belum ada proyek yang diisi.',
+            ],
+            'en' => [
+                'summary' => 'Professional Summary',
+                'experience' => 'Work Experience',
+                'education' => 'Education',
+                'organization' => 'Organizational History',
+                'skills' => 'Skills',
+                'projects' => 'Key Projects',
+                'languages' => 'Languages',
+                'contact' => 'Contact',
+                'location' => 'Location',
+                'placeholder_name' => 'Your Name',
+                'placeholder_email' => 'email@example.com',
+                'placeholder_phone' => '+62xxxxxx',
+                'no_exp' => 'No experience added yet.',
+                'no_edu' => 'No education added yet.',
+                'no_org' => 'No organizational history added yet.',
+                'no_projects' => 'No projects added yet.',
+            ]
+        ];
+
+        return $labels[$this->data['language']] ?? $labels['id'];
+    }
+
+    /**
+     * Download CV as DOCX.
+     */
+    public function downloadDocx(\App\Services\DocxExportService $service): ?\Symfony\Component\HttpFoundation\BinaryFileResponse
+    {
+        \Illuminate\Support\Facades\Gate::authorize('member');
+
+        // Premium check (optional, but consistent with PDF)
+        // Only free for cv_ats_001 if not premium
+        if (!auth()->user()->is_premium && $this->data['template'] !== 'cv_ats_001') {
+            $this->dispatch('show-upgrade-modal');
+            return null;
+        }
+
+        $labels = $this->getLabels();
+        $filePath = $service->export($this->data, $labels);
+
+        $filename = 'CV_' . str_replace(' ', '_', $this->data['full_name']) . '.docx';
+
+        return response()->download($filePath, $filename)->deleteFileAfterSend(true);
+    }
+
+    /**
      * Render the component view.
      * 
      * @return View
@@ -290,6 +360,8 @@ final class CvEditor extends Component
     #[Layout('components.layouts.app')]
     public function render(): View
     {
-        return view('livewire.member.cv-editor')->title('Edit CV ATS');
+        return view('livewire.member.cv-editor', [
+            'labels' => $this->getLabels()
+        ])->title('Edit CV ATS');
     }
 }

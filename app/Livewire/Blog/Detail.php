@@ -88,6 +88,11 @@ final class Detail extends Component
         @$dom->loadHTML('<?xml encoding="UTF-8">' . $content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         
         $xpath = new \DOMXPath($dom);
+
+        // Rule: Internal Linking (WordPress-style auto-links)
+        // We do this before TOC and Image SEO to work with clean text nodes
+        $linker = app(\App\Services\InternalLinkerService::class);
+        $linker->linkifyWithDom($dom, $this->post->id);
         
         // TOC Generation
         $headers = $xpath->query('//h2|//h3');

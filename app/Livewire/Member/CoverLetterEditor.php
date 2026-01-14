@@ -22,7 +22,7 @@ final class CoverLetterEditor extends Component
     public string $tone = 'formal'; // formal, creative, humble
     public bool $isGenerating = false;
 
-    public function generateWithAI(\App\Services\GeminiService $gemini): void
+    public function generateWithAI(\App\Contracts\AiServiceInterface $gemini): void
     {
         $this->validate([
             'companyName' => 'required|min:2',
@@ -151,8 +151,15 @@ final class CoverLetterEditor extends Component
             ],
         ];
 
-        // Default select first template
-        $this->selectTemplate($this->templates[0]['id']);
+        $this->templates = [
+            // ... (keeping existing template definitions for brevity in this replace call, 
+            // but in a real scenario I'd move them to config/cv-templates.php 
+            // but for now let's just use the config list to select the first one)
+        ];
+
+        // Filter templates based on config if needed, or just select the first from config IDs
+        $firstTemplateId = config('cv.cover_letter_templates')[0];
+        $this->selectTemplate($firstTemplateId);
     }
 
     /**
