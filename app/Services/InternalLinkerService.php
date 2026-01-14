@@ -92,14 +92,52 @@ final class InternalLinkerService
 
     /**
      * Inject "Baca Juga" (Read Also) blocks between paragraphs.
+     * Prioritizes: 1. Keyword overlap in title, 2. Same category, 3. Random fallback.
      */
-    public function injectRelatedBlocks(\DOMDocument $dom, int $excludePostId): void
+    public function injectRelatedBlocks(\DOMDocument $dom, Post $currentPost): void
     {
+        // 1. Get Keywords from current title (remove short words)
+        $words = explode(' ', $currentPost->title);
+        $keywords = array_filter($words, fn($w) => strlen($w) > 3);
+        
+        $relatedByKeywordIds = collect();
+        if (!empty($keywords)) {
+            $relatedByKeywordIds = Post::published()
+                ->where('id', '!=', $currentPost->id)
+                ->where(function($query) use ($keywords) {
+                    foreach ($keywords as $word) {
+                        $query->orWhere('title', 'LIKE', '%' . $word . '%');
+                    }
+                })
+                ->limit(5)
+                ->pluck('id');
+        }
+
+        // 2. Combine with same category prioritization
         $posts = Post::published()
-            ->where('id', '!=', $excludePostId)
+            ->where('id', '!=', $currentPost->id)
+            ->where(function($query) use ($currentPost, $relatedByKeywordIds) {
+                if ($relatedByKeywordIds->isNotEmpty()) {
+                    $query->whereIn('id', $relatedByKeywordIds);
+                }
+                $query->orWhere('category_id', $currentPost->category_id);
+            })
+            ->orderByRaw('CASE WHEN category_id = ? THEN 1 ELSE 2 END', [$currentPost->category_id])
             ->inRandomOrder()
             ->take(5)
             ->get();
+
+        // 3. If still less than 5, fill with random published posts
+        if ($posts->count() < 5) {
+            $excludedIds = $posts->pluck('id')->push($currentPost->id)->toArray();
+            $morePosts = Post::published()
+                ->whereNotIn('id', $excludedIds)
+                ->inRandomOrder()
+                ->take(5 - $posts->count())
+                ->get();
+            
+            $posts = $posts->concat($morePosts);
+        }
 
         if ($posts->isEmpty()) {
             return;
@@ -107,17 +145,28 @@ final class InternalLinkerService
 
         $xpath = new \DOMXPath($dom);
         $paragraphs = $xpath->query("//p");
+        $totalP = $paragraphs->length;
         
-        if ($paragraphs->length < 4) {
-            return; // Not enough content to insert blocks
+        if ($totalP < 6) {
+            return; // Not enough content for smart placement
         }
 
-        // We insert after every 3 paragraphs, max 2 insertions
-        $insertIndexes = [2, 6]; // 0-indexed: after 3rd and 7th
+        // Dynamically determine insert indexes with a wider gap (at least every 8-10 paragraphs)
+        $insertIndexes = [];
+        if ($totalP >= 6) {
+            $insertIndexes[] = 4; // After 5th paragraph
+        }
+        if ($totalP >= 18) {
+            $insertIndexes[] = 14; // After 15th paragraph (gap of 10)
+        }
+        if ($totalP >= 30) {
+            $insertIndexes[] = 24; // After 25th paragraph (gap of 10)
+        }
+
         $insertedCount = 0;
 
         foreach ($insertIndexes as $idx) {
-            if ($idx >= $paragraphs->length || $insertedCount >= $posts->count()) {
+            if ($idx >= $totalP || $insertedCount >= $posts->count()) {
                 break;
             }
 
@@ -130,8 +179,6 @@ final class InternalLinkerService
             
             $icon = $dom->createElement('div');
             $icon->setAttribute('class', 'w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0');
-            $icon->appendChild($dom->createElement('i', '')); // Icon will be added via class usually, but in DOM we need an element
-            // Since we use FontAwesome, we should probably just use a span with class
             
             $i = $dom->createElement('i');
             $i->setAttribute('class', 'fa-solid fa-book-open text-sm');

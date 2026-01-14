@@ -93,7 +93,7 @@ final class Detail extends Component
         // We do this before TOC and Image SEO to work with clean text nodes
         $linker = app(\App\Services\InternalLinkerService::class);
         $linker->linkifyWithDom($dom, $this->post->id);
-        $linker->injectRelatedBlocks($dom, $this->post->id);
+        $linker->injectRelatedBlocks($dom, $this->post);
         
         // TOC Generation
         $headers = $xpath->query('//h2|//h3');
