@@ -57,11 +57,6 @@
                                     <i class="fa-solid fa-image text-4xl text-slate-300"></i>
                                 </div>
                             @endif
-                            <div class="absolute top-4 left-4">
-                                <span class="px-4 py-1.5 bg-white/90 backdrop-blur-md text-blue-600 rounded-full text-[10px] font-black uppercase tracking-wider shadow-sm">
-                                    {{ $post->category->name }}
-                                </span>
-                            </div>
                         </a>
 
                         <div class="p-8 flex-1 flex flex-col">
