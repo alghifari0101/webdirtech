@@ -36,7 +36,9 @@ final class CvEditor extends Component
         'skills' => [],
         'projects' => [],
         'languages' => [],
-        'template' => 'basic',
+        'certifications' => [],
+        'section_order' => ['summary', 'experience', 'education', 'organizations', 'projects', 'certifications', 'skills', 'languages'],
+        'template' => 'cv_ats_001',
         'language' => 'id',
     ];
 
@@ -46,17 +48,23 @@ final class CvEditor extends Component
         
         $cv = CvData::where('user_id', auth()->id())->first();
         if ($cv) {
-            $this->data = $cv->toArray();
+            $this->data = array_merge($this->data, $cv->toArray());
             
-            // Normalize legacy template names
-            $replacements = [
-                'premium_ats' => 'template_001',
-                'modern_soft' => 'template_002',
-                'professional_academic' => 'template_003',
-            ];
-            
-            if (isset($replacements[$this->data['template']])) {
-                $this->data['template'] = $replacements[$this->data['template']];
+            // If the user has an old template, migrate them to the new default
+            if (!in_array($this->data['template'], ['cv_ats_001', 'cv_ats_002', 'cv_ats_003', 'cv_ats_004'])) {
+                $this->data['template'] = 'cv_ats_001';
+            }
+
+            // Ensure specific keys are definitely initialized if NULL in DB
+            if (empty($this->data['experience'])) $this->data['experience'] = [];
+            if (empty($this->data['education'])) $this->data['education'] = [];
+            if (empty($this->data['organizations'])) $this->data['organizations'] = [];
+            if (empty($this->data['projects'])) $this->data['projects'] = [];
+            if (empty($this->data['skills'])) $this->data['skills'] = [];
+            if (empty($this->data['languages'])) $this->data['languages'] = [];
+            if (empty($this->data['certifications'])) $this->data['certifications'] = [];
+            if (empty($this->data['section_order'])) {
+                $this->data['section_order'] = ['summary', 'experience', 'education', 'organizations', 'projects', 'certifications', 'skills', 'languages'];
             }
         } else {
             // Default initial data if needed
@@ -71,23 +79,12 @@ final class CvEditor extends Component
 
         $this->data['full_name'] = trim($this->data['full_name']);
 
-        // Final normalization before validation
-        $replacements = [
-            'premium_ats' => 'template_001',
-            'modern_soft' => 'template_002',
-            'professional_academic' => 'template_003',
-        ];
-
-        if (isset($replacements[$this->data['template']])) {
-            $this->data['template'] = $replacements[$this->data['template']];
-        }
-        
         $this->validate([
             'data.full_name' => 'required|min:3',
             'data.email' => 'required|email',
             'data.linkedin' => 'nullable|string',
             'data.website' => 'nullable|string',
-            'data.template' => 'required|in:basic,modern,elegant,creative,template_001,template_002,template_003,template_004,template_005,template_006,template_007',
+            'data.template' => 'required|in:cv_ats_001,cv_ats_002,cv_ats_003,cv_ats_004',
             'photo' => 'nullable|image|max:1024', // Max 1MB
         ]);
 
@@ -166,10 +163,65 @@ final class CvEditor extends Component
         $this->data['languages'] = array_values($this->data['languages']);
     }
 
+    public function addCertification(): void
+    {
+        $this->data['certifications'][] = [
+            'name' => '',
+            'issuer' => '',
+            'date' => '',
+            'link' => '',
+            'description' => '',
+        ];
+    }
+
+    public function removeCertification(int $index): void
+    {
+        unset($this->data['certifications'][$index]);
+        $this->data['certifications'] = array_values($this->data['certifications']);
+    }
+
+    public function polishCertification(int $index): void
+    {
+        if (empty($this->data['certifications'][$index]['description'])) {
+            session()->flash('ai_error', 'Silakan isi deskripsi sertifikasi terlebih dahulu.');
+            return;
+        }
+
+        $gemini = app(\App\Services\GeminiService::class);
+        $result = $gemini->polishText($this->data['certifications'][$index]['description'], 'experience'); // Reusing experience prompt style
+
+        if ($result['success']) {
+            $this->data['certifications'][$index]['description'] = trim($result['text']);
+            session()->flash('ai_success', 'Deskripsi sertifikasi berhasil diperbaiki!');
+        } else {
+            session()->flash('ai_error', 'Gagal: ' . $result['error']);
+        }
+    }
+
     public function setStep(int $step): void
     {
         $this->step = $step;
         $this->dispatch('step-changed', step: $step);
+    }
+
+    public function moveSection(string $section, string $direction): void
+    {
+        $order = $this->data['section_order'];
+        $index = array_search($section, $order);
+
+        if ($index === false) return;
+
+        $newIndex = $direction === 'up' ? $index - 1 : $index + 1;
+
+        if ($newIndex < 0 || $newIndex >= count($order)) return;
+
+        // Swap items
+        $temp = $order[$index];
+        $order[$index] = $order[$newIndex];
+        $order[$newIndex] = $temp;
+
+        $this->data['section_order'] = $order;
+        $this->save(app(SaveCvDataAction::class));
     }
 
     public function nextStep(): void

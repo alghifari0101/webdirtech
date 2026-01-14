@@ -35,6 +35,8 @@ final class CvData extends Model
             'projects' => 'array',
             'languages' => 'array',
             'organizations' => 'array',
+            'certifications' => 'array',
+            'section_order' => 'array',
         ];
     }
 
