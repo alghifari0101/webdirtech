@@ -76,32 +76,32 @@
          style="display: none;">
         <div class="px-6 py-8 space-y-4">
             @if(request()->routeIs('member.*'))
-                <a href="/" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Beranda Utama</a>
-                <a href="{{ route('member.dashboard') }}" class="block text-lg font-bold {{ request()->routeIs('member.dashboard') ? 'text-accent' : 'text-slate-900' }} border-b border-slate-50 pb-4">Dashboard</a>
-                <a href="{{ route('member.cv-editor') }}" class="block text-lg font-bold {{ request()->routeIs('member.cv-editor') ? 'text-accent' : 'text-slate-900' }} border-b border-slate-50 pb-4">Editor CV ATS</a>
-                <a href="{{ route('member.cover-letter') }}" class="block text-lg font-bold {{ request()->routeIs('member.cover-letter') ? 'text-accent' : 'text-slate-900' }} border-b border-slate-50 pb-4">Surat Lamaran</a>
-                <a href="{{ route('member.profile') }}" class="block text-lg font-bold {{ request()->routeIs('member.profile') ? 'text-accent' : 'text-slate-900' }} border-b border-slate-50 pb-4">Pengaturan Profil</a>
+                <a href="/" class="block text-lg font-bold font-outfit text-slate-900 border-b border-slate-50 pb-4">Beranda Utama</a>
+                <a href="{{ route('member.dashboard') }}" class="block text-lg font-bold font-outfit {{ request()->routeIs('member.dashboard') ? 'text-accent' : 'text-slate-900' }} border-b border-slate-50 pb-4">Dashboard</a>
+                <a href="{{ route('member.cv-editor') }}" class="block text-lg font-bold font-outfit {{ request()->routeIs('member.cv-editor') ? 'text-accent' : 'text-slate-900' }} border-b border-slate-50 pb-4">Editor CV ATS</a>
+                <a href="{{ route('member.cover-letter') }}" class="block text-lg font-bold font-outfit {{ request()->routeIs('member.cover-letter') ? 'text-accent' : 'text-slate-900' }} border-b border-slate-50 pb-4">Surat Lamaran</a>
+                <a href="{{ route('member.profile') }}" class="block text-lg font-bold font-outfit {{ request()->routeIs('member.profile') ? 'text-accent' : 'text-slate-900' }} border-b border-slate-50 pb-4">Pengaturan Profil</a>
             @else
-                <a href="/" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Beranda</a>
+                <a href="/" class="block text-lg font-bold font-outfit text-slate-900 border-b border-slate-50 pb-4">Beranda</a>
                 <div class="space-y-3 pt-2 border-b border-slate-50 pb-4">
-                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Layanan Kami</p>
-                    <a href="/jasa/install-vps" class="block text-sm font-semibold text-slate-600 hover:text-accent">Jasa Install VPS</a>
-                    <a href="/jasa/pembuatan-website" class="block text-sm font-semibold text-slate-600 hover:text-accent">Pembuatan Website</a>
-                    <a href="{{ route('service.migration') }}" class="block text-sm font-semibold text-slate-600 hover:text-accent">Migrasi Website</a>
-                    <a href="{{ route('service.gmb') }}" class="block text-sm font-semibold text-slate-600 hover:text-accent">Pembuatan Google Bisnis</a>
-                    <a href="{{ route('service.cv') }}" class="block text-sm font-semibold text-slate-600 hover:text-accent">Jasa Bikin CV ATS</a>
+                    <p class="text-[10px] font-black font-outfit text-slate-400 uppercase tracking-widest">Layanan Kami</p>
+                    <a href="/jasa/install-vps" class="block text-sm font-semibold font-outfit text-slate-600 hover:text-accent">Jasa Install VPS</a>
+                    <a href="/jasa/pembuatan-website" class="block text-sm font-semibold font-outfit text-slate-600 hover:text-accent">Pembuatan Website</a>
+                    <a href="{{ route('service.migration') }}" class="block text-sm font-semibold font-outfit text-slate-600 hover:text-accent">Migrasi Website</a>
+                    <a href="{{ route('service.gmb') }}" class="block text-sm font-semibold font-outfit text-slate-600 hover:text-accent">Pembuatan Google Bisnis</a>
+                    <a href="{{ route('service.cv') }}" class="block text-sm font-semibold font-outfit text-slate-600 hover:text-accent">Jasa Bikin CV ATS</a>
                 </div>
 
-                <a href="#" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Portofolio</a>
-                <a href="{{ route('blog') }}" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Blog / Artikel</a>
-                <a href="{{ route('contact') }}" class="block text-lg font-bold text-slate-900 border-b border-slate-50 pb-4">Kontak</a>
+                <a href="#" class="block text-lg font-bold font-outfit text-slate-900 border-b border-slate-50 pb-4">Portofolio</a>
+                <a href="{{ route('blog') }}" class="block text-lg font-bold font-outfit text-slate-900 border-b border-slate-50 pb-4">Blog / Artikel</a>
+                <a href="{{ route('contact') }}" class="block text-lg font-bold font-outfit text-slate-900 border-b border-slate-50 pb-4">Kontak</a>
             @endif
             <div class="pt-6 space-y-3">
                 @auth
-                    <a href="{{ auth()->user()->role === 'admin' ? route('admin.dashboard') : route('member.dashboard') }}" class="block w-full py-4 bg-slate-900 text-white text-center font-bold rounded-xl">Dashboard</a>
+                    <a href="{{ auth()->user()->role === 'admin' ? route('admin.dashboard') : route('member.dashboard') }}" class="block w-full py-4 bg-slate-900 text-white text-center font-bold font-outfit rounded-xl">Dashboard</a>
                 @else
-                    <a href="{{ route('login') }}" class="block w-full py-4 bg-slate-50 text-slate-600 text-center font-bold rounded-xl">Login</a>
-                    <a href="{{ route('register') }}" class="block w-full py-4 bg-primary text-white text-center font-bold rounded-xl shadow-lg">Daftar Akun</a>
+                    <a href="{{ route('login') }}" class="block w-full py-4 bg-slate-50 text-slate-600 text-center font-bold font-outfit rounded-xl">Login</a>
+                    <a href="{{ route('register') }}" class="block w-full py-4 bg-primary text-white text-center font-bold font-outfit rounded-xl shadow-lg">Daftar Akun</a>
                 @endauth
             </div>
         </div>

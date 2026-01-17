@@ -1009,6 +1009,12 @@ body:not(.is-modern) .container {
     .hero-description {
         font-size: 1.1rem;
         margin-bottom: 30px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions {
+        justify-content: center;
     }
 
     .hero-visual {
