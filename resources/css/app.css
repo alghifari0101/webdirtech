@@ -369,6 +369,12 @@ body:not(.is-modern) .container {
     }
 }
 
+@media (max-width: 991px) {
+    .hero-image {
+        display: none;
+    }
+}
+
 .hero-content {
     position: relative;
     z-index: 10;
@@ -630,6 +636,12 @@ body:not(.is-modern) .container {
 @media (min-width: 576px) {
     .about-images {
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 575px) {
+    .about-img-card:nth-child(2) {
+        display: none;
     }
 }
 
